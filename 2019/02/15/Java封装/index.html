@@ -55,20 +55,20 @@
   };
 </script>
 
-  <meta name="description" content="1-1 封装的概念和特点 封装1.将类的某些信息隐藏在类内部，不允许外部程序直接访问。2.通过该类提供的方法来实现对隐藏信息的操作和访问。3.隐藏对象的信息。4.留出访问的接口。特点：1.只能通过规定的方法访问数据；2.隐藏类的实例细节，方便修改和实现； 1-2封装的代码实现（上） 封装的代码实现实现步骤：1.修改属性的可见性设为private（限定只能在当前类中被访问）2.创建getter/se">
+  <meta name="description" content="1-1 封装的概念和特点封装1.将类的某些信息隐藏在类内部，不允许外部程序直接访问。2.通过该类提供的方法来实现对隐藏信息的操作和访问。3.隐藏对象的信息。4.留出访问的接口。特点：1.只能通过规定的方法访问数据；2.隐藏类的实例细节，方便修改和实现；1-2封装的代码实现（上）封装的代码实现实现步骤：1.修改属性的可见性设为private（限定只能在当前类中被访问）2.创建getter/sette">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java封装">
 <meta property="og:url" content="https://feihong.me/2019/02/15/Java封装/index.html">
 <meta property="og:site_name" content="Feihong&#39;s Blog">
-<meta property="og:description" content="1-1 封装的概念和特点 封装1.将类的某些信息隐藏在类内部，不允许外部程序直接访问。2.通过该类提供的方法来实现对隐藏信息的操作和访问。3.隐藏对象的信息。4.留出访问的接口。特点：1.只能通过规定的方法访问数据；2.隐藏类的实例细节，方便修改和实现； 1-2封装的代码实现（上） 封装的代码实现实现步骤：1.修改属性的可见性设为private（限定只能在当前类中被访问）2.创建getter/se">
+<meta property="og:description" content="1-1 封装的概念和特点封装1.将类的某些信息隐藏在类内部，不允许外部程序直接访问。2.通过该类提供的方法来实现对隐藏信息的操作和访问。3.隐藏对象的信息。4.留出访问的接口。特点：1.只能通过规定的方法访问数据；2.隐藏类的实例细节，方便修改和实现；1-2封装的代码实现（上）封装的代码实现实现步骤：1.修改属性的可见性设为private（限定只能在当前类中被访问）2.创建getter/sette">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://img.mukewang.com/climg/591aefc20001de2512800720.jpg">
 <meta property="og:image" content="https://img.mukewang.com/climg/591af46c0001445312800720.jpg">
 <meta property="og:updated_time" content="2019-02-19T14:36:43.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java封装">
-<meta name="twitter:description" content="1-1 封装的概念和特点 封装1.将类的某些信息隐藏在类内部，不允许外部程序直接访问。2.通过该类提供的方法来实现对隐藏信息的操作和访问。3.隐藏对象的信息。4.留出访问的接口。特点：1.只能通过规定的方法访问数据；2.隐藏类的实例细节，方便修改和实现； 1-2封装的代码实现（上） 封装的代码实现实现步骤：1.修改属性的可见性设为private（限定只能在当前类中被访问）2.创建getter/se">
+<meta name="twitter:description" content="1-1 封装的概念和特点封装1.将类的某些信息隐藏在类内部，不允许外部程序直接访问。2.通过该类提供的方法来实现对隐藏信息的操作和访问。3.隐藏对象的信息。4.留出访问的接口。特点：1.只能通过规定的方法访问数据；2.隐藏类的实例细节，方便修改和实现；1-2封装的代码实现（上）封装的代码实现实现步骤：1.修改属性的可见性设为private（限定只能在当前类中被访问）2.创建getter/sette">
 <meta name="twitter:image" content="https://img.mukewang.com/climg/591aefc20001de2512800720.jpg">
   <link rel="canonical" href="https://feihong.me/2019/02/15/Java封装/">
 
@@ -175,17 +175,6 @@
     
 
     <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-categories">
-      
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
 
   </li>
       
@@ -349,10 +338,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>1-1 封装的概念和特点</p>
-<p>封装<br>1.将类的某些信息隐藏在类内部，不允许外部程序直接访问。<br>2.通过该类提供的方法来实现对隐藏信息的操作和访问。<br>3.隐藏对象的信息。<br>4.留出访问的接口。<br>特点：<br>1.只能通过规定的方法访问数据；<br>2.隐藏类的实例细节，方便修改和实现；</p>
-<p>1-2封装的代码实现（上）</p>
-<p>封装的代码实现实现步骤：<br>1.修改属性的可见性设为private（限定只能在当前类中被访问）<br>2.创建getter/setter方法，设为public用于属性的读写<br>3.在getter/setter方法中加入属性控制语句；</p>
+        <p>1-1 封装的概念和特点</p><p>封装<br>1.将类的某些信息隐藏在类内部，不允许外部程序直接访问。<br>2.通过该类提供的方法来实现对隐藏信息的操作和访问。<br>3.隐藏对象的信息。<br>4.留出访问的接口。<br>特点：<br>1.只能通过规定的方法访问数据；<br>2.隐藏类的实例细节，方便修改和实现；</p><p>1-2封装的代码实现（上）</p><p>封装的代码实现实现步骤：<br>1.修改属性的可见性设为private（限定只能在当前类中被访问）<br>2.创建getter/setter方法，设为public用于属性的读写<br>3.在getter/setter方法中加入属性控制语句；</p><a id="more"></a>
+
+
+
 <p>例子：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.animal;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">- 宠物猫类</span></span><br><span class="line"><span class="comment">- <span class="doctag">@author</span> HeFeihong</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">	<span class="comment">//成员属性：昵称、年龄、体重、品种</span></span><br><span class="line">	<span class="comment">//修改属性的可见性---private限定只能在当前类内访问</span></span><br><span class="line">	<span class="keyword">private</span> String name;<span class="comment">//昵称</span></span><br><span class="line">	<span class="keyword">int</span> month;<span class="comment">//年龄</span></span><br><span class="line">	<span class="keyword">double</span> weight;<span class="comment">//体重</span></span><br><span class="line">	String species;<span class="comment">//品种</span></span><br><span class="line">	</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"我是带参构造方法"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">(String newName,<span class="keyword">int</span> newMonth,<span class="keyword">double</span> newWeight,String newSpecies)</span> </span>&#123;</span><br><span class="line">	name=newName;</span><br><span class="line">	month=newMonth;</span><br><span class="line">	weight=newWeight;</span><br><span class="line">	species=newSpecies;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建get/set方法</span></span><br><span class="line"><span class="comment">//在get/set方法中添加对属性的限定</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name=name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span>  <span class="string">"我是一只名叫："</span>+<span class="keyword">this</span>.name+<span class="string">"的宠物猫"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 

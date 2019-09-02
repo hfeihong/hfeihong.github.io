@@ -55,20 +55,20 @@
   };
 </script>
 
-  <meta name="description" content="流程控制语句顺序，选择（if， if-else，多重if，switch，if嵌套），循环（while，do-while，for，循环嵌套） 多重if结构 123456789101112131415161718192021222324252627282930package imoocProj;import java.util.Scanner;public class ScoreAssess &amp;#12">
+  <meta name="description" content="流程控制语句顺序，选择（if， if-else，多重if，switch，if嵌套），循环（while，do-while，for，循环嵌套）多重if结构123456789101112131415161718192021222324252627282930package imoocProj;import java.util.Scanner;public class ScoreAssess &amp;#123;">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java流程控制之选择结构">
 <meta property="og:url" content="https://feihong.me/2019/01/19/Java流程控制之选择结构/index.html">
 <meta property="og:site_name" content="Feihong&#39;s Blog">
-<meta property="og:description" content="流程控制语句顺序，选择（if， if-else，多重if，switch，if嵌套），循环（while，do-while，for，循环嵌套） 多重if结构 123456789101112131415161718192021222324252627282930package imoocProj;import java.util.Scanner;public class ScoreAssess &amp;#12">
+<meta property="og:description" content="流程控制语句顺序，选择（if， if-else，多重if，switch，if嵌套），循环（while，do-while，for，循环嵌套）多重if结构123456789101112131415161718192021222324252627282930package imoocProj;import java.util.Scanner;public class ScoreAssess &amp;#123;">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://bmob-cdn-23498.b0.upaiyun.com/2019/01/19/f037524d4045f2ce805c0a02d4de0810.jpg">
 <meta property="og:image" content="http://bmob-cdn-23498.b0.upaiyun.com/2019/01/19/d2c0daee40a7ec5480547118f5f3df95.png">
 <meta property="og:updated_time" content="2019-01-19T15:07:38.149Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java流程控制之选择结构">
-<meta name="twitter:description" content="流程控制语句顺序，选择（if， if-else，多重if，switch，if嵌套），循环（while，do-while，for，循环嵌套） 多重if结构 123456789101112131415161718192021222324252627282930package imoocProj;import java.util.Scanner;public class ScoreAssess &amp;#12">
+<meta name="twitter:description" content="流程控制语句顺序，选择（if， if-else，多重if，switch，if嵌套），循环（while，do-while，for，循环嵌套）多重if结构123456789101112131415161718192021222324252627282930package imoocProj;import java.util.Scanner;public class ScoreAssess &amp;#123;">
 <meta name="twitter:image" content="http://bmob-cdn-23498.b0.upaiyun.com/2019/01/19/f037524d4045f2ce805c0a02d4de0810.jpg">
   <link rel="canonical" href="https://feihong.me/2019/01/19/Java流程控制之选择结构/">
 
@@ -175,17 +175,6 @@
     
 
     <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-categories">
-      
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
 
   </li>
       
@@ -341,9 +330,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>流程控制语句<br>顺序，选择（if， if-else，多重if，switch，if嵌套），循环（while，do-while，for，循环嵌套）</p>
-<p>多重if结构</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScoreAssess</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">/*成绩大于等于90分，输出“优”</span></span><br><span class="line"><span class="comment">	 * 成绩大于等于80分且小于90分，输出“良”</span></span><br><span class="line"><span class="comment">	 * 成绩大于等于60分小于80分，输出“中”</span></span><br><span class="line"><span class="comment">	 * 成绩小于60分，输出“不及格” */</span></span><br><span class="line">	System.out.print(<span class="string">"请输入成绩："</span>);</span><br><span class="line">	Scanner s=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">	<span class="keyword">int</span> score=s.nextInt();</span><br><span class="line">	<span class="keyword">if</span>(score&gt;=<span class="number">90</span>) &#123;</span><br><span class="line">		System.out.println(<span class="string">"优"</span>);</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">if</span>((score&gt;=<span class="number">80</span>)&amp;(score&lt;<span class="number">90</span>)) &#123;</span><br><span class="line">		System.out.println(<span class="string">"良"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>((score&gt;=<span class="number">60</span>)&amp;(score&lt;<span class="number">80</span>)) &#123;</span><br><span class="line">		System.out.println(<span class="string">"中"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(score&lt;<span class="number">60</span>) &#123;</span><br><span class="line">		System.out.println(<span class="string">"不及格"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>流程控制语句<br>顺序，选择（if， if-else，多重if，switch，if嵌套），循环（while，do-while，for，循环嵌套）</p><p>多重if结构</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScoreAssess</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">/*成绩大于等于90分，输出“优”</span></span><br><span class="line"><span class="comment">	 * 成绩大于等于80分且小于90分，输出“良”</span></span><br><span class="line"><span class="comment">	 * 成绩大于等于60分小于80分，输出“中”</span></span><br><span class="line"><span class="comment">	 * 成绩小于60分，输出“不及格” */</span></span><br><span class="line">	System.out.print(<span class="string">"请输入成绩："</span>);</span><br><span class="line">	Scanner s=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">	<span class="keyword">int</span> score=s.nextInt();</span><br><span class="line">	<span class="keyword">if</span>(score&gt;=<span class="number">90</span>) &#123;</span><br><span class="line">		System.out.println(<span class="string">"优"</span>);</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">if</span>((score&gt;=<span class="number">80</span>)&amp;(score&lt;<span class="number">90</span>)) &#123;</span><br><span class="line">		System.out.println(<span class="string">"良"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>((score&gt;=<span class="number">60</span>)&amp;(score&lt;<span class="number">80</span>)) &#123;</span><br><span class="line">		System.out.println(<span class="string">"中"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(score&lt;<span class="number">60</span>) &#123;</span><br><span class="line">		System.out.println(<span class="string">"不及格"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+
 
 <p>多重if语句中隐含的条件就是对上一个条件的取反，从而减少了代码量</p>
 <p><img src="http://bmob-cdn-23498.b0.upaiyun.com/2019/01/19/f037524d4045f2ce805c0a02d4de0810.jpg" alt></p>

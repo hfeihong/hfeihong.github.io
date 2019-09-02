@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="概述：分区对于经常安装系统的人员来说再常见不过了。对于一些用户总喜欢用一些第三方的分区工具。比如PM、PQ、DM 、FDISK等等，还有PE环境下的某某分区工具，这些工具固然有自己的好处。显著优点：操作简单。但是效率低，而且我们不是常带在身边还要去下载。其实我们大可不必这样。系统自带的Diskpart命令就能很好的进行分区，而且效率高。 第一类：格式化为GPT格式。（目前主流格式） U盘刻录原版系">
+  <meta name="description" content="概述：分区对于经常安装系统的人员来说再常见不过了。对于一些用户总喜欢用一些第三方的分区工具。比如PM、PQ、DM 、FDISK等等，还有PE环境下的某某分区工具，这些工具固然有自己的好处。显著优点：操作简单。但是效率低，而且我们不是常带在身边还要去下载。其实我们大可不必这样。系统自带的Diskpart命令就能很好的进行分区，而且效率高。">
 <meta name="keywords" content="Windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DiskPart命令对硬盘分区">
 <meta property="og:url" content="https://feihong.me/2019/06/17/DiskPart命令对硬盘分区/index.html">
 <meta property="og:site_name" content="Feihong&#39;s Blog">
-<meta property="og:description" content="概述：分区对于经常安装系统的人员来说再常见不过了。对于一些用户总喜欢用一些第三方的分区工具。比如PM、PQ、DM 、FDISK等等，还有PE环境下的某某分区工具，这些工具固然有自己的好处。显著优点：操作简单。但是效率低，而且我们不是常带在身边还要去下载。其实我们大可不必这样。系统自带的Diskpart命令就能很好的进行分区，而且效率高。 第一类：格式化为GPT格式。（目前主流格式） U盘刻录原版系">
+<meta property="og:description" content="概述：分区对于经常安装系统的人员来说再常见不过了。对于一些用户总喜欢用一些第三方的分区工具。比如PM、PQ、DM 、FDISK等等，还有PE环境下的某某分区工具，这些工具固然有自己的好处。显著优点：操作简单。但是效率低，而且我们不是常带在身边还要去下载。其实我们大可不必这样。系统自带的Diskpart命令就能很好的进行分区，而且效率高。">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-06-17T07:45:30.269Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DiskPart命令对硬盘分区">
-<meta name="twitter:description" content="概述：分区对于经常安装系统的人员来说再常见不过了。对于一些用户总喜欢用一些第三方的分区工具。比如PM、PQ、DM 、FDISK等等，还有PE环境下的某某分区工具，这些工具固然有自己的好处。显著优点：操作简单。但是效率低，而且我们不是常带在身边还要去下载。其实我们大可不必这样。系统自带的Diskpart命令就能很好的进行分区，而且效率高。 第一类：格式化为GPT格式。（目前主流格式） U盘刻录原版系">
+<meta name="twitter:description" content="概述：分区对于经常安装系统的人员来说再常见不过了。对于一些用户总喜欢用一些第三方的分区工具。比如PM、PQ、DM 、FDISK等等，还有PE环境下的某某分区工具，这些工具固然有自己的好处。显著优点：操作简单。但是效率低，而且我们不是常带在身边还要去下载。其实我们大可不必这样。系统自带的Diskpart命令就能很好的进行分区，而且效率高。">
   <link rel="canonical" href="https://feihong.me/2019/06/17/DiskPart命令对硬盘分区/">
 
 
@@ -172,17 +172,6 @@
     
 
     <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-categories">
-      
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
 
   </li>
       
@@ -338,7 +327,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>概述：分区对于经常安装系统的人员来说再常见不过了。对于一些用户总喜欢用一些第三方的分区工具。比如PM、PQ、DM 、FDISK等等，还有PE环境下的某某分区工具，这些工具固然有自己的好处。显著优点：操作简单。但是效率低，而且我们不是常带在身边还要去下载。其实我们大可不必这样。系统自带的Diskpart命令就能很好的进行分区，而且效率高。</p>
+        <p>概述：分区对于经常安装系统的人员来说再常见不过了。对于一些用户总喜欢用一些第三方的分区工具。比如PM、PQ、DM 、FDISK等等，还有PE环境下的某某分区工具，这些工具固然有自己的好处。显著优点：操作简单。但是效率低，而且我们不是常带在身边还要去下载。其实我们大可不必这样。系统自带的Diskpart命令就能很好的进行分区，而且效率高。</p><a id="more"></a>
 <p>第一类：格式化为GPT格式。（目前主流格式）</p>
 <p>U盘刻录原版系统，进入BIOS，设置U盘启动，在选择盘的地方进行一下操作。</p>
 <p>第一步：选择磁盘</p>

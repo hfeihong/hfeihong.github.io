@@ -55,13 +55,13 @@
   };
 </script>
 
-  <meta name="description" content="1-1 设计模式概述 创建型模式：关注对象创建过程的的设计模式；结构型模式：关注类和对象组合的设计模式；行为型模式：关注对象间的通信过程的设计模式；  2-1 单例模式的定义和作用 单例模式目的：使得类的一个对象成为该类系统中的唯一实例；定义：一个类有且只有一个实例，缤纷茄子形式梨花香整个系统提供；单例模式要点：某个类只能由一个实例对象；必须自行创建实例；必须自行向整个系统提供这个实例；实现：只提">
+  <meta name="description" content="1-1 设计模式概述创建型模式：关注对象创建过程的的设计模式；结构型模式：关注类和对象组合的设计模式；行为型模式：关注对象间的通信过程的设计模式；2-1 单例模式的定义和作用单例模式目的：使得类的一个对象成为该类系统中的唯一实例；定义：一个类有且只有一个实例，缤纷茄子形式梨花香整个系统提供；单例模式要点：某个类只能由一个实例对象；必须自行创建实例；必须自行向整个系统提供这个实例；实现：只提供私有的">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java单例模式">
 <meta property="og:url" content="https://feihong.me/2019/06/11/Java单例模式/index.html">
 <meta property="og:site_name" content="Feihong&#39;s Blog">
-<meta property="og:description" content="1-1 设计模式概述 创建型模式：关注对象创建过程的的设计模式；结构型模式：关注类和对象组合的设计模式；行为型模式：关注对象间的通信过程的设计模式；  2-1 单例模式的定义和作用 单例模式目的：使得类的一个对象成为该类系统中的唯一实例；定义：一个类有且只有一个实例，缤纷茄子形式梨花香整个系统提供；单例模式要点：某个类只能由一个实例对象；必须自行创建实例；必须自行向整个系统提供这个实例；实现：只提">
+<meta property="og:description" content="1-1 设计模式概述创建型模式：关注对象创建过程的的设计模式；结构型模式：关注类和对象组合的设计模式；行为型模式：关注对象间的通信过程的设计模式；2-1 单例模式的定义和作用单例模式目的：使得类的一个对象成为该类系统中的唯一实例；定义：一个类有且只有一个实例，缤纷茄子形式梨花香整个系统提供；单例模式要点：某个类只能由一个实例对象；必须自行创建实例；必须自行向整个系统提供这个实例；实现：只提供私有的">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://img.mukewang.com/climg/5ac9aba50001469012800720.jpg">
 <meta property="og:image" content="https://img.mukewang.com/climg/5a542cd30001e13d12800720.jpg">
@@ -69,7 +69,7 @@
 <meta property="og:updated_time" content="2019-06-19T14:00:13.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java单例模式">
-<meta name="twitter:description" content="1-1 设计模式概述 创建型模式：关注对象创建过程的的设计模式；结构型模式：关注类和对象组合的设计模式；行为型模式：关注对象间的通信过程的设计模式；  2-1 单例模式的定义和作用 单例模式目的：使得类的一个对象成为该类系统中的唯一实例；定义：一个类有且只有一个实例，缤纷茄子形式梨花香整个系统提供；单例模式要点：某个类只能由一个实例对象；必须自行创建实例；必须自行向整个系统提供这个实例；实现：只提">
+<meta name="twitter:description" content="1-1 设计模式概述创建型模式：关注对象创建过程的的设计模式；结构型模式：关注类和对象组合的设计模式；行为型模式：关注对象间的通信过程的设计模式；2-1 单例模式的定义和作用单例模式目的：使得类的一个对象成为该类系统中的唯一实例；定义：一个类有且只有一个实例，缤纷茄子形式梨花香整个系统提供；单例模式要点：某个类只能由一个实例对象；必须自行创建实例；必须自行向整个系统提供这个实例；实现：只提供私有的">
 <meta name="twitter:image" content="https://img.mukewang.com/climg/5ac9aba50001469012800720.jpg">
   <link rel="canonical" href="https://feihong.me/2019/06/11/Java单例模式/">
 
@@ -176,17 +176,6 @@
     
 
     <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-categories">
-      
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
 
   </li>
       
@@ -350,11 +339,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>1-1 设计模式概述</p>
-<p>创建型模式：关注对象创建过程的的设计模式；<br>结构型模式：关注类和对象组合的设计模式；<br>行为型模式：关注对象间的通信过程的设计模式；</p>
-<p><img src="https://img.mukewang.com/climg/5ac9aba50001469012800720.jpg" alt></p>
-<p>2-1 单例模式的定义和作用</p>
-<p>单例模式<br>目的：使得类的一个对象成为该类系统中的唯一实例；<br>定义：一个类有且只有一个实例，缤纷茄子形式梨花香整个系统提供；<br>单例模式要点：某个类只能由一个实例对象；<br>必须自行创建实例；<br>必须自行向整个系统提供这个实例；<br>实现：只提供私有的构造方法；<br>含有一个该类的静态私有对象；<br>提供一个静态的公有方法用于创建、获取静态私有对象；<br>实现方案：<br>饿汉式：对象创建过程中实例化；<br>懒汉式：静态公有方法中实例化；</p>
+        <p>1-1 设计模式概述</p><p>创建型模式：关注对象创建过程的的设计模式；<br>结构型模式：关注类和对象组合的设计模式；<br>行为型模式：关注对象间的通信过程的设计模式；</p><p><img src="https://img.mukewang.com/climg/5ac9aba50001469012800720.jpg" alt></p><p>2-1 单例模式的定义和作用</p><p>单例模式<br>目的：使得类的一个对象成为该类系统中的唯一实例；<br>定义：一个类有且只有一个实例，缤纷茄子形式梨花香整个系统提供；<br>单例模式要点：某个类只能由一个实例对象；<br>必须自行创建实例；<br>必须自行向整个系统提供这个实例；<br>实现：只提供私有的构造方法；<br>含有一个该类的静态私有对象；<br>提供一个静态的公有方法用于创建、获取静态私有对象；<br>实现方案：<br>饿汉式：对象创建过程中实例化；<br>懒汉式：静态公有方法中实例化；</p><a id="more"></a>
+
+
+
+
 <p>3-1 饿汉式的代码实现</p>
 <p>单例模式：<br>a、饿汉式（空间换时间 速度快 占用空间大）<br>1、创建类中私有构造<br>2、创建该类型的私有静态实例<br>3、创建公有静态方法返回静态实例对象</p>
 <p><img src="https://img.mukewang.com/climg/5a542cd30001e13d12800720.jpg" alt></p>

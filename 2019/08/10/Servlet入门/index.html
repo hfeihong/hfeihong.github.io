@@ -55,13 +55,13 @@
   };
 </script>
 
-  <meta name="description" content="Tomcat与Servlet一、B/S模式执行流程 二、请求与响应：1、从浏览器发出送给服务器的数据包称为 “请求（request）”；2、从服务器返回给浏览器的结果称为 “响应（response）”；3、请求与响应必须要成对存在； 三、J2EE是什么：1、J2EE（Java 2 Platform Enterprise Edition）是指 “Java 2 企业版”；2、开发BS（Web）应用程序">
+  <meta name="description" content="Tomcat与Servlet一、B/S模式执行流程二、请求与响应：1、从浏览器发出送给服务器的数据包称为 “请求（request）”；2、从服务器返回给浏览器的结果称为 “响应（response）”；3、请求与响应必须要成对存在；三、J2EE是什么：1、J2EE（Java 2 Platform Enterprise Edition）是指 “Java 2 企业版”；2、开发BS（Web）应用程序就是">
 <meta name="keywords" content="Servlet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Servlet入门">
 <meta property="og:url" content="https://feihong.me/2019/08/10/Servlet入门/index.html">
 <meta property="og:site_name" content="Feihong&#39;s Blog">
-<meta property="og:description" content="Tomcat与Servlet一、B/S模式执行流程 二、请求与响应：1、从浏览器发出送给服务器的数据包称为 “请求（request）”；2、从服务器返回给浏览器的结果称为 “响应（response）”；3、请求与响应必须要成对存在； 三、J2EE是什么：1、J2EE（Java 2 Platform Enterprise Edition）是指 “Java 2 企业版”；2、开发BS（Web）应用程序">
+<meta property="og:description" content="Tomcat与Servlet一、B/S模式执行流程二、请求与响应：1、从浏览器发出送给服务器的数据包称为 “请求（request）”；2、从服务器返回给浏览器的结果称为 “响应（response）”；3、请求与响应必须要成对存在；三、J2EE是什么：1、J2EE（Java 2 Platform Enterprise Edition）是指 “Java 2 企业版”；2、开发BS（Web）应用程序就是">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://img.mukewang.com/climg/5d0108d60001a7a119201080.jpg">
 <meta property="og:image" content="https://img.mukewang.com/climg/5d025e930001ed6b19201080.jpg">
@@ -71,7 +71,7 @@
 <meta property="og:updated_time" content="2019-08-11T13:54:44.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Servlet入门">
-<meta name="twitter:description" content="Tomcat与Servlet一、B/S模式执行流程 二、请求与响应：1、从浏览器发出送给服务器的数据包称为 “请求（request）”；2、从服务器返回给浏览器的结果称为 “响应（response）”；3、请求与响应必须要成对存在； 三、J2EE是什么：1、J2EE（Java 2 Platform Enterprise Edition）是指 “Java 2 企业版”；2、开发BS（Web）应用程序">
+<meta name="twitter:description" content="Tomcat与Servlet一、B/S模式执行流程二、请求与响应：1、从浏览器发出送给服务器的数据包称为 “请求（request）”；2、从服务器返回给浏览器的结果称为 “响应（response）”；3、请求与响应必须要成对存在；三、J2EE是什么：1、J2EE（Java 2 Platform Enterprise Edition）是指 “Java 2 企业版”；2、开发BS（Web）应用程序就是">
 <meta name="twitter:image" content="https://img.mukewang.com/climg/5d0108d60001a7a119201080.jpg">
   <link rel="canonical" href="https://feihong.me/2019/08/10/Servlet入门/">
 
@@ -178,17 +178,6 @@
     
 
     <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-categories">
-      
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
 
   </li>
       
@@ -352,9 +341,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Tomcat与Servlet"><a href="#Tomcat与Servlet" class="headerlink" title="Tomcat与Servlet"></a>Tomcat与Servlet</h2><p>一、B/S模式执行流程</p>
-<p>二、请求与响应：<br>1、从浏览器发出送给服务器的数据包称为 “请求（request）”；<br>2、从服务器返回给浏览器的结果称为 “响应（response）”；<br>3、请求与响应必须要成对存在；</p>
-<p>三、J2EE是什么：<br>1、J2EE（Java 2 Platform Enterprise Edition）是指 “Java 2 企业版”；<br>2、开发BS（Web）应用程序就是J2EE最核心的功能；<br>3、J2EE由13个功能模块组成：</p>
+        <h2 id="Tomcat与Servlet"><a href="#Tomcat与Servlet" class="headerlink" title="Tomcat与Servlet"></a>Tomcat与Servlet</h2><p>一、B/S模式执行流程</p><p>二、请求与响应：<br>1、从浏览器发出送给服务器的数据包称为 “请求（request）”；<br>2、从服务器返回给浏览器的结果称为 “响应（response）”；<br>3、请求与响应必须要成对存在；</p><p>三、J2EE是什么：<br>1、J2EE（Java 2 Platform Enterprise Edition）是指 “Java 2 企业版”；<br>2、开发BS（Web）应用程序就是J2EE最核心的功能；<br>3、J2EE由13个功能模块组成：</p><a id="more"></a>
+
+
 <ul>
 <li>J2EE（Java 2 Platform Enterprise Edition）是指Java2企业版</li>
 <li>servlet——web服务器小程序</li>
