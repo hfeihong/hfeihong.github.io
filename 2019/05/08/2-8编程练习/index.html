@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="编程练习：请使用面向对象的思想，设计自定义类完成如下功能要求： 接收用户输入的信息，选择需要完成的工作任务。其中，可供选择的有：测试工作和研发工作。关于类型设定描述如下：  测试工作  ​       属性：工作名称、编写的测试用例个数、发现的Bug数量 ​       方法：工作描述  研发工作  ​       属性：工作名称、有效编码行数、目前没有解决的Bug个数 ​       方法：工作">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2-8编程练习">
+<meta property="og:url" content="https://feihong.me/2019/05/08/2-8编程练习/index.html">
+<meta property="og:site_name" content="Feihong&#39;s Blog">
+<meta property="og:description" content="编程练习：请使用面向对象的思想，设计自定义类完成如下功能要求： 接收用户输入的信息，选择需要完成的工作任务。其中，可供选择的有：测试工作和研发工作。关于类型设定描述如下：  测试工作  ​       属性：工作名称、编写的测试用例个数、发现的Bug数量 ​       方法：工作描述  研发工作  ​       属性：工作名称、有效编码行数、目前没有解决的Bug个数 ​       方法：工作">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-05-13T15:06:39.377Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2-8编程练习">
+<meta name="twitter:description" content="编程练习：请使用面向对象的思想，设计自定义类完成如下功能要求： 接收用户输入的信息，选择需要完成的工作任务。其中，可供选择的有：测试工作和研发工作。关于类型设定描述如下：  测试工作  ​       属性：工作名称、编写的测试用例个数、发现的Bug数量 ​       方法：工作描述  研发工作  ​       属性：工作名称、有效编码行数、目前没有解决的Bug个数 ​       方法：工作">
+  <link rel="canonical" href="https://feihong.me/2019/05/08/2-8编程练习/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>2-8编程练习 | Feihong's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+ <link rel="stylesheet" href="/dist/APlayer.min.css">
+ <div id="aplayer"></div>
+ <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+ <script type="text/javascript" src="/dist/music.js"></script>
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feihong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/05/08/2-8编程练习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feihong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">2-8编程练习
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-05-08 21:55:47" itemprop="dateCreated datePublished" datetime="2019-05-08T21:55:47+08:00">2019-05-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-05-13 23:06:39" itemprop="dateModified" datetime="2019-05-13T23:06:39+08:00">2019-05-13</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>编程练习：请使用面向对象的思想，设计自定义类完成如下功能要求：</p>
+<p>接收用户输入的信息，选择需要完成的工作任务。其中，可供选择的有：测试工作和研发工作。关于类型设定描述如下：</p>
+<ul>
+<li>测试工作</li>
+</ul>
+<p>​       属性：工作名称、编写的测试用例个数、发现的Bug数量</p>
+<p>​       方法：工作描述</p>
+<ul>
+<li>研发工作</li>
+</ul>
+<p>​       属性：工作名称、有效编码行数、目前没有解决的Bug个数</p>
+<p>​       方法：工作描述</p>
+<p>程序运行参考效果图如下：</p>
+<p><strong>父类信息测试：开心工作</strong><br><strong>测试工作类信息测试：测试工作的日报是：今天编写了10个测试用例，发现了5个BUG。</strong><br><strong>研发工作类信息测试：研发工作的日报是：今天编写了1000行代码，目前仍有10个BUG没有解决</strong></p>
+<p>任务</p>
+<p>思路分析：</p>
+<p><strong>第一步：分析测试工作和研发工作的共性：</strong></p>
+<ol>
+<li>都是工作类型</li>
+<li>都有工作名称的属性，工作描述的方法</li>
+</ol>
+<p><strong>第二步：根据共性，定义工作类</strong></p>
+<p>属性：工作名称</p>
+<p>方法：</p>
+<ol>
+<li>编写无参构造方法、带参构造方法完成对属性的赋值</li>
+<li>编写工作描述的方法，描述内容为：开心工作。</li>
+</ol>
+<p><strong>第三步：定义测试工作类、研发工作类分别继承工作类，要求：</strong></p>
+<ul>
+<li><strong>测试工作类：</strong></li>
+</ul>
+<ol>
+<li>增加属性：编写的测试用例个数、发现的Bug数量</li>
+<li>在构造方法中调用父类相关赋值方法，完成属性赋值</li>
+<li>重写运行方法，描述内容为：<strong>的日报是：今天编写了</strong>个测试用例，发现了<strong>bug。其中</strong>的数据由属性提供</li>
+</ol>
+<ul>
+<li><strong>研发工作类：</strong></li>
+</ul>
+<ol>
+<li>增加属性：有效编码行数、目前没有解决的Bug个数</li>
+<li>在构造方法中调用父类相关赋值方法，完成属性赋值</li>
+<li>重写运行方法，描述内容为：<strong>的日报是：今天编写了</strong>行代码，目前仍然有<strong>个bug没有解决。其中</strong>的数据由属性提供</li>
+</ol>
+<p><strong>代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.work;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Work</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 属性：工作ming</span></span><br><span class="line">    <span class="keyword">private</span> String name ;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Work</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;<span class="comment">// 无参构造方法</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Work</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name=name;</span><br><span class="line">	</span><br><span class="line">&#125;<span class="comment">// 带参构造方法，完成工作类型的赋值</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 公有的get***/set***方法完成属性封装</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法：工作描述，描述内容为：开心工作</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">work</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	String str=<span class="string">"开心工作"</span>;</span><br><span class="line">	<span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.work;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestWork</span> <span class="keyword">extends</span> <span class="title">Work</span> </span>&#123;</span><br><span class="line">    <span class="comment">//属性：编写的测试用例个数、发现的Bug数量</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> testNum=<span class="number">10</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> bugNum=<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编写构造方法，并调用父类相关赋值方法，完成属性赋值</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">TestWork</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>(<span class="string">"测试工作"</span>);	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 公有的get***/set***方法完成属性封装</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getTestNum</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> testNum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTestNum</span><span class="params">(<span class="keyword">int</span> testNum)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.testNum = testNum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getBugNum</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> bugNum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBugNum</span><span class="params">(<span class="keyword">int</span> bugNum)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.bugNum = bugNum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重写运行方法，描述内容为：**的日报是：今天编写了**个测试用例，发现了**bug。其中**的数据由属性提供</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">work</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> String str=getName()+<span class="string">"的日报是：今天编写了"</span>+testNum+<span class="string">"个测试用例，发现了"</span>+bugNum+<span class="string">"个BUG。"</span> ;</span><br><span class="line"> <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.work;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DevelopmentWork</span> <span class="keyword">extends</span> <span class="title">Work</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 属性：有效编码行数、目前没有解决的Bug个数</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> yline=<span class="number">1000</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> unSovleBug=<span class="number">10</span>;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//编写构造方法，并调用父类相关赋值方法，完成属性赋值</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">DevelopmentWork</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>(<span class="string">"研发工作"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 公有的get***/set***方法完成属性封装</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getYline</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> yline;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setYline</span><span class="params">(<span class="keyword">int</span> yline)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.yline = yline;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getUnSovleBug</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> unSovleBug;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUnSovleBug</span><span class="params">(<span class="keyword">int</span> unSovleBug)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.unSovleBug = unSovleBug;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重写运行方法，描述内容为：**的日报是：今天编写了**行代码，目前仍然有**个bug没有解决。其中**的数据由属性提供</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">work</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	String str=getName()+<span class="string">"的日报是：今天编写了"</span>+yline+<span class="string">"行代码，目前仍有"</span>+unSovleBug+<span class="string">"个BUG没有解决"</span> ;</span><br><span class="line">     <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.work;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">	System.out.print(<span class="string">"父类信息测试："</span>);</span><br><span class="line">	Work fwork=<span class="keyword">new</span> Work();</span><br><span class="line">	System.out.println(fwork.work());</span><br><span class="line">	System.out.print(<span class="string">"测试工作类信息测试："</span>);</span><br><span class="line">	TestWork twork=<span class="keyword">new</span> TestWork();</span><br><span class="line">	System.out.println(twork.work());</span><br><span class="line">	System.out.print(<span class="string">"研发工作类信息测试："</span>);</span><br><span class="line">	DevelopmentWork dwork=<span class="keyword">new</span> DevelopmentWork();</span><br><span class="line">	System.out.println(dwork.work());</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Java/" rel="tag"># Java</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/05/06/访问修饰符的分类及作用/" rel="next" title="访问修饰符的分类及作用">
+                  <i class="fa fa-chevron-left"></i> 访问修饰符的分类及作用
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/05/14/XX车行管理系统/" rel="prev" title="XX车行管理系统">
+                  XX车行管理系统 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Feihong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feihong</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="顺序结构：从上往下依次执行选择结构：根据条件执行对应的内容循环结构:1.while循环2.do-while循环3.for循环4.循环嵌套 使用   break语句    continue语句跳出循环 while(循环条件) ｛ 语句；   ｝ 循环输出小于5的数 int n=1; while(n&amp;lt;5) {                        //n必须进行初始化 ​    //输出">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java流程控制之循环结构">
+<meta property="og:url" content="https://feihong.me/2019/01/24/Java流程控制之循环结构/index.html">
+<meta property="og:site_name" content="Feihong&#39;s Blog">
+<meta property="og:description" content="顺序结构：从上往下依次执行选择结构：根据条件执行对应的内容循环结构:1.while循环2.do-while循环3.for循环4.循环嵌套 使用   break语句    continue语句跳出循环 while(循环条件) ｛ 语句；   ｝ 循环输出小于5的数 int n=1; while(n&amp;lt;5) {                        //n必须进行初始化 ​    //输出">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-01-27T12:29:14.686Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java流程控制之循环结构">
+<meta name="twitter:description" content="顺序结构：从上往下依次执行选择结构：根据条件执行对应的内容循环结构:1.while循环2.do-while循环3.for循环4.循环嵌套 使用   break语句    continue语句跳出循环 while(循环条件) ｛ 语句；   ｝ 循环输出小于5的数 int n=1; while(n&amp;lt;5) {                        //n必须进行初始化 ​    //输出">
+  <link rel="canonical" href="https://feihong.me/2019/01/24/Java流程控制之循环结构/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Java流程控制之循环结构 | Feihong's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+ <link rel="stylesheet" href="/dist/APlayer.min.css">
+ <div id="aplayer"></div>
+ <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+ <script type="text/javascript" src="/dist/music.js"></script>
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feihong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/01/24/Java流程控制之循环结构/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feihong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Java流程控制之循环结构
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-01-24 21:27:30" itemprop="dateCreated datePublished" datetime="2019-01-24T21:27:30+08:00">2019-01-24</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-01-27 20:29:14" itemprop="dateModified" datetime="2019-01-27T20:29:14+08:00">2019-01-27</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>顺序结构：从上往下依次执行<br>选择结构：根据条件执行对应的内容<br>循环结构:<br>1.while循环<br>2.do-while循环<br>3.for循环<br>4.循环嵌套</p>
+<p>使用   break语句    continue语句跳出循环</p>
+<p>while(循环条件)</p>
+<p>｛</p>
+<p>语句；</p>
+<p>  ｝</p>
+<p>循环输出小于5的数</p>
+<p>int n=1;</p>
+<p>while(n&lt;5)</p>
+<p>{                        //n必须进行初始化</p>
+<p>​    //输出n的值            循环变量n的值必须被改变，避免死循环</p>
+<p>​    n++;</p>
+<p>}</p>
+<p>例：求1-5的累加和</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PlusDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 求1-5的累加和</span></span><br><span class="line">	<span class="keyword">int</span> sum=<span class="number">0</span>,i=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;=<span class="number">5</span>) &#123;</span><br><span class="line">		sum=sum+i;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">"sum="</span>+sum);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CharDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 循环输出26个英文小写字母,分两行显示</span></span><br><span class="line">	<span class="keyword">char</span> ch=<span class="string">'a'</span>;</span><br><span class="line">	<span class="keyword">int</span> n=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(ch&lt;=<span class="string">'z'</span>) &#123;</span><br><span class="line">			System.out.print(ch);</span><br><span class="line">			<span class="keyword">if</span>(n%<span class="number">13</span>==<span class="number">0</span>)</span><br><span class="line">				System.out.println();</span><br><span class="line">			ch++;</span><br><span class="line">			n++;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用while循环求1到5的平方和。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoopDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> n=<span class="number">1</span>;<span class="comment">//定义整型变量n作为循环变量，并初始化</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>;<span class="comment">//定义整型变量sum存放和，并初始化</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(n&lt;=<span class="number">5</span>)&#123;</span><br><span class="line">        sum=sum+n*n;</span><br><span class="line">        n++;</span><br><span class="line">    &#125;<span class="comment">//使用while循环求1到5的平方和</span></span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">"1到5的平方和为："</span>+sum);<span class="comment">//输出平方和</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>do-while 循环</p>
+<p>语法格式</p>
+<p>do{<br>    语句；<br>}while（条件）;</p>
+<p>1.do-while 循环至少执行一次<br>2.循环条件后的分号不能丢</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoWhileDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 求1-5的累加和</span></span><br><span class="line">	<span class="keyword">int</span> n=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">do</span> &#123;</span><br><span class="line">		sum=sum+n;</span><br><span class="line">		n++;</span><br><span class="line">	&#125;<span class="keyword">while</span>(n&lt;=<span class="number">5</span>);</span><br><span class="line">	System.out.println(sum);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>do-while循环猜字游戏</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GuessDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 猜数游戏</span></span><br><span class="line">	<span class="comment">//设置要猜的数</span></span><br><span class="line">	<span class="keyword">int</span> number=(<span class="keyword">int</span>)(Math.random()*<span class="number">10</span>+<span class="number">1</span>);<span class="comment">//随机数函数</span></span><br><span class="line">	<span class="keyword">int</span> guess;</span><br><span class="line">	System.out.println(<span class="string">"猜一个介于1到10之间的数"</span>);</span><br><span class="line">	<span class="keyword">do</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">"请输入您猜测的数字:"</span>);</span><br><span class="line">		Scanner sc=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		guess=sc.nextInt();</span><br><span class="line">		<span class="keyword">if</span>(guess&gt;number) &#123;</span><br><span class="line">			System.out.println(<span class="string">"太大！"</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(guess&lt;number) &#123;</span><br><span class="line">			System.out.println(<span class="string">"太小！"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">while</span>(number!=guess);</span><br><span class="line">	System.out.println(<span class="string">"您猜中了！答案为"</span>+number);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>for循环</p>
+<p>for(循环变量初始化①;循环条件②;循环变量变化④){<br>循环操作③<br>}</p>
+<p>例：</p>
+<p>for(int n=1;n&lt;5;n++){</p>
+<p>​    //输出语句；</p>
+<p>}</p>
+<p>for循环注意事项<br>1.三个表达式都是可以省略的<br>2.break语句表示跳出当前循环</p>
+<p>练习：编写一个程序，求出200到300之间的数，且满足条件：它们三个数字之积为42，三个数字之和为12。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoopDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> ge,shi,bai;</span><br><span class="line">		<span class="comment">//定义变量ge、shi、bai，用于存放个位、十位、百位上的数字</span></span><br><span class="line">        <span class="keyword">int</span> i,ji,sum;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">200</span>;i&lt;=<span class="number">300</span>;i++)<span class="comment">//使用for循环</span></span><br><span class="line">        &#123;</span><br><span class="line">		bai=i/<span class="number">100</span>;<span class="comment">//取出百位数</span></span><br><span class="line">		</span><br><span class="line">		shi=i%<span class="number">100</span>/<span class="number">10</span>;<span class="comment">//取出十位数</span></span><br><span class="line">		</span><br><span class="line">		ge=i%<span class="number">100</span>%<span class="number">10</span>;<span class="comment">//取出个位数</span></span><br><span class="line">	</span><br><span class="line">		ji=bai*shi*ge;<span class="comment">//计算三个数字之积</span></span><br><span class="line">        </span><br><span class="line">		sum=bai+shi+ge;<span class="comment">//计算三个数字之和</span></span><br><span class="line">		</span><br><span class="line">        <span class="keyword">if</span>((ji==<span class="number">42</span>)&amp;(sum==<span class="number">12</span>))&#123;</span><br><span class="line">            System.out.println(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//如果积等于42并且和为12，则将满足条件的数输出</span></span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StarDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 输出十行十列的星号</span></span><br><span class="line">	<span class="keyword">int</span> m=<span class="number">1</span>;<span class="comment">//外重循环</span></span><br><span class="line">	<span class="keyword">int</span> n=<span class="number">1</span>;<span class="comment">//内重循环</span></span><br><span class="line">	<span class="keyword">while</span>(m&lt;=<span class="number">10</span>) &#123;</span><br><span class="line">		n=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span>(n&lt;=<span class="number">10</span>) &#123;</span><br><span class="line">			System.out.print(<span class="string">"*"</span>);</span><br><span class="line">			n++;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">		m++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">package imoocProj;</span><br><span class="line"></span><br><span class="line">public class JiechengPlus &#123;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	// 1到10的阶乘</span><br><span class="line">	int s=1,sum=0;</span><br><span class="line">	for(int i=1;i&lt;=10;i++) &#123;</span><br><span class="line">		s=1;</span><br><span class="line">		for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">			s=s*j;</span><br><span class="line">		&#125;</span><br><span class="line">		sum=sum+s;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(&quot;1!+2!+3!+..+10!=&quot;+sum);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用星号输出一个梯形，如下图所示：（使用嵌套for循环完成）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    ***</span><br><span class="line">   *****</span><br><span class="line">  *******</span><br><span class="line"> *********</span><br><span class="line">***********</span><br></pre></td></tr></table></figure>
+
+<p>任务</p>
+<p>1、外重循环控制输出行数</p>
+<p>2、第一个内重循环控制输出的空格数，依次递减。</p>
+<p> 注意：由于星号和空格在屏幕上所占的空间不同，所以可以适当调整空格的输出，比如每次循环都输出两个空格。这样输出来的图形会更加接近梯形</p>
+<p>3、第二个内重循环控制每行输出的星号数</p>
+<p>4、输出完一行的星号和空格后换行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StarDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 输出星号组成的梯形</span></span><br><span class="line">		<span class="keyword">int</span> N=<span class="number">5</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=N-i;j++)&#123;</span><br><span class="line">                 System.out.print(<span class="string">" "</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=<span class="number">2</span>*i+<span class="number">1</span>;j++)&#123;</span><br><span class="line">                 System.out.print(<span class="string">"*"</span>);</span><br><span class="line">             &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">		</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>break语句<br>1.break语句可以结束当前循环的执行<br>2.执行完break语句后，循环体中位于break语句后面的语句就不会被执行<br>3.在多重循环中，break语句只向外跳一层</p>
+<p>break语句只能用在循环语句和switch语句中，<br>continue只能用在循环语句中，而且continue语句只是结束当前次的循环执行，但是还要继续下一次的循环。</p>
+<p>debug<br>调试的作用:能看清程序每一步的效果,在需要查看见过的时候,使用debug查看实际结果是否与预期结果一致<br>调试:设置断点(可设置多个)<br>debug窗口显示当前运行的什么类当中的什么方法的第几行<br>Variables(变量):显示当前变量<br>Breakpoints:当前断点<br>Outline:大纲<br>F6:是进行单步调试的快捷键<br>F5:到方法内部执行</p>
+<p>F8:直接跳到下一个断点</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Java/" rel="tag"># Java</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/01/19/Java流程控制之选择结构/" rel="next" title="Java流程控制之选择结构">
+                  <i class="fa fa-chevron-left"></i> Java流程控制之选择结构
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/01/27/Java数组之一维数组/" rel="prev" title="Java数组之一维数组">
+                  Java数组之一维数组 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Feihong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feihong</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

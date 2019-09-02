@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="本教程主要讲述如何用U盘PE启动安装原版Win7系统（即MSDN下载的ISO），当原系统损坏、崩溃、蓝屏黑屏或系统引导异常时，都可以使用U盘启动来修复/重装。U盘PE重装非常灵活，可以这么说学会灵活使用PE维护系统等于多一个撩小姐姐的技能（不管你信不信，反正我是懂了），下面以微PE为示范安装最新Win7原版。 前期准备 ●  原系统重要文件备份（数据无价） ●  8G或以上容量U盘 ●  微PE工">
+<meta name="keywords" content="Windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="U盘PE装原版Win7&#x2F;Win10系统教程">
+<meta property="og:url" content="https://feihong.me/2019/06/17/U盘PE装原版Win7系统教程/index.html">
+<meta property="og:site_name" content="Feihong&#39;s Blog">
+<meta property="og:description" content="本教程主要讲述如何用U盘PE启动安装原版Win7系统（即MSDN下载的ISO），当原系统损坏、崩溃、蓝屏黑屏或系统引导异常时，都可以使用U盘启动来修复/重装。U盘PE重装非常灵活，可以这么说学会灵活使用PE维护系统等于多一个撩小姐姐的技能（不管你信不信，反正我是懂了），下面以微PE为示范安装最新Win7原版。 前期准备 ●  原系统重要文件备份（数据无价） ●  8G或以上容量U盘 ●  微PE工">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7002/1.png">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7002/2.png">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7002/3.png">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7002/4.png">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7002/5.png">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/jeL6sV5NQbzPQkrD8q.IakVby6LFB.fykjrCgLlenrk!/r/dL8AAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/dyLJw6w2xNfPZ7jngC0Yq7tS*84ssW94k4Kh3fxBuBE!/r/dE8BAAAAAAAA">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7002/8.png">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/284Av0uXDCBzxk9mLgUh7Odk9YOZBX4hyopMheQEjF8!/r/dFMBAAAAAAAA">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7002/10.png">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/2ccHprH2y2TTeSJJN9P1X5NjsgW8CJT3w8.yzlnPrdE!/r/dLsAAAAAAAAA">
+<meta property="og:updated_time" content="2019-06-17T07:46:19.240Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="U盘PE装原版Win7&#x2F;Win10系统教程">
+<meta name="twitter:description" content="本教程主要讲述如何用U盘PE启动安装原版Win7系统（即MSDN下载的ISO），当原系统损坏、崩溃、蓝屏黑屏或系统引导异常时，都可以使用U盘启动来修复/重装。U盘PE重装非常灵活，可以这么说学会灵活使用PE维护系统等于多一个撩小姐姐的技能（不管你信不信，反正我是懂了），下面以微PE为示范安装最新Win7原版。 前期准备 ●  原系统重要文件备份（数据无价） ●  8G或以上容量U盘 ●  微PE工">
+<meta name="twitter:image" content="http://www.xitongku.com/images/win7/7002/1.png">
+  <link rel="canonical" href="https://feihong.me/2019/06/17/U盘PE装原版Win7系统教程/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>U盘PE装原版Win7/Win10系统教程 | Feihong's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+ <link rel="stylesheet" href="/dist/APlayer.min.css">
+ <div id="aplayer"></div>
+ <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+ <script type="text/javascript" src="/dist/music.js"></script>
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feihong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/06/17/U盘PE装原版Win7系统教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feihong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">U盘PE装原版Win7/Win10系统教程
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-06-17 14:41:05 / Modified: 15:46:19" itemprop="dateCreated datePublished" datetime="2019-06-17T14:41:05+08:00">2019-06-17</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本教程主要讲述如何用U盘PE启动安装原版Win7系统（即MSDN下载的ISO），当原系统损坏、崩溃、蓝屏黑屏或系统引导异常时，都可以使用U盘启动来修复/重装。U盘PE重装非常灵活，可以这么说学会灵活使用PE维护系统等于多一个撩小姐姐的技能（不管你信不信，反正我是懂了），下面以微PE为示范安装最新Win7原版。</p>
+<p>前期准备</p>
+<p>●  原系统重要文件备份（数据无价）</p>
+<p>●  8G或以上容量U盘</p>
+<p>●  微PE工具箱<a href="https://pan.baidu.com/s/1kQ5CH3P2oEBYsAZqLFECuQ" target="_blank" rel="noopener">下载</a>（工具不唯一，请务必使用纯净无捆绑的工具）</p>
+<p>●  下载原版win7 iso映像文件 </p>
+<p>●  提前准备好网卡驱动</p>
+<p>制作U盘PE</p>
+<p>1、连接一个空U盘</p>
+<p><img src="http://www.xitongku.com/images/win7/7002/1.png" alt></p>
+<p>2、打开pe制作工具，选择安装方式为“U盘”</p>
+<p><img src="http://www.xitongku.com/images/win7/7002/2.png" alt></p>
+<p>3、选择好“待写入U盘”，然后点击“立即安装进U盘”，其它默认即可</p>
+<p><img src="http://www.xitongku.com/images/win7/7002/3.png" alt></p>
+<p>PS：</p>
+<p>○ 制作U盘格式建议选择支持单文件大于4G的exFAT或NTFS</p>
+<p>○ 请注意备份U盘资料</p>
+<p><img src="http://www.xitongku.com/images/win7/7002/4.png" alt></p>
+<p>4、这样U盘pe便顺利制作完成了（制作成功后U盘可用空间会变小）</p>
+<p><img src="http://www.xitongku.com/images/win7/7002/5.png" alt></p>
+<p>系统安装步骤</p>
+<p>1、在下表查阅你的电脑对应的快捷启动热键，重启电脑时不停按启动热键（一般是F12、ESC），直到出现启动选择界面</p>
+<p>（<strong>重要提醒：选择热键前，确保电脑连接着U盘</strong>）</p>
+<p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/jeL6sV5NQbzPQkrD8q.IakVby6LFB.fykjrCgLlenrk!/r/dL8AAAAAAAAA" alt></p>
+<p>2、在弹出的启动界面中选择U盘启动盘，如搬运工用的是金士顿U盘制作的，此步如有疑问可拍照片联系我协助解决</p>
+<p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/dyLJw6w2xNfPZ7jngC0Yq7tS*84ssW94k4Kh3fxBuBE!/r/dE8BAAAAAAAA" alt></p>
+<p>3、 进入界面后打开“CGI备份还原”</p>
+<p><img src="http://www.xitongku.com/images/win7/7002/8.png" alt></p>
+<p>4、依次选择安装的盘（一般为C盘）和镜像文件，然后点击“执行”</p>
+<p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/284Av0uXDCBzxk9mLgUh7Odk9YOZBX4hyopMheQEjF8!/r/dFMBAAAAAAAA" alt></p>
+<p>PS：然后在弹出的窗口选择Win7的版本（镜像一般包含多版本）</p>
+<p><img src="http://www.xitongku.com/images/win7/7002/10.png" alt></p>
+<p>5、选择是否保留原系统内容和自动重启，此时可<strong>拨掉U盘</strong></p>
+<p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/2ccHprH2y2TTeSJJN9P1X5NjsgW8CJT3w8.yzlnPrdE!/r/dLsAAAAAAAAA" alt></p>
+<p>系统设置</p>
+<p>前一步还原完成并重启后会进入系统部署过程，整个过程比较简单，详细可参考 <strong>原版Win7系统安装</strong></p>
+<p>U盘PE安装原版Win10系统教程是类似的，只有系统包不同，在这里不再赘述。</p>
+<p>注意事项</p>
+<p>●  原版win7不带驱动，安装前需要准备好相关驱动安装包或离线版驱动工具</p>
+<p>●  教程使用微PE做例子，看个人爱好来选择纯净的PE安装工具即可</p>
+<p>●  PE的技能不限于重装，还可以修复引导、重新分区、转分区等等</p>
+<p>●  如阅读本教程或安装使用中遇到任何疑问可随时留言提问</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Windows/" rel="tag"># Windows</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/06/17/原版Win10系统安装教程/" rel="next" title="原版Win10系统安装教程">
+                  <i class="fa fa-chevron-left"></i> 原版Win10系统安装教程
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/06/17/UltraISO制作U盘启动安装Win7-Win10系统/" rel="prev" title="UltraISO制作U盘启动安装Win7/Win10系统">
+                  UltraISO制作U盘启动安装Win7/Win10系统 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Feihong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feihong</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

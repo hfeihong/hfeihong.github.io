@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="什么是方法 方法：就是用来解决一类问题的代码的有序组合，是一个功能模块。 方法声明 语法格式： 访问修饰符    返回类型        方法名（参数列表）｛ ​        方法体 ｝ 方法分类 根据方法是否带参数、是否返回值，可分为四类： -无参无返回值方法 -无参带返回值方法 -带参无返回值方法 -带参带返回值方法 无参无返回值方法 例：一行打印输出一串星号 123456789101112">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java方法">
+<meta property="og:url" content="https://feihong.me/2019/02/01/Java方法/index.html">
+<meta property="og:site_name" content="Feihong&#39;s Blog">
+<meta property="og:description" content="什么是方法 方法：就是用来解决一类问题的代码的有序组合，是一个功能模块。 方法声明 语法格式： 访问修饰符    返回类型        方法名（参数列表）｛ ​        方法体 ｝ 方法分类 根据方法是否带参数、是否返回值，可分为四类： -无参无返回值方法 -无参带返回值方法 -带参无返回值方法 -带参带返回值方法 无参无返回值方法 例：一行打印输出一串星号 123456789101112">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-02-10T13:08:58.061Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java方法">
+<meta name="twitter:description" content="什么是方法 方法：就是用来解决一类问题的代码的有序组合，是一个功能模块。 方法声明 语法格式： 访问修饰符    返回类型        方法名（参数列表）｛ ​        方法体 ｝ 方法分类 根据方法是否带参数、是否返回值，可分为四类： -无参无返回值方法 -无参带返回值方法 -带参无返回值方法 -带参带返回值方法 无参无返回值方法 例：一行打印输出一串星号 123456789101112">
+  <link rel="canonical" href="https://feihong.me/2019/02/01/Java方法/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Java方法 | Feihong's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+ <link rel="stylesheet" href="/dist/APlayer.min.css">
+ <div id="aplayer"></div>
+ <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+ <script type="text/javascript" src="/dist/music.js"></script>
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feihong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/02/01/Java方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feihong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Java方法
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-02-01 21:51:20" itemprop="dateCreated datePublished" datetime="2019-02-01T21:51:20+08:00">2019-02-01</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-02-10 21:08:58" itemprop="dateModified" datetime="2019-02-10T21:08:58+08:00">2019-02-10</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>什么是方法</p>
+<p>方法：就是用来解决一类问题的代码的有序组合，是一个功能模块。</p>
+<p>方法声明</p>
+<p>语法格式：</p>
+<p>访问修饰符    返回类型        方法名（参数列表）｛</p>
+<p>​        方法体</p>
+<p>｝</p>
+<p>方法分类</p>
+<p>根据方法是否带参数、是否返回值，可分为四类：</p>
+<p>-无参无返回值方法</p>
+<p>-无参带返回值方法</p>
+<p>-带参无返回值方法</p>
+<p>-带参带返回值方法</p>
+<p>无参无返回值方法</p>
+<p>例：一行打印输出一串星号</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MethodDemo</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//打印输出星号的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"*****************"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">	MethodDemo myMethodDemo=<span class="keyword">new</span> MethodDemo();</span><br><span class="line">	myMethodDemo.printStar();</span><br><span class="line">	<span class="comment">//System.out.println("*****************");</span></span><br><span class="line">	System.out.println(<span class="string">"欢迎来到Java的世界"</span>);</span><br><span class="line">	<span class="comment">//System.out.println("*****************");</span></span><br><span class="line">	myMethodDemo.printStar();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>无参带返回值方法</p>
+<p>例：求长方形的面积 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</span><br><span class="line">	<span class="comment">//求长方形面积的方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">area</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> length=<span class="number">10</span>;</span><br><span class="line">		<span class="keyword">int</span> width=<span class="number">5</span>;</span><br><span class="line">		<span class="keyword">int</span> getArea=length*width;</span><br><span class="line">		<span class="keyword">return</span> getArea;<span class="comment">//返回语句</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">	Rectangle rc=<span class="keyword">new</span> Rectangle();</span><br><span class="line">	System.out.println(<span class="string">"长方形的面积为："</span>+rc.area());</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>带参无返回值方法</p>
+<p>例：定义一个求两个float类型数据最大值的方法，在方法中将最大值打印输出。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MaxDemo</span> </span>&#123;</span><br><span class="line">	<span class="comment">//求最大值方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">max</span><span class="params">(<span class="keyword">float</span> a,<span class="keyword">float</span> b)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">float</span> max=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">if</span>(a&gt;b) &#123;</span><br><span class="line">			max=a;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			max=b;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"最大值为:"</span>+max);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">	MaxDemo maxDemo=<span class="keyword">new</span> MaxDemo();</span><br><span class="line">	<span class="keyword">int</span> a=<span class="number">5</span>,b=<span class="number">3</span>;</span><br><span class="line">	maxDemo.max(a, b);</span><br><span class="line">	<span class="keyword">float</span> m=<span class="number">5.6f</span>,n=<span class="number">9.8f</span>;</span><br><span class="line">	maxDemo.max(m, n);</span><br><span class="line">	maxDemo.max(<span class="number">9.8f</span>, <span class="number">12.8f</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 编程练习</p>
+<p>定义一个方法，根据商品总价，计算出对应的折扣并输出。折扣信息如下：</p>
+<p>1） 总价&lt;100，不打折</p>
+<p>2） 总价在100到199之间，打9.5折</p>
+<p>3） 总价在200以上，打8.5折</p>
+<p><strong>效果图：</strong>折后商品总价为:142.5</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DisCountDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">discount</span><span class="params">(<span class="keyword">double</span> price)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(price&lt;<span class="number">100</span>)&#123;</span><br><span class="line">            price=price*<span class="number">1</span>;</span><br><span class="line">            System.out.println(<span class="string">"折后商品总价为:"</span>+price);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>((price&gt;=<span class="number">100</span>)&amp;(price&lt;=<span class="number">199</span>))&#123;</span><br><span class="line">            price=price*<span class="number">0.95</span>;</span><br><span class="line">            System.out.println(<span class="string">"折后商品总价为:"</span>+price);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(price&gt;<span class="number">200</span>)&#123;</span><br><span class="line">            price=price*<span class="number">0.85</span>;</span><br><span class="line">            System.out.println(<span class="string">"折后商品总价为:"</span>+price);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="comment">//根据商品总价输出折后总价</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	DisCountDemo ds=<span class="keyword">new</span> DisCountDemo();<span class="comment">//定义对象</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">double</span> price=<span class="number">150</span>;<span class="comment">//定义商品总价存放到变量中</span></span><br><span class="line">	ds.discount(price);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//调用方法，输出折后商品总价</span></span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>带参有返回值方法</p>
+<p>定义一个求n!的方法，然后再求1！+2！+3！+4！+5！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FacDemo</span> </span>&#123;</span><br><span class="line">	<span class="comment">//求阶乘的方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">fac</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> s=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">			s*=i;<span class="comment">//s=s*i</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> s;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		FacDemo facDemo=<span class="keyword">new</span> FacDemo();</span><br><span class="line">		<span class="keyword">int</span> fac=facDemo.fac(<span class="number">3</span>);</span><br><span class="line">		System.out.println(<span class="string">"3!="</span>+fac);</span><br><span class="line">		<span class="comment">//求1！+2！+3！+4！+5！</span></span><br><span class="line">		<span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++) &#123;</span><br><span class="line">			fac=facDemo.fac(i);</span><br><span class="line">			sum=sum+fac;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"1！+2！+3！+4！+5！="</span>+sum);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>数组作为方法参数</p>
+<p>例：定义方法，打印输出数组元素的值</p>
+<p>public void printArray(int[] arr){}</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayMethod</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printArray</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length;i++) &#123;</span><br><span class="line">			System.out.println(arr[i]+<span class="string">"  "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] arr= &#123;<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>&#125;;</span><br><span class="line">		ArrayMethod Array=<span class="keyword">new</span> ArrayMethod();</span><br><span class="line">		Array.printArray(arr);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编程练习</p>
+<p>编写方法，求数组元素的平均值（效果：数组的平均值为:70.1）</p>
+<p>任务</p>
+<p>1、定义一个方法，求数组的平均值</p>
+<p>2、在主方法中定义对象，并初始化一个float类型的数组，调用方法求数组元素的平均值，并将平均值打印输出</p>
+<p><strong>提示</strong>：</p>
+<p>当数组元素的内容为：78.5,98.5,65.5,32.5和</p>
+<p>75.5时，可得到效果图所示的结果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AverageDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">avrArr</span><span class="params">(<span class="keyword">double</span>[] arr)</span></span>&#123;</span><br><span class="line">        <span class="keyword">double</span> sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">            sum=sum+arr[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">double</span> avr=sum/arr.length;</span><br><span class="line">        System.out.println(<span class="string">"数组的平均值为:"</span>+avr);</span><br><span class="line">    &#125;<span class="comment">//求数组元素的平均值</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	AverageDemo array=<span class="keyword">new</span> AverageDemo();<span class="comment">//定义对象</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">double</span>[] arr=&#123;<span class="number">78.5</span>,<span class="number">98.5</span>,<span class="number">65.5</span>,<span class="number">32.5</span>,<span class="number">75.5</span>&#125;;</span><br><span class="line">	<span class="comment">//创建float类型的数组并初始化</span></span><br><span class="line">	</span><br><span class="line">	array.avrArr(arr);<span class="comment">//调用方法求平均值并打印输出</span></span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>例：查找数组元素的值</p>
+<p>​                –方法参数为：数组、要查找的元素</p>
+<p>​                –返回值：boolean类型</p>
+<p>public boolean search(int n,int[] arr){}</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArraySearch</span> </span>&#123;</span><br><span class="line">	<span class="comment">//查找数组元素值的方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">boolean</span> flag=<span class="keyword">false</span>;<span class="comment">//默认是没找到</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length;i++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(arr[i]==n) &#123;</span><br><span class="line">				flag=<span class="keyword">true</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> flag;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[] arr1= &#123;<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">60</span>&#125;;</span><br><span class="line">	Scanner sc=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">	System.out.println(<span class="string">"请输入要查找的数据:"</span>);</span><br><span class="line">	<span class="keyword">int</span> n1=sc.nextInt();</span><br><span class="line">	ArraySearch as=<span class="keyword">new</span> ArraySearch();</span><br><span class="line">	<span class="keyword">boolean</span> flag=as.search(n1, arr1);</span><br><span class="line">	<span class="keyword">if</span>(flag) &#123;</span><br><span class="line">		System.out.println(<span class="string">"找到了！"</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">"没找到！"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方法重载</p>
+<p>方法重载原则：<br>方法名相同，参数列表不同，这里的不同即可以是数量不同，也可以是类型不同。<br>方法重载作用：<br>重载的最直接作用是方便了程序员可以根据不同的参数个数，顺序，类型，自动匹配方法，减少写过个函数名或方法名的重复步骤</p>
+<p>方法重载的应用</p>
+<p>定义三个方法，实现int、double、和数组类型和的问题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MathDemo</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//求两个int类型数的和</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">plus</span><span class="params">(<span class="keyword">int</span> m,<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> m+n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//求两个double类型数的和</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">plus</span><span class="params">(<span class="keyword">double</span> m,<span class="keyword">double</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> m+n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">plus</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length;i++) &#123;</span><br><span class="line">		sum=sum+arr[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m=<span class="number">5</span>,n=<span class="number">10</span>;</span><br><span class="line">	<span class="keyword">int</span>[] arr= &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line">	MathDemo mathDemo=<span class="keyword">new</span> MathDemo();</span><br><span class="line">	System.out.println(<span class="string">"int类型的和:"</span>+mathDemo.plus(m, n));</span><br><span class="line">	System.out.println(<span class="string">"double类型的和:"</span>+mathDemo.plus(m, n));</span><br><span class="line">	System.out.println(<span class="string">"数组元素的和:"</span>+mathDemo.plus(arr  ));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编程练习</p>
+<p>定义两个重载的方法，分别求圆和长方形的面积。</p>
+<p>效果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">圆的面积为:63.61725123519331</span><br><span class="line">长方形面积为:40.0</span><br></pre></td></tr></table></figure>
+
+<p>任务：</p>
+<p>1、定义两个求面积的重载方法，圆周率可以用Math.PI表示</p>
+<p>2、在主方法中调用方法并将结果输出。</p>
+<p>注意：当圆的半径为4.5，长方形长和宽分别为8和5时，可得到如效果图所示的结果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AreaDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">Area</span><span class="params">(<span class="keyword">double</span> r)</span></span>&#123;</span><br><span class="line">        <span class="keyword">double</span> s=Math.PI*r*r;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;<span class="comment">//求圆形面积</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">Area</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> s=a*b;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;<span class="comment">//求长方形面积</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	AreaDemo area=<span class="keyword">new</span> AreaDemo();<span class="comment">//定义对象</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">double</span> r=<span class="number">4.5</span>;</span><br><span class="line">	<span class="comment">//定义一个double类型的变量存放半径，并初始化</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">double</span> a=<span class="number">8</span>,b=<span class="number">5</span>;<span class="comment">//定义两个变量存放长和宽，并初始化</span></span><br><span class="line">	</span><br><span class="line">	System.out.println(<span class="string">"圆的面积为:"</span>+area.Area(r));</span><br><span class="line">	<span class="comment">//调用方法，求圆的面积并打印输出</span></span><br><span class="line">	</span><br><span class="line">	System.out.println(<span class="string">"长方形面积为:"</span>+area.Area(a,b));</span><br><span class="line">	<span class="comment">//调用方法，求长方形面积并打印输出</span></span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>基本数据类型的传值</p>
+<p>值传递：实参将值拷贝传给形参，形参的改变并不会影响实参的改变。</p>
+<p>在普通方法中调用当前类中的其它方法时，与在主方法中不同，无需创建对象再调用方法，可以直接调用方法使用<br>主方法和普通方法调用时候的区别：<br>1.主方法必须使用对象名调用（就是xx a=new xx();a.xxx();<br>2.普通方法如果和当前方法在一个类里面，直接使用方法名调用即可，不用定义对象</p>
+<p>基本数据类型进行传递的时候，传递的是值的拷贝，例如：int a = 1;传递进去的是1而不是a的内存地址（特殊例子是String）<br>而引用数据类型，如对象（含数组）传递的都是地址，它们都指向同一块内存空间</p>
+<p>可变参数列表</p>
+<p>int… n 可变参数列表<br>可变参数：例如：public void sum(int… n),可变参数必须写在参数列表的最后。</p>
+<p>可以将数组传给可变参数，在方法重载中，参数若为数组和可变参数，即视为重复，报错。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> MoocJava;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArgsDemo</span> </span>&#123;</span><br><span class="line">	<span class="comment">//求和</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span>... n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i:n) &#123;</span><br><span class="line">			sum=sum+i;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"sum="</span>+sum);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		ArgsDemo ad=<span class="keyword">new</span> ArgsDemo();</span><br><span class="line">		ad.sum(<span class="number">1</span>);</span><br><span class="line">		ad.sum(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">		ad.sum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> MoocJava;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArgsDemo1</span> </span>&#123;</span><br><span class="line">	<span class="comment">//查找</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span>... a)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">boolean</span> flag=<span class="keyword">false</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> a1:a) &#123;</span><br><span class="line">			<span class="keyword">if</span>(a1==n) &#123;</span><br><span class="line">				flag=<span class="keyword">true</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(flag) &#123;</span><br><span class="line">			System.out.println(<span class="string">"找到了！"</span>+n);</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"没找到！"</span>+n);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//	public void search(int n,int[] a) &#123;&#125;</span></span><br><span class="line"><span class="comment">//	报错，数组和可变参数视为同一种</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		ArgsDemo1 ad1=<span class="keyword">new</span> ArgsDemo1();</span><br><span class="line">		ad1.search(<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">		<span class="keyword">int</span>[] a= &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">		ad1.search(<span class="number">3</span>, a);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方法的调试</p>
+<p>方法的调试跟普通调试没有太大的区别</p>
+<p>F5:跳入方法中调试<br>F6：单步调试<br>F7：由方法内部跳入调用处</p>
+<p>在eclipes 中如果写入Scanner 语句没有自动导入相应的包，按ctrl+shift+o</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Java/" rel="tag"># Java</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/01/31/博客优化/" rel="next" title="博客优化">
+                  <i class="fa fa-chevron-left"></i> 博客优化
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/02/06/Java注释/" rel="prev" title="Java注释">
+                  Java注释 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Feihong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feihong</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

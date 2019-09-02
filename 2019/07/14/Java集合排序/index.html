@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="集合排序概述数组的排序int[] arr= {2,3,4,5,2,1};Arrays.sort(arr);集合排序使用Collection类的sort方法sort(Listlist)–根据元素的自然顺序对指定列表按升序进行排序，整型数据从小到大，对于字符串和字符数据，会按ASCII码值对其进行排序 案例：对整型进行排序1234567891011121314151617181920212223242">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java集合排序">
+<meta property="og:url" content="https://feihong.me/2019/07/14/Java集合排序/index.html">
+<meta property="og:site_name" content="Feihong&#39;s Blog">
+<meta property="og:description" content="集合排序概述数组的排序int[] arr= {2,3,4,5,2,1};Arrays.sort(arr);集合排序使用Collection类的sort方法sort(Listlist)–根据元素的自然顺序对指定列表按升序进行排序，整型数据从小到大，对于字符串和字符数据，会按ASCII码值对其进行排序 案例：对整型进行排序1234567891011121314151617181920212223242">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://climg.mukewang.com/58b4ed9300016fdd05350124.jpg">
+<meta property="og:image" content="https://img.mukewang.com/climg/5be91adf0001cefb03610213.jpg">
+<meta property="og:image" content="https://climg.mukewang.com/58b53293000101ea04650221.jpg">
+<meta property="og:image" content="https://img.mukewang.com/climg/59fd90710001320012800720.jpg">
+<meta property="og:updated_time" content="2019-07-14T08:52:10.248Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java集合排序">
+<meta name="twitter:description" content="集合排序概述数组的排序int[] arr= {2,3,4,5,2,1};Arrays.sort(arr);集合排序使用Collection类的sort方法sort(Listlist)–根据元素的自然顺序对指定列表按升序进行排序，整型数据从小到大，对于字符串和字符数据，会按ASCII码值对其进行排序 案例：对整型进行排序1234567891011121314151617181920212223242">
+<meta name="twitter:image" content="https://climg.mukewang.com/58b4ed9300016fdd05350124.jpg">
+  <link rel="canonical" href="https://feihong.me/2019/07/14/Java集合排序/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Java集合排序 | Feihong's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+ <link rel="stylesheet" href="/dist/APlayer.min.css">
+ <div id="aplayer"></div>
+ <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+ <script type="text/javascript" src="/dist/music.js"></script>
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feihong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/07/14/Java集合排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feihong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Java集合排序
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-07-14 11:54:09 / Modified: 16:52:10" itemprop="dateCreated datePublished" datetime="2019-07-14T11:54:09+08:00">2019-07-14</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="集合排序概述"><a href="#集合排序概述" class="headerlink" title="集合排序概述"></a>集合排序概述</h2><p>数组的排序<br>int[] arr= {2,3,4,5,2,1};<br>Arrays.sort(arr);<br>集合排序<br>使用Collection类的sort方法<br>sort(List<t>list)<br>–根据元素的自然顺序对指定列表按升序进行排序，整型数据从小到大，对于字符串和字符数据，会按ASCII码值对其进行排序</t></p>
+<h2 id="案例：对整型进行排序"><a href="#案例：对整型进行排序" class="headerlink" title="案例：对整型进行排序"></a>案例：对整型进行排序</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.sort;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntSort</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 对存储在List中的整型数据进行排序</span></span><br><span class="line">	List&lt;Integer&gt; list=<span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">	list.add(<span class="number">5</span>);</span><br><span class="line">	list.add(<span class="number">9</span>);</span><br><span class="line">	list.add(<span class="number">3</span>);</span><br><span class="line">	list.add(<span class="number">1</span>);</span><br><span class="line">	System.out.println(<span class="string">"排序前："</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> n:list)&#123;</span><br><span class="line">		System.out.print(n+<span class="string">"    "</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">	<span class="comment">//对List中的数据进行排序</span></span><br><span class="line">	Collections.sort(list);</span><br><span class="line">	System.out.println(<span class="string">"排序后："</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> n:list)&#123;</span><br><span class="line">		System.out.print(n+<span class="string">"    "</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="案例：对字符串进行排序"><a href="#案例：对字符串进行排序" class="headerlink" title="案例：对字符串进行排序"></a>案例：对字符串进行排序</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.sort;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringSort</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 对存放在List中的字符串进行排序</span></span><br><span class="line">	List&lt;String&gt; list=<span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">	list.add(<span class="string">"orange"</span>);</span><br><span class="line">	list.add(<span class="string">"blue"</span>);</span><br><span class="line">	list.add(<span class="string">"yellow"</span>);</span><br><span class="line">	list.add(<span class="string">"gray"</span>);</span><br><span class="line">	System.out.println(<span class="string">"排序前："</span>);</span><br><span class="line">	<span class="keyword">for</span>(String s:list)&#123;</span><br><span class="line">		System.out.print(s+<span class="string">"   "</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">	Collections.sort(list);</span><br><span class="line">	System.out.println(<span class="string">"排序后："</span>);</span><br><span class="line">	<span class="keyword">for</span>(String s:list)&#123;</span><br><span class="line">		System.out.print(s+<span class="string">"   "</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="编程练习1"><a href="#编程练习1" class="headerlink" title="编程练习1"></a><strong>编程练习1</strong></h2><p>对英文单词进行排序，效果图如下：</p>
+<p><img src="https://climg.mukewang.com/58b4ed9300016fdd05350124.jpg" alt></p>
+<p>任务</p>
+<p>1、 给list添加元素</p>
+<p>2、 输出排序前list中的内容</p>
+<p>3、对list中的元素进行排序</p>
+<p>4、输出排序后list中的内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.string;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringSort</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//给list添加元素</span></span><br><span class="line">	List&lt;String&gt; list=<span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">	list.add(<span class="string">"orange"</span>);</span><br><span class="line">	list.add(<span class="string">"tomato"</span>);</span><br><span class="line">	list.add(<span class="string">"apple"</span>);</span><br><span class="line">	list.add(<span class="string">"litchi"</span>);</span><br><span class="line">	list.add(<span class="string">"banana"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//输出排序前list中的内容</span></span><br><span class="line">    System.out.println(<span class="string">"排序前："</span>);</span><br><span class="line">    <span class="keyword">for</span>(String s:list) &#123;</span><br><span class="line">    	System.out.print(s+<span class="string">"   "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">     System.out.println();  </span><br><span class="line"></span><br><span class="line">    <span class="comment">//对list中的元素进行排序</span></span><br><span class="line">    Collections.sort(list);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//输出排序后list中的内容</span></span><br><span class="line">    System.out.println(<span class="string">"排序后："</span>);</span><br><span class="line">    <span class="keyword">for</span>(String s:list) &#123;</span><br><span class="line">    	System.out.print(s+<span class="string">"   "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Comparator接口介绍"><a href="#Comparator接口介绍" class="headerlink" title="Comparator接口介绍"></a>Comparator接口介绍</h2><p>疑问：自定义的类如何排序<br>解决办法：使用Comparable或Comparator接口<br>Comparator接口：<br>强行对某个对象进行整体排序的比较函数<br>可以将Comparator传递给sort方法（如Collections.sort或 Arrays.sort）<br>int compare(T o1, T o2) 比较用来排序的两个参数<br>–如果o1&lt;o2,返回负整数<br>–如果o1==o2，返回0<br>–如果o1&gt;o2，返回正整数<br>boolean equals(Object obj)指示某个其他对象是否“等于”此Comparator<br>此方法可以被Object类中的equals方法覆盖，不必重写，也就是说，我们在Comparator接口中只需要重写compare这个方法</p>
+<h2 id="案例：对宠物猫进行排序"><a href="#案例：对宠物猫进行排序" class="headerlink" title="案例：对宠物猫进行排序"></a>案例：对宠物猫进行排序</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.sort;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name; <span class="comment">//名字</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> month; <span class="comment">//年龄</span></span><br><span class="line">	<span class="keyword">private</span> String species;<span class="comment">//品种</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">//构造方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">(String name, <span class="keyword">int</span> month, String species)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>();</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.month = month;</span><br><span class="line">	<span class="keyword">this</span>.species = species;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//getter与setter方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMonth</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> month;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMonth</span><span class="params">(<span class="keyword">int</span> month)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.month = month;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getSpecies</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> species;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSpecies</span><span class="params">(String species)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.species = species;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"[名字："</span> + name + <span class="string">", 年龄："</span> + month + <span class="string">", 品种："</span> + species + <span class="string">"]"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.sort;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NameComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Cat</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Cat o1, Cat o2)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 按名字升序排序</span></span><br><span class="line">	String name1=o1.getName();</span><br><span class="line">	String name2=o2.getName();</span><br><span class="line">	<span class="keyword">int</span> n=name1.compareTo(name2);</span><br><span class="line">	<span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.sort;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CatTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 按名字升序排序</span></span><br><span class="line">	Cat huahua=<span class="keyword">new</span> Cat(<span class="string">"huahua"</span>,<span class="number">5</span>,<span class="string">"英国短毛猫"</span>);</span><br><span class="line">	Cat fanfan=<span class="keyword">new</span> Cat(<span class="string">"fanfan"</span>,<span class="number">2</span>,<span class="string">"中华田园猫"</span>);</span><br><span class="line">	Cat maomao=<span class="keyword">new</span> Cat(<span class="string">"maomao"</span>,<span class="number">3</span>,<span class="string">"中华田园猫"</span>);</span><br><span class="line">	List&lt;Cat&gt; catList=<span class="keyword">new</span> ArrayList&lt;Cat&gt;();</span><br><span class="line">	catList.add(huahua);</span><br><span class="line">	catList.add(fanfan);</span><br><span class="line">	catList.add(maomao);</span><br><span class="line">	<span class="comment">//排序前</span></span><br><span class="line">	System.out.println(<span class="string">"排序前："</span>);</span><br><span class="line">	<span class="keyword">for</span>(Cat cat:catList)&#123;</span><br><span class="line">		System.out.println(cat);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//按名字进行升序排序</span></span><br><span class="line">	Collections.sort(catList, <span class="keyword">new</span> NameComparator());</span><br><span class="line">	System.out.println(<span class="string">"按名字升序排序后："</span>);</span><br><span class="line">	<span class="keyword">for</span>(Cat cat:catList)&#123;</span><br><span class="line">		System.out.println(cat);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//按年龄进行降序排序</span></span><br><span class="line">	Collections.sort(catList, <span class="keyword">new</span> AgeComparator());</span><br><span class="line">	System.out.println(<span class="string">"按年龄降序排序后："</span>);</span><br><span class="line">	<span class="keyword">for</span>(Cat cat:catList)&#123;</span><br><span class="line">		System.out.println(cat);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.sort;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AgeComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Cat</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Cat o1, Cat o2)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 按年龄降序排序</span></span><br><span class="line">	<span class="keyword">int</span> age1=o1.getMonth();</span><br><span class="line">	<span class="keyword">int</span> age2=o2.getMonth();</span><br><span class="line">	<span class="keyword">return</span> age2-age1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="编程练习2"><a href="#编程练习2" class="headerlink" title="编程练习2"></a><strong>编程练习2</strong></h2><p>定义一个学生信息类，包括学号，姓名，年龄三个成员变量，然后按名字进行升序排序。(使用Comparator接口)</p>
+<p>运行效果图：</p>
+<p><img src="https://img.mukewang.com/climg/5be91adf0001cefb03610213.jpg" alt></p>
+<p>任务</p>
+<p>1、定义学生类Student，内容如下：</p>
+<ul>
+<li>三个成员变量：学号、姓名、年龄</li>
+<li>构造方法</li>
+<li>getter和setter方法</li>
+<li>重写toString()方法</li>
+</ul>
+<p>2、定义测试类StudentTest，完成如下功能：</p>
+<ul>
+<li>实现Comparator接口</li>
+<li>在主方法中定义Student类的对象，并添加到列表中，进行排序，输出排序前和排序后的内容</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.list;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> stuId;<span class="comment">//学号</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> stuAge;<span class="comment">//年龄</span></span><br><span class="line">	<span class="keyword">private</span> String name;<span class="comment">//姓名</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//构造方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(<span class="keyword">int</span> stuId, <span class="keyword">int</span> stuAge, String name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>();</span><br><span class="line">	<span class="keyword">this</span>.stuId = stuId;</span><br><span class="line">	<span class="keyword">this</span>.stuAge = stuAge;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//getter setter方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getStuId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> stuId;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStuId</span><span class="params">(<span class="keyword">int</span> stuId)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.stuId = stuId;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getStuAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> stuAge;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStuAge</span><span class="params">(<span class="keyword">int</span> stuAge)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.stuAge = stuAge;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//toString方法</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"[学号："</span> + stuId + <span class="string">", 年龄："</span> + stuAge + <span class="string">", 姓名："</span> + name + <span class="string">"]"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.list;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NameComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Student</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Student o1, Student o2)</span> </span>&#123;</span><br><span class="line">	String name1=o1.getName();</span><br><span class="line">	String name2=o2.getName();</span><br><span class="line">	<span class="keyword">int</span> n=name1.compareTo(name2);</span><br><span class="line">	<span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.list;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//定义Student类的对象</span></span><br><span class="line">	Student stu1=<span class="keyword">new</span> Student(<span class="number">40</span>, <span class="number">20</span>, <span class="string">"peter"</span>);</span><br><span class="line">	Student stu2=<span class="keyword">new</span> Student(<span class="number">28</span>, <span class="number">5</span>, <span class="string">"angel"</span>);</span><br><span class="line">	Student stu3=<span class="keyword">new</span> Student(<span class="number">35</span>, <span class="number">18</span>, <span class="string">"tom"</span>);</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//将对象添加到List中</span></span><br><span class="line">    List&lt;Student&gt; stuList=<span class="keyword">new</span> ArrayList&lt;Student&gt;();</span><br><span class="line">    stuList.add(stu1);</span><br><span class="line">    stuList.add(stu2);</span><br><span class="line">    stuList.add(stu3);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//输出排序前的数据</span></span><br><span class="line">    System.out.println(<span class="string">"按名字排序前："</span>);</span><br><span class="line">    <span class="keyword">for</span>(Student name:stuList) &#123;</span><br><span class="line">    	System.out.println(name);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//排序</span></span><br><span class="line">    Collections.sort(stuList, <span class="keyword">new</span> NameComparator());</span><br><span class="line">           </span><br><span class="line">    <span class="comment">//输出排序后的数据</span></span><br><span class="line">    System.out.println(<span class="string">"按名字排序后："</span>);</span><br><span class="line">    <span class="keyword">for</span>(Student name:stuList) &#123;</span><br><span class="line">    	System.out.println(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Comparable概述"><a href="#Comparable概述" class="headerlink" title="Comparable概述"></a>Comparable概述</h2><p>实现排序的另一个接口：Comparable接口<br>此接口强行对实现他的每个类的对象进行整体排序<br>这种排序被称为类的自然排序，类的compareTo方法被称为它的自然比较方法<br>对于集合，通过调用Collection.sort方法进行排序<br>对于数组，通过调用Arrays.sort方法进行排序<br>int compareTo(T o)方法：<br>该对象小于，等于或大于指定对象，则分别返回负整数，0，或正整数</p>
+<h2 id="案例：对商品价格进行降序排序"><a href="#案例：对商品价格进行降序排序" class="headerlink" title="案例：对商品价格进行降序排序"></a>案例：对商品价格进行降序排序</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.sort;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Goods</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Goods</span>&gt; </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String id;<span class="comment">//商品编号</span></span><br><span class="line">	<span class="keyword">private</span> String name;<span class="comment">//商品名称</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> price;<span class="comment">//商品价格</span></span><br><span class="line">	<span class="comment">//构造方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Goods</span><span class="params">(String id,String name,<span class="keyword">double</span> price)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id=id;</span><br><span class="line">		<span class="keyword">this</span>.name=name;</span><br><span class="line">		<span class="keyword">this</span>.price=price;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//getter和setter方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> id;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.id = id;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getPrice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> price;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPrice</span><span class="params">(<span class="keyword">double</span> price)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.price = price;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"商品编号："</span>+id+<span class="string">",商品名称："</span>+name+<span class="string">"，商品价格："</span>+price;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Goods o)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 取出商品价格</span></span><br><span class="line">	<span class="keyword">double</span> price1=<span class="keyword">this</span>.getPrice();</span><br><span class="line">	<span class="keyword">double</span> price2=o.getPrice();</span><br><span class="line">	<span class="keyword">int</span> n=<span class="keyword">new</span> Double(price2-price1).intValue();</span><br><span class="line">	<span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.sort;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GoodsTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	Goods g1 = <span class="keyword">new</span> Goods(<span class="string">"s00001"</span>, <span class="string">"手机"</span>, <span class="number">2000</span>);</span><br><span class="line">	Goods g2 = <span class="keyword">new</span> Goods(<span class="string">"s00002"</span>, <span class="string">"冰箱"</span>, <span class="number">5000</span>);</span><br><span class="line">	Goods g3 = <span class="keyword">new</span> Goods(<span class="string">"s00003"</span>, <span class="string">"电视机"</span>, <span class="number">3000</span>);</span><br><span class="line">	List&lt;Goods&gt; goodsList = <span class="keyword">new</span> ArrayList&lt;Goods&gt;();</span><br><span class="line">	goodsList.add(g1);</span><br><span class="line">	goodsList.add(g2);</span><br><span class="line">	goodsList.add(g3);</span><br><span class="line">	<span class="comment">// 排序前</span></span><br><span class="line">	System.out.println(<span class="string">"排序前："</span>);</span><br><span class="line">	<span class="keyword">for</span> (Goods goods : goodsList) &#123;</span><br><span class="line">		System.out.println(goods);</span><br><span class="line">	&#125;</span><br><span class="line">	Collections.sort(goodsList);</span><br><span class="line">	<span class="comment">// 排序后</span></span><br><span class="line">	System.out.println(<span class="string">"排序后："</span>);</span><br><span class="line">	<span class="keyword">for</span> (Goods goods : goodsList) &#123;</span><br><span class="line">		System.out.println(goods);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="编程练习3"><a href="#编程练习3" class="headerlink" title="编程练习3"></a>编程练习3</h2><p>定义一个员工信息类，包括编号，姓名，工资三个成员变量，要求工资定义为float类型，然后按工资进行降序排序。(使用Comparable接口)</p>
+<p>运行效果图：</p>
+<p><img src="https://climg.mukewang.com/58b53293000101ea04650221.jpg" alt></p>
+<p>任务</p>
+<p>1、定义员工信息类Employee，实现Comparable接口，内容如下：</p>
+<ul>
+<li>三个成员变量：编号、姓名、工资</li>
+<li>构造方法</li>
+<li>getter和setter方法</li>
+<li>重写toString()方法</li>
+</ul>
+<p>2、定义测试类EmployeeTest，完成如下功能：</p>
+<ul>
+<li>在主方法中定义3个Employee类的对象，并添加到列表中</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.list;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Employee</span>&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String empId;<span class="comment">// 员工编号</span></span><br><span class="line">	<span class="keyword">private</span> String name;<span class="comment">// 姓名</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> salary;<span class="comment">// 工资</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 构造方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Employee</span><span class="params">(String empId, String name, <span class="keyword">double</span> salary)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>();</span><br><span class="line">	<span class="keyword">this</span>.empId = empId;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.salary = salary;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// getter setter方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getEmpId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> empId;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmpId</span><span class="params">(String empId)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.empId = empId;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getSalary</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> salary;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSalary</span><span class="params">(<span class="keyword">double</span> salary)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.salary = salary;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"员工 [编号："</span> + empId + <span class="string">", 姓名："</span> + name + <span class="string">", 工资："</span> + salary + <span class="string">"]"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Employee o)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> salary1=<span class="keyword">this</span>.getSalary();</span><br><span class="line">	<span class="keyword">double</span> salary2=o.getSalary();</span><br><span class="line">	<span class="keyword">int</span> n=<span class="keyword">new</span> Double(salary2-salary1).intValue();</span><br><span class="line">	<span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.list;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EmployeeTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//定义Employee类的对象</span></span><br><span class="line">    Employee e1=<span class="keyword">new</span> Employee(<span class="string">"emp001"</span>, <span class="string">"张三"</span>, <span class="number">1800</span>);</span><br><span class="line">    Employee e2=<span class="keyword">new</span> Employee(<span class="string">"emp002"</span>, <span class="string">"李四"</span>, <span class="number">2500</span>);</span><br><span class="line">    Employee e3=<span class="keyword">new</span> Employee(<span class="string">"emp003"</span>, <span class="string">"王五"</span>, <span class="number">1600</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//将对象添加到List中</span></span><br><span class="line">    List&lt;Employee&gt; empList=<span class="keyword">new</span> ArrayList&lt;Employee&gt;();</span><br><span class="line">    empList.add(e1);</span><br><span class="line">    empList.add(e2);</span><br><span class="line">    empList.add(e3);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//输出排序前的数据</span></span><br><span class="line">    System.out.println(<span class="string">"排序前："</span>);</span><br><span class="line">    <span class="keyword">for</span>(Employee emp:empList) &#123;</span><br><span class="line">    	System.out.println(emp);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//排序</span></span><br><span class="line">    Collections.sort(empList);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//输出排序后的数据</span></span><br><span class="line">    System.out.println(<span class="string">"排序后："</span>);</span><br><span class="line">    <span class="keyword">for</span>(Employee emp:empList) &#123;</span><br><span class="line">    	System.out.println(emp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="集合排序总结"><a href="#集合排序总结" class="headerlink" title="集合排序总结"></a>集合排序总结</h2><p>comparator和comparable接口的区别</p>
+<p><img src="https://img.mukewang.com/climg/59fd90710001320012800720.jpg" alt></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Java/" rel="tag"># Java</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/07/11/Java集合/" rel="next" title="Java集合">
+                  <i class="fa fa-chevron-left"></i> Java集合
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/07/14/Java泛型/" rel="prev" title="Java泛型">
+                  Java泛型 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#集合排序概述"><span class="nav-number">1.</span> <span class="nav-text">集合排序概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例：对整型进行排序"><span class="nav-number">2.</span> <span class="nav-text">案例：对整型进行排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例：对字符串进行排序"><span class="nav-number">3.</span> <span class="nav-text">案例：对字符串进行排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程练习1"><span class="nav-number">4.</span> <span class="nav-text">编程练习1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comparator接口介绍"><span class="nav-number">5.</span> <span class="nav-text">Comparator接口介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例：对宠物猫进行排序"><span class="nav-number">6.</span> <span class="nav-text">案例：对宠物猫进行排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程练习2"><span class="nav-number">7.</span> <span class="nav-text">编程练习2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comparable概述"><span class="nav-number">8.</span> <span class="nav-text">Comparable概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例：对商品价格进行降序排序"><span class="nav-number">9.</span> <span class="nav-text">案例：对商品价格进行降序排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程练习3"><span class="nav-number">10.</span> <span class="nav-text">编程练习3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合排序总结"><span class="nav-number">11.</span> <span class="nav-text">集合排序总结</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Feihong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feihong</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

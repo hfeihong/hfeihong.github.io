@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="购买新电脑或新硬盘的时，往往只有一个分区，为了更好地区分系统盘和进行磁盘的管理，我们就需要手动去进行硬盘的分区，方法也比较简单，也比较合适新设备。 分区步骤 1、右键我的电脑，点击“管理”，然后选择“磁盘管理”   2、选择你需要进行分区的磁盘，右键选择“压缩卷”  3、选择好压缩空间的大小，然后进行压缩  4、等待完成后会出现一个刚才压缩的可用空间，右键选择“新建简单卷”   5、进入新建简单卷">
+<meta name="keywords" content="Windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何给新电脑和磁盘进行分区">
+<meta property="og:url" content="https://feihong.me/2019/06/17/如何给新电脑和磁盘进行分区/index.html">
+<meta property="og:site_name" content="Feihong&#39;s Blog">
+<meta property="og:description" content="购买新电脑或新硬盘的时，往往只有一个分区，为了更好地区分系统盘和进行磁盘的管理，我们就需要手动去进行硬盘的分区，方法也比较简单，也比较合适新设备。 分区步骤 1、右键我的电脑，点击“管理”，然后选择“磁盘管理”   2、选择你需要进行分区的磁盘，右键选择“压缩卷”  3、选择好压缩空间的大小，然后进行压缩  4、等待完成后会出现一个刚才压缩的可用空间，右键选择“新建简单卷”   5、进入新建简单卷">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://www.xitongku.com/images/partition/01/1.png">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/XevcJpCq873nT07QnQ4TE7gqtTF0VxrkseWOefaRqlA!/r/dLYAAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/TJ7KzoBvKnmc1eT7UzhUPon7QA0.Vi6qdDq9jDQ3MJY!/r/dIQAAAAAAAAA">
+<meta property="og:image" content="http://www.xitongku.com/images/partition/01/4.png">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/5KnkpMEmZHCzHaNd0s*l5jUassVPpKdZCQTVenhnNYI!/r/dFEBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/ToXUB.KYBeYLEBntj.IlMEGdkmN8xbkflbAhUM1w6*Y!/r/dEgBAAAAAAAA">
+<meta property="og:image" content="http://www.xitongku.com/images/partition/01/7.png">
+<meta property="og:image" content="http://www.xitongku.com/images/partition/01/8.png">
+<meta property="og:image" content="http://www.xitongku.com/images/partition/01/9.png">
+<meta property="og:image" content="http://www.xitongku.com/images/partition/01/10.png">
+<meta property="og:image" content="http://www.xitongku.com/images/partition/01/11.png">
+<meta property="og:updated_time" content="2019-06-17T07:46:35.475Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何给新电脑和磁盘进行分区">
+<meta name="twitter:description" content="购买新电脑或新硬盘的时，往往只有一个分区，为了更好地区分系统盘和进行磁盘的管理，我们就需要手动去进行硬盘的分区，方法也比较简单，也比较合适新设备。 分区步骤 1、右键我的电脑，点击“管理”，然后选择“磁盘管理”   2、选择你需要进行分区的磁盘，右键选择“压缩卷”  3、选择好压缩空间的大小，然后进行压缩  4、等待完成后会出现一个刚才压缩的可用空间，右键选择“新建简单卷”   5、进入新建简单卷">
+<meta name="twitter:image" content="http://www.xitongku.com/images/partition/01/1.png">
+  <link rel="canonical" href="https://feihong.me/2019/06/17/如何给新电脑和磁盘进行分区/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>如何给新电脑和磁盘进行分区 | Feihong's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+ <link rel="stylesheet" href="/dist/APlayer.min.css">
+ <div id="aplayer"></div>
+ <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+ <script type="text/javascript" src="/dist/music.js"></script>
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feihong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/06/17/如何给新电脑和磁盘进行分区/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feihong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">如何给新电脑和磁盘进行分区
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-06-17 15:08:50 / Modified: 15:46:35" itemprop="dateCreated datePublished" datetime="2019-06-17T15:08:50+08:00">2019-06-17</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>购买新电脑或新硬盘的时，往往只有一个分区，为了更好地区分系统盘和进行磁盘的管理，我们就需要手动去进行硬盘的分区，方法也比较简单，也比较合适新设备。</p>
+<p>分区步骤</p>
+<p>1、右键我的电脑，点击“管理”，然后选择“磁盘管理”</p>
+<p><img src="http://www.xitongku.com/images/partition/01/1.png" alt></p>
+<p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/XevcJpCq873nT07QnQ4TE7gqtTF0VxrkseWOefaRqlA!/r/dLYAAAAAAAAA" alt></p>
+<p>2、选择你需要进行分区的磁盘，右键选择“压缩卷”</p>
+<p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/TJ7KzoBvKnmc1eT7UzhUPon7QA0.Vi6qdDq9jDQ3MJY!/r/dIQAAAAAAAAA" alt></p>
+<p>3、选择好压缩空间的大小，然后进行压缩</p>
+<p><img src="http://www.xitongku.com/images/partition/01/4.png" alt></p>
+<p>4、等待完成后会出现一个刚才压缩的可用空间，右键选择“新建简单卷”</p>
+<p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/5KnkpMEmZHCzHaNd0s*l5jUassVPpKdZCQTVenhnNYI!/r/dFEBAAAAAAAA" alt></p>
+<p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/ToXUB.KYBeYLEBntj.IlMEGdkmN8xbkflbAhUM1w6*Y!/r/dEgBAAAAAAAA" alt></p>
+<p>5、进入新建简单卷向导后，输入自己需要的大小</p>
+<p><img src="http://www.xitongku.com/images/partition/01/7.png" alt></p>
+<p>6、为你新建的简单卷选择器号</p>
+<p><img src="http://www.xitongku.com/images/partition/01/8.png" alt></p>
+<p>7、为你新建的简单卷选择磁盘的格式，一般选择“NTFS”</p>
+<p><img src="http://www.xitongku.com/images/partition/01/9.png" alt></p>
+<p>8、再次确认信息后完成</p>
+<p><img src="http://www.xitongku.com/images/partition/01/10.png" alt></p>
+<p>​                                                                                 <strong>顺利完成的分区</strong></p>
+<p><img src="http://www.xitongku.com/images/partition/01/11.png" alt></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Windows/" rel="tag"># Windows</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/06/17/UltraISO制作U盘启动安装Win7-Win10系统/" rel="next" title="UltraISO制作U盘启动安装Win7/Win10系统">
+                  <i class="fa fa-chevron-left"></i> UltraISO制作U盘启动安装Win7/Win10系统
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/06/17/利用DiskGenius工具快速分区/" rel="prev" title="利用DiskGenius工具快速分区">
+                  利用DiskGenius工具快速分区 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Feihong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feihong</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="*名称：仿windows计算器*功能：  1、实现单击按钮录入数字 2、实现基础四则运算功能，并添加必要的异常处理，例如，除数为零 3、实现小数点功能并添加异常处理：小数点只能出现一次 4、实现正负号功能 5、实现退位功能，已经是最后一位时，显示框显示为零 6、清屏功能 使用的知识点: 1、利用大量的自定义函数实现业务逻辑 2、灵活运用事件及事件处理 3、培养异常处理的编程方法 4、培养并实践利">
+<meta name="keywords" content="CSS,JavaScript,Html,JavaWeb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="仿windows计算器">
+<meta property="og:url" content="https://feihong.me/2019/07/26/仿windows计算器/index.html">
+<meta property="og:site_name" content="Feihong&#39;s Blog">
+<meta property="og:description" content="*名称：仿windows计算器*功能：  1、实现单击按钮录入数字 2、实现基础四则运算功能，并添加必要的异常处理，例如，除数为零 3、实现小数点功能并添加异常处理：小数点只能出现一次 4、实现正负号功能 5、实现退位功能，已经是最后一位时，显示框显示为零 6、清屏功能 使用的知识点: 1、利用大量的自定义函数实现业务逻辑 2、灵活运用事件及事件处理 3、培养异常处理的编程方法 4、培养并实践利">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-07-31T13:09:46.409Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="仿windows计算器">
+<meta name="twitter:description" content="*名称：仿windows计算器*功能：  1、实现单击按钮录入数字 2、实现基础四则运算功能，并添加必要的异常处理，例如，除数为零 3、实现小数点功能并添加异常处理：小数点只能出现一次 4、实现正负号功能 5、实现退位功能，已经是最后一位时，显示框显示为零 6、清屏功能 使用的知识点: 1、利用大量的自定义函数实现业务逻辑 2、灵活运用事件及事件处理 3、培养异常处理的编程方法 4、培养并实践利">
+  <link rel="canonical" href="https://feihong.me/2019/07/26/仿windows计算器/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>仿windows计算器 | Feihong's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+ <link rel="stylesheet" href="/dist/APlayer.min.css">
+ <div id="aplayer"></div>
+ <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+ <script type="text/javascript" src="/dist/music.js"></script>
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feihong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/07/26/仿windows计算器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feihong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">仿windows计算器
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-07-26 22:06:51" itemprop="dateCreated datePublished" datetime="2019-07-26T22:06:51+08:00">2019-07-26</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-07-31 21:09:46" itemprop="dateModified" datetime="2019-07-31T21:09:46+08:00">2019-07-31</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <hr>
+<p>*名称：仿windows计算器<br>*功能：</p>
+<ul>
+<li>1、实现单击按钮录入数字</li>
+<li>2、实现基础四则运算功能，并添加必要的异常处理，例如，除数为零</li>
+<li>3、实现小数点功能并添加异常处理：小数点只能出现一次</li>
+<li>4、实现正负号功能</li>
+<li>5、实现退位功能，已经是最后一位时，显示框显示为零</li>
+<li>6、清屏功能</li>
+<li>使用的知识点:</li>
+<li>1、利用大量的自定义函数实现业务逻辑</li>
+<li>2、灵活运用事件及事件处理</li>
+<li>3、培养异常处理的编程方法</li>
+<li>4、培养并实践利用不同思路实现编程</li>
+<li>综合练习的目的：</li>
+<li>1、将css、html和js有效的进行技术组合，实现业务功能</li>
+<li>2、锻炼和培养编程思想，解决问题的能力和方法</li>
+<li>3、锻炼和培养利用多种编程思路，完成预先设定的目标</li>
+</ul>
+<hr>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>飞鸿做的计算器<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"calc.css"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"calc.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"link.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h3</span>&gt;</span>飞鸿做的计算器<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"init(),linkf()"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div2"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"num"</span> <span class="attr">id</span>=<span class="string">"num"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div3"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"c"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"←"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"+/-"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"/"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"1"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">onclick</span>=<span class="string">"num_1_click()"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"2"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">onclick</span>=<span class="string">"num_2_click()"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"3"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">onclick</span>=<span class="string">"num_3_click()"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"*"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> &gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"4"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">onclick</span>=<span class="string">"num_4_click()"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"5"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">onclick</span>=<span class="string">"num_5_click()"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"6"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">onclick</span>=<span class="string">"num_6_click()"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"-"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"7"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">onclick</span>=<span class="string">"num_7_click()"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"8"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">onclick</span>=<span class="string">"num_8_click()"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"9"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">onclick</span>=<span class="string">"num_9_click()"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"+"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"0"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">onclick</span>=<span class="string">"num_0_click()"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"."</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"="</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"f"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"linkf"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0px</span>;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">0px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h3</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>: blue;</span><br><span class="line">	<span class="attribute">font-family</span>: 楷书;</span><br><span class="line">	<span class="attribute">top</span>: <span class="number">19%</span>;</span><br><span class="line">	<span class="attribute">left</span>: <span class="number">46%</span>;</span><br><span class="line">	<span class="attribute">position</span>: absolute;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">170px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#div1</span>&#123;</span><br><span class="line">	<span class="attribute">top</span>: <span class="number">25%</span>;</span><br><span class="line">	<span class="attribute">left</span>: <span class="number">45%</span>;</span><br><span class="line">	<span class="attribute">position</span>: absolute;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type="button"]</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">30px</span>;</span><br><span class="line">	<span class="attribute">margin-right</span>: <span class="number">8px</span>;</span><br><span class="line">	<span class="attribute">margin-top</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type="text"]</span>&#123;</span><br><span class="line">	<span class="attribute">text-align</span>: right;</span><br><span class="line">	<span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">	<span class="attribute">padding-right</span>: <span class="number">5px</span>;</span><br><span class="line">	<span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type="button"]</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">	<span class="attribute">background-color</span>: yellow;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> num=<span class="built_in">document</span>.getElementById(<span class="string">"num"</span>);</span><br><span class="line">	num.value=<span class="number">0</span>;</span><br><span class="line">	num.disabled=<span class="string">"disabled"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// function num_1_click()&#123;</span></span><br><span class="line"><span class="comment">// 	var num=document.getElementById("num")</span></span><br><span class="line"><span class="comment">// 	var n=num.value;</span></span><br><span class="line"><span class="comment">// 	n=n+"1";</span></span><br><span class="line"><span class="comment">// 	document.getElementById("num").value=n*1;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="keyword">var</span> oButton=<span class="built_in">document</span>.getElementsByTagName(<span class="string">"input"</span>);</span><br><span class="line"><span class="keyword">var</span> btn_num1;</span><br><span class="line"><span class="keyword">var</span> fh;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i =<span class="number">0</span>; i&lt;oButton.length;i++) &#123;</span><br><span class="line">	oButton[i].onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(isNumber(<span class="keyword">this</span>.value))&#123;</span><br><span class="line">			<span class="comment">// num.value=(num.value+this.value)*1;</span></span><br><span class="line">			<span class="keyword">if</span>(isNull(num.value))&#123;</span><br><span class="line">				num.value=<span class="keyword">this</span>.value;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				num.value=num.value+<span class="keyword">this</span>.value;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> btn_num=<span class="keyword">this</span>.value;</span><br><span class="line">			<span class="keyword">switch</span>(btn_num)&#123;</span><br><span class="line">				<span class="keyword">case</span> <span class="string">"+"</span>:</span><br><span class="line">					fh=<span class="string">"+"</span>;</span><br><span class="line">					btn_num1=<span class="built_in">Number</span>(num.value);</span><br><span class="line">					num.value=<span class="number">0</span>;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> <span class="string">"-"</span>:</span><br><span class="line">					fh=<span class="string">"-"</span>;</span><br><span class="line">					btn_num1=<span class="built_in">Number</span>(num.value);</span><br><span class="line">					num.value=<span class="number">0</span>;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> <span class="string">"*"</span>:</span><br><span class="line">					fh=<span class="string">"*"</span>;</span><br><span class="line">					btn_num1=<span class="built_in">Number</span>(num.value);</span><br><span class="line">					num.value=<span class="number">0</span>;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> <span class="string">"/"</span>:</span><br><span class="line">					fh=<span class="string">"/"</span>;</span><br><span class="line">					btn_num1=<span class="built_in">Number</span>(num.value);</span><br><span class="line">					num.value=<span class="number">0</span>;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> <span class="string">"."</span>:</span><br><span class="line">					num.value=dec_number(num.value);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> <span class="string">"←"</span>:</span><br><span class="line">					num.value=back(num.value);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> <span class="string">"c"</span>:</span><br><span class="line">					num.value=<span class="string">"0"</span>;</span><br><span class="line">					<span class="keyword">break</span>;	</span><br><span class="line">				<span class="keyword">case</span> <span class="string">"+/-"</span>:</span><br><span class="line">					num.value=sign(num.value);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> <span class="string">"="</span>:</span><br><span class="line">					<span class="keyword">switch</span>(fh)&#123;</span><br><span class="line">						<span class="keyword">case</span> <span class="string">"+"</span>:</span><br><span class="line">							num.value=btn_num1+<span class="built_in">Number</span>(num.value);</span><br><span class="line">							<span class="keyword">break</span>;</span><br><span class="line">						<span class="keyword">case</span> <span class="string">"-"</span>:</span><br><span class="line">							num.value=btn_num1-<span class="built_in">Number</span>(num.value);</span><br><span class="line">							<span class="keyword">break</span>;</span><br><span class="line">						<span class="keyword">case</span> <span class="string">"*"</span>:</span><br><span class="line">							num.value=btn_num1*<span class="built_in">Number</span>(num.value);</span><br><span class="line">							<span class="keyword">break</span>;</span><br><span class="line">						<span class="keyword">case</span> <span class="string">"/"</span>:</span><br><span class="line">						<span class="keyword">if</span>(num.value==<span class="string">"0"</span>)&#123;</span><br><span class="line">							num.value=<span class="number">0</span>;</span><br><span class="line">							alert(<span class="string">"除数不能为0！"</span>)</span><br><span class="line">						&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">							num.value=btn_num1/<span class="built_in">Number</span>(num.value);</span><br><span class="line">						&#125;</span><br><span class="line">							<span class="keyword">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*正负号 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sign</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">	<span class="comment">// if(n.indexOf("-")==-1)&#123;</span></span><br><span class="line">	<span class="comment">// 	n="-"+n;</span></span><br><span class="line">	<span class="comment">// &#125;else&#123;</span></span><br><span class="line">	<span class="comment">// 	n=n.substr(1,n.length);</span></span><br><span class="line">	<span class="comment">// &#125;</span></span><br><span class="line">	n=<span class="built_in">Number</span>(n)*<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*退位键 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">back</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">	n=n.substr(<span class="number">0</span>,n.length<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">if</span>(!isNull(n))&#123;</span><br><span class="line">		n=<span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*小数点处理 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dec_number</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n.indexOf(<span class="string">"."</span>)==<span class="number">-1</span>)&#123;</span><br><span class="line">		n=n+<span class="string">"."</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*验证文本框是否为空或者0 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNull</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n==<span class="string">"0"</span> || n.length==<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//isNaN:不能转换为数字：true  可以转换为数字：false</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNumber</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">	<span class="comment">// if(!isNaN(n))&#123;</span></span><br><span class="line">	<span class="comment">// 	return true;	//参数n是数字</span></span><br><span class="line">	<span class="comment">// &#125;else&#123;</span></span><br><span class="line">	<span class="comment">// 	return false;</span></span><br><span class="line">	<span class="comment">// &#125;</span></span><br><span class="line">	<span class="keyword">return</span> !<span class="built_in">isNaN</span>(n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">linkf</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">document</span>.getElementById(<span class="string">"linkf"</span>).onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">window</span>.location.href=<span class="string">"https://www.feihong.me"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+            
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            
+              <a href="/tags/Html/" rel="tag"># Html</a>
+            
+              <a href="/tags/JavaWeb/" rel="tag"># JavaWeb</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/07/25/JavaScript入门/" rel="next" title="JavaScript入门">
+                  <i class="fa fa-chevron-left"></i> JavaScript入门
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/07/31/网页布局案例/" rel="prev" title="网页布局案例">
+                  网页布局案例 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Feihong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feihong</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

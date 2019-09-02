@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="请使用面向对象的思想，实现出租车和家用轿车的信息描述。 程序运行参考效果图如下：  任务 要求： 1、    根据出租车和家用轿车的共性，抽取父类Car 属性：车的颜色color、车主姓名userName 方法： 1)    带参构造函数（参数为color和useName） 2)    创建无参无返回值得方法use（描述内容为：我是机动车！） 3)    重写equals方法，比较两个对象是否相等">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编程练习--CAR">
+<meta property="og:url" content="https://feihong.me/2019/06/11/编程练习-CAR/index.html">
+<meta property="og:site_name" content="Feihong&#39;s Blog">
+<meta property="og:description" content="请使用面向对象的思想，实现出租车和家用轿车的信息描述。 程序运行参考效果图如下：  任务 要求： 1、    根据出租车和家用轿车的共性，抽取父类Car 属性：车的颜色color、车主姓名userName 方法： 1)    带参构造函数（参数为color和useName） 2)    创建无参无返回值得方法use（描述内容为：我是机动车！） 3)    重写equals方法，比较两个对象是否相等">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://climg.mukewang.com/58916be60001098309920566.jpg">
+<meta property="og:updated_time" content="2019-06-11T14:11:35.801Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="编程练习--CAR">
+<meta name="twitter:description" content="请使用面向对象的思想，实现出租车和家用轿车的信息描述。 程序运行参考效果图如下：  任务 要求： 1、    根据出租车和家用轿车的共性，抽取父类Car 属性：车的颜色color、车主姓名userName 方法： 1)    带参构造函数（参数为color和useName） 2)    创建无参无返回值得方法use（描述内容为：我是机动车！） 3)    重写equals方法，比较两个对象是否相等">
+<meta name="twitter:image" content="https://climg.mukewang.com/58916be60001098309920566.jpg">
+  <link rel="canonical" href="https://feihong.me/2019/06/11/编程练习-CAR/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>编程练习--CAR | Feihong's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+ <link rel="stylesheet" href="/dist/APlayer.min.css">
+ <div id="aplayer"></div>
+ <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+ <script type="text/javascript" src="/dist/music.js"></script>
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feihong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/06/11/编程练习-CAR/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feihong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">编程练习--CAR
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-06-11 21:16:34 / Modified: 22:11:35" itemprop="dateCreated datePublished" datetime="2019-06-11T21:16:34+08:00">2019-06-11</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>请使用面向对象的思想，实现出租车和家用轿车的信息描述。</p>
+<p>程序运行参考效果图如下：</p>
+<p><img src="https://climg.mukewang.com/58916be60001098309920566.jpg" alt></p>
+<p>任务</p>
+<p><strong>要求：</strong></p>
+<p><strong>1、    根据出租车和家用轿车的共性，抽取父类Car</strong></p>
+<p>属性：车的颜色color、车主姓名userName</p>
+<p>方法：</p>
+<p>1)    带参构造函数（参数为color和useName）</p>
+<p>2)    创建无参无返回值得方法use（描述内容为：我是机动车！）</p>
+<p>3)    重写equals方法，比较两个对象是否相等（比较color，userName）</p>
+<p><strong>2、子类taxi</strong></p>
+<p>属性：所属公司( company)</p>
+<p>方法：</p>
+<p>1)    调用父类的构造方法，完成属性赋值</p>
+<p>2)    创建不允许重写的ride方法，描述为：<strong>出租车是所属于在*</strong>公司的。</p>
+<p>3)    重写父类use方法，描述为：出租车是提高市民生活质量的重要条件之一</p>
+<p>4)    重写toString方法，输出的表现形式不同（输出color,userName）</p>
+<p><strong>3、子类：私家车HomeCar</strong></p>
+<p>属性：载客数（num）</p>
+<p>方法：</p>
+<p>1)    带参构造方法为所有属性赋值</p>
+<p>2)    创建无参无返回值的display方法，表现为：<strong>拥有的</strong>颜色的私家车有**座位</p>
+<p>3)    重载要求（2）中的display方法（带参数num），描述为：家用汽车大多有**个座位</p>
+<p>4)    要求私家车类不允许有子类</p>
+<p><strong>4、测试类，运行效果参照效果图：</strong></p>
+<p>1)    实例化2个父类对象，并传入两组相同的参数值</p>
+<p>2)    调用父类use方法</p>
+<p>3)    测试重写equals方法，判断两个对象是否相等</p>
+<p>4)    实例化子类对象，并传入相关参数值</p>
+<p>5)    调用子类ride方法和use方法</p>
+<p>6)    测试重写toString方法，输出子类对象的信息</p>
+<p>7)    实例化HomeCar类对象，并传入相关参数值</p>
+<p>8)    调用子类的display和他的重载方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.cartwo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">    <span class="comment">//属性：车的颜色color、车主姓名userName</span></span><br><span class="line">	<span class="keyword">private</span> String color;</span><br><span class="line">	<span class="keyword">private</span> String userName;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//带参构造函数（参数为color和useName）</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">(String color,String userName)</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.color=color;</span><br><span class="line">	<span class="keyword">this</span>.userName=userName;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过封装实现对私有属性的get/set操作</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getColor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> color;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setColor</span><span class="params">(String color)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.color = color;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getUserName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> userName;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserName</span><span class="params">(String userName)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.userName = userName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建无参无返回值得方法use（描述内容为：我是机动车！）</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">use</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"我是机动车！"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//重写equals方法，比较两个对象是否相等（比较color，userName）	</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(obj==<span class="keyword">null</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	Car temp=(Car)obj;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">this</span>.getColor().equals(temp.getColor())&amp;&amp;<span class="keyword">this</span>.getUserName().equals(temp.getUserName()))</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.cartwo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Taxi</span> <span class="keyword">extends</span> <span class="title">Car</span></span>&#123;</span><br><span class="line">    <span class="comment">//私有属性：所属公司( company)</span></span><br><span class="line">	<span class="keyword">private</span> String company;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Taxi</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用父类的构造方法，完成属性赋值</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Taxi</span><span class="params">(String color,String userName)</span></span>&#123;</span><br><span class="line">	<span class="keyword">super</span>(color,userName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过封装实现对私有属性的get/set操作</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getCompany</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> company;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCompany</span><span class="params">(String company)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.company = company;</span><br><span class="line">&#125;    </span><br><span class="line">	</span><br><span class="line"><span class="comment">//创建不允许重写的ride方法，描述为：**出租车是所属于***公司的。</span></span><br><span class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ride</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	System.out.println(getUserName()+<span class="string">"的出租车是所属于"</span>+getCompany()+<span class="string">"公司的。"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//重写父类use方法，描述为：出租车是提高市民生活质量的重要条件之一</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">use</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"出租车是提高市民生活质量的重要条件之一"</span>);</span><br><span class="line">&#125;	</span><br><span class="line"></span><br><span class="line"><span class="comment">//重写toString方法，输出的表现形式不同（输出color,userName）</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"taxi的信息是："</span>+getUserName()+<span class="string">"拥有一辆"</span>+getColor()+<span class="string">"的出租车"</span>;</span><br><span class="line">&#125;	</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.cartwo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeCar</span> <span class="keyword">extends</span> <span class="title">Car</span></span>&#123;</span><br><span class="line">    <span class="comment">//私有属性：载客数（num）</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> num;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">HomeCar</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//带参构造方法为所有属性赋值</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">HomeCar</span><span class="params">(String color,String useName,<span class="keyword">int</span> num)</span></span>&#123;</span><br><span class="line">	color=getColor();</span><br><span class="line">	useName=getUserName();</span><br><span class="line">	<span class="keyword">this</span>.num=num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//通过封装实现对私有属性的get/set操作</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNum</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.num = num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建无参无返回值的display方法，表现为：**拥有的**颜色的私家车,有**座位</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	System.out.println(getUserName()+<span class="string">"拥有的"</span>+getColor()+<span class="string">"颜色的私家车,有"</span>+getNum()+<span class="string">"座位"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//重载display方法（带参数num），描述为：家用汽车大多有**个座位</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"家用汽车大多有"</span>+getNum()+<span class="string">"个座位"</span>);</span><br><span class="line">&#125;	</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.cartwo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123; </span><br><span class="line">		<span class="comment">//实例化父类对象，并传入两组相同的属性值</span></span><br><span class="line">    	Car car1=<span class="keyword">new</span> Car(<span class="string">"白色"</span>,<span class="string">"Xming"</span>);</span><br><span class="line">    	Car car2=<span class="keyword">new</span> Car(<span class="string">"白色"</span>,<span class="string">"Xming"</span>);</span><br><span class="line">    	</span><br><span class="line"></span><br><span class="line">​	<span class="comment">//调用父类use方法</span></span><br><span class="line">​	car1.use();</span><br><span class="line"></span><br><span class="line">​	<span class="comment">//通过重写equals方法，比较两个对象是否相等</span></span><br><span class="line">​	<span class="keyword">boolean</span> flag=car1.equals(car2);</span><br><span class="line">​	System.out.println(<span class="string">"car1和car2的引用比较:"</span>+flag);</span><br><span class="line"></span><br><span class="line">​	System.out.println(<span class="string">"=================================="</span>);</span><br><span class="line">​    <span class="comment">//实例化子类Taxi对象，并传入属性值</span></span><br><span class="line">​	Taxi taxi=<span class="keyword">new</span> Taxi(<span class="string">"蓝色"</span>, <span class="string">"张小泉"</span>);</span><br><span class="line">​	taxi.setCompany(<span class="string">"长生"</span>);</span><br><span class="line"></span><br><span class="line">​	<span class="comment">//调用ride和use方法</span></span><br><span class="line">​	taxi.ride();</span><br><span class="line">​	taxi.use();</span><br><span class="line"></span><br><span class="line">​	<span class="comment">//输出重写toString后的taxi信息</span></span><br><span class="line">​	System.out.println(taxi.toString());</span><br><span class="line">​	</span><br><span class="line">​	System.out.println(<span class="string">"=================================="</span>);</span><br><span class="line">​	<span class="comment">//实例化子类HomeCar对象，并传入属性值</span></span><br><span class="line">​	HomeCar hc=<span class="keyword">new</span> HomeCar();</span><br><span class="line">​	hc.setColor(<span class="string">"紫色"</span>);</span><br><span class="line">​	hc.setUserName(<span class="string">"孙二娘"</span>);</span><br><span class="line">​	hc.setNum(<span class="number">7</span>);</span><br><span class="line">​	<span class="comment">//调用display方法及它的重载方法</span></span><br><span class="line">​	hc.display();</span><br><span class="line">​	hc.display(<span class="number">5</span>);</span><br><span class="line">​	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Java/" rel="tag"># Java</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/06/11/Java继承-总结/" rel="next" title="Java继承--总结">
+                  <i class="fa fa-chevron-left"></i> Java继承--总结
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/06/11/Java单例模式/" rel="prev" title="Java单例模式">
+                  Java单例模式 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Feihong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feihong</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

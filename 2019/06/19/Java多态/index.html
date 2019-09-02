@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="1-1 课程简介 多态：多种形态，是面向对象语言最核心特征，封装和继承都是为多态准备的，非常重要 2-1 多态的概念 多态的含义：意味着允许不同类的对象对同一消息做出不同的响应。   多态的分类：  1.编译时多态：设计时多态，方法重载来实现  2.运行时多态：程序运行时来决定调用哪个方法   多态的条件：  1.满足继承关系  2.父类引用指向子类对象。 3-1 案例场景描述及实体类编写   n">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java多态">
+<meta property="og:url" content="https://feihong.me/2019/06/19/Java多态/index.html">
+<meta property="og:site_name" content="Feihong&#39;s Blog">
+<meta property="og:description" content="1-1 课程简介 多态：多种形态，是面向对象语言最核心特征，封装和继承都是为多态准备的，非常重要 2-1 多态的概念 多态的含义：意味着允许不同类的对象对同一消息做出不同的响应。   多态的分类：  1.编译时多态：设计时多态，方法重载来实现  2.运行时多态：程序运行时来决定调用哪个方法   多态的条件：  1.满足继承关系  2.父类引用指向子类对象。 3-1 案例场景描述及实体类编写   n">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://img.mukewang.com/climg/5a23b01700018e9912800720.jpg">
+<meta property="og:image" content="https://img.mukewang.com/climg/5a23cd6200010ecc12800720.jpg">
+<meta property="og:image" content="https://img.mukewang.com/climg/5a752db0000179c712800720.jpg">
+<meta property="og:image" content="https://img.mukewang.com/climg/5a190a5e0001c7f812800720.jpg">
+<meta property="og:image" content="https://img.mukewang.com/climg/599afd740001c42412800720.jpg">
+<meta property="og:image" content="https://img.mukewang.com/climg/5a2400e80001f26e12800720.jpg">
+<meta property="og:image" content="https://img.mukewang.com/climg/59d08d6e0001c2ab12800720.jpg">
+<meta property="og:image" content="https://img.mukewang.com/climg/59d0937e000114dc12800720.jpg">
+<meta property="og:updated_time" content="2019-06-23T14:45:39.960Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java多态">
+<meta name="twitter:description" content="1-1 课程简介 多态：多种形态，是面向对象语言最核心特征，封装和继承都是为多态准备的，非常重要 2-1 多态的概念 多态的含义：意味着允许不同类的对象对同一消息做出不同的响应。   多态的分类：  1.编译时多态：设计时多态，方法重载来实现  2.运行时多态：程序运行时来决定调用哪个方法   多态的条件：  1.满足继承关系  2.父类引用指向子类对象。 3-1 案例场景描述及实体类编写   n">
+<meta name="twitter:image" content="https://img.mukewang.com/climg/5a23b01700018e9912800720.jpg">
+  <link rel="canonical" href="https://feihong.me/2019/06/19/Java多态/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Java多态 | Feihong's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+ <link rel="stylesheet" href="/dist/APlayer.min.css">
+ <div id="aplayer"></div>
+ <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+ <script type="text/javascript" src="/dist/music.js"></script>
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feihong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/06/19/Java多态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feihong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Java多态
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-06-19 22:03:40" itemprop="dateCreated datePublished" datetime="2019-06-19T22:03:40+08:00">2019-06-19</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-06-23 22:45:39" itemprop="dateModified" datetime="2019-06-23T22:45:39+08:00">2019-06-23</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>1-1 课程简介</p>
+<p>多态：多种形态，是面向对象语言最核心特征，封装和继承都是为多态准备的，非常重要</p>
+<p>2-1 多态的概念</p>
+<p>多态的含义：意味着允许不同类的对象对同一消息做出不同的响应。</p>
+<p>  多态的分类：<br>  1.编译时多态：设计时多态，方法重载来实现<br>  2.运行时多态：程序运行时来决定调用哪个方法</p>
+<p>  多态的条件：<br>  1.满足继承关系<br>  2.父类引用指向子类对象。</p>
+<p>3-1 案例场景描述及实体类编写</p>
+<p>  null</p>
+<p>3-2 向上转型</p>
+<p>父类引用指向子类实例，默认的把子类的实例转为父类的实例了 如：Animal one=new Dog();<br>能够调用父类的重写方法和派生的方法，不能调用子类特有的方法</p>
+<p><img src="https://img.mukewang.com/climg/5a23b01700018e9912800720.jpg" alt></p>
+<p>3-3 向下转型</p>
+<p>向上向下转型总结：前提是父类引用指向子类实例对象，父类指向父类，子类指向父类都会报错<br>向下转型：把指向子类对象的父类的引用付给了子类叫向下<br>Animal one=new Dog();//向上引用<br>Dog a=(Dog)one;//向下引用</p>
+<p><img src="https://img.mukewang.com/climg/5a23cd6200010ecc12800720.jpg" alt></p>
+<p>3-4 instanceof运算符</p>
+<p>instanceof运算符判断是否能够对象转化,提高向下转型的安全性<br>if(two instanceof Cat){}<br>if(two instanceof Animal){}<br>if(two instanceof object){}<br>核对是否能够 向下转 子类转 父类转object类都可以</p>
+<p><img src="https://img.mukewang.com/climg/5a752db0000179c712800720.jpg" alt></p>
+<p>3-5 总结</p>
+<p>向下转型（强制类型转换）：<br>1.子类引用指向父类对象，此处必须进行强转<br>2.必须满足转型条件才能转换。<br>3.instanceof 判断左边的对象是否是右面的实例<br>4.父类引用指向子类实例，可以调用子类重写父类的方法以及父类派生的方法，无法调用子类独有方法。<br>5.父类中的静态方法无法被子类重写，所以向上转型之后。只能调用到父类原有的静态方法。</p>
+<p><img src="https://img.mukewang.com/climg/5a190a5e0001c7f812800720.jpg" alt></p>
+<p>3-6 类型转换案例（上）</p>
+<p>方案1：编写方法，传入不同类型的动物，调用格子的方法<br>优点：看起来非常清晰<br>缺点：增加多个需求的话就要写很多重载方法</p>
+<p>方案2：编写方法传入动物的父类，方法中通过类型转换调用指定子类的方法（新增需求不多的时候推荐使用）<br>优点：一个方法解决各种问题<br>缺点：后期维护的时候，如需新增需求，要在方法体内部破坏原有封装，新增功能</p>
+<p><img src="https://img.mukewang.com/climg/599afd740001c42412800720.jpg" alt></p>
+<p>3-14 类型转换案例（下）</p>
+<p>多态的操作：<br>当我们在实际开发中需要同一个操作行为，针对不同的参数，返回不同的实例对象，完成不同操作结果时，适用于多态的操作。<br>能够更好的体现类型转换的价值</p>
+<p><img src="https://img.mukewang.com/climg/5a2400e80001f26e12800720.jpg" alt></p>
+<p>4-1 抽象类</p>
+<p>abstract: 抽象类。不能实例化，但可通过向上转型指向子类实例。<br>应用：父类只知道子类应该具有的特性，但实际应用中没有实例化父类的必要，而是通过子类的实例化来实现具体的功能。<br>优点：限制子类的设计随意性；同时避免无意义的父类实例化。</p>
+<p><img src="https://img.mukewang.com/climg/59d08d6e0001c2ab12800720.jpg" alt></p>
+<p>4-2 抽象方法</p>
+<p>abstract+类：抽象类<br>abstract+方法：抽象方法<br>1.抽象类限制父类实例化，只能被继承，通过子类向上转型实例化。<br>2.抽象方法不允许包含方法体，子类必须重写父类的抽象方法。若不重写，则子类也必须变为抽象类。<br>3.抽象类、抽象方法应用价值：限制子类必须具有某种能力，提醒子类要实现自己的特定方法。<br>4.包含抽象方法的类一定是抽象类，但是抽象类中可以没有抽象方法<br>5.static、final、private不能与abstract同时出现。抽象方法要在子类中被重写，而private只在当前类被访问，final、static方法不能被子类重写，所以不能与abstract并存。</p>
+<p><img src="https://img.mukewang.com/climg/59d0937e000114dc12800720.jpg" alt></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Java/" rel="tag"># Java</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/06/18/单例模式编程练习/" rel="next" title="单例模式编程练习">
+                  <i class="fa fa-chevron-left"></i> 单例模式编程练习
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/06/23/FeihongsBlog/" rel="prev" title="Welcome To My Blog">
+                  Welcome To My Blog <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Feihong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feihong</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

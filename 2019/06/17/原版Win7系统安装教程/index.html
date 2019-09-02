@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="很多网友对原版win7的印象估计是“装好桌面只有一个回收站”，然后连网络都链接不了！那么你想知道原版win7系统怎么安装吗？本教程教你如何快速安装原版win7系统，适用于电脑还能正常启动，且没有U盘启动盘、光驱光盘等情况下安装。 安装准备工作 ●  提前下载好win7光盘映像文件   ●  解压工具 ●  做好重要文件的备份（数据无价） ●  提前准备好网卡驱动 安装步骤 1、使用解压工具把win">
+<meta name="keywords" content="Windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原版Win7系统安装教程">
+<meta property="og:url" content="https://feihong.me/2019/06/17/原版Win7系统安装教程/index.html">
+<meta property="og:site_name" content="Feihong&#39;s Blog">
+<meta property="og:description" content="很多网友对原版win7的印象估计是“装好桌面只有一个回收站”，然后连网络都链接不了！那么你想知道原版win7系统怎么安装吗？本教程教你如何快速安装原版win7系统，适用于电脑还能正常启动，且没有U盘启动盘、光驱光盘等情况下安装。 安装准备工作 ●  提前下载好win7光盘映像文件   ●  解压工具 ●  做好重要文件的备份（数据无价） ●  提前准备好网卡驱动 安装步骤 1、使用解压工具把win">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7001/1.jpg">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7001/2.jpg">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7001/3.jpg">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7001/4.jpg">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7001/5.jpg">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7001/6.jpg">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7001/7.jpg">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7001/8.jpg">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/J8rHww2BD2AqQbHCJr9CLpdhWPzbueqouP7iXmK.UQI!/r/dDABAAAAAAAA">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7001/10.jpg">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7001/11.jpg">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/d52BGATUuhKLKcPviQQNICKOHygDK7NGxy0VB0UFsnw!/r/dLgAAAAAAAAA">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7001/13.jpg">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/tW3A9M.Zhl3nXYQXdlgplX6TPQ2reiWe4A0sH.Qyb0Y!/r/dL8AAAAAAAAA">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7001/15.jpg">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7001/16.jpg">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7001/17.jpg">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/N1V80k9ToXdvQnosei2XBicxMVDN9DU*QANSU4AePXk!/r/dD4BAAAAAAAA">
+<meta property="og:image" content="http://www.xitongku.com/images/win7/7001/19.jpg">
+<meta property="og:updated_time" content="2019-06-17T07:46:00.902Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="原版Win7系统安装教程">
+<meta name="twitter:description" content="很多网友对原版win7的印象估计是“装好桌面只有一个回收站”，然后连网络都链接不了！那么你想知道原版win7系统怎么安装吗？本教程教你如何快速安装原版win7系统，适用于电脑还能正常启动，且没有U盘启动盘、光驱光盘等情况下安装。 安装准备工作 ●  提前下载好win7光盘映像文件   ●  解压工具 ●  做好重要文件的备份（数据无价） ●  提前准备好网卡驱动 安装步骤 1、使用解压工具把win">
+<meta name="twitter:image" content="http://www.xitongku.com/images/win7/7001/1.jpg">
+  <link rel="canonical" href="https://feihong.me/2019/06/17/原版Win7系统安装教程/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>原版Win7系统安装教程 | Feihong's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+ <link rel="stylesheet" href="/dist/APlayer.min.css">
+ <div id="aplayer"></div>
+ <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+ <script type="text/javascript" src="/dist/music.js"></script>
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feihong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/06/17/原版Win7系统安装教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feihong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">原版Win7系统安装教程
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-06-17 14:05:03 / Modified: 15:46:00" itemprop="dateCreated datePublished" datetime="2019-06-17T14:05:03+08:00">2019-06-17</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>很多网友对原版win7的印象估计是“装好桌面只有一个回收站”，然后连网络都链接不了！那么你想知道原版win7系统怎么安装吗？本教程教你如何快速安装原版win7系统，适用于电脑还能正常启动，且没有U盘启动盘、光驱光盘等情况下安装。</p>
+<p>安装准备工作</p>
+<p>●  提前下载好win7光盘映像文件  </p>
+<p>●  解压工具</p>
+<p>●  做好重要文件的备份（数据无价）</p>
+<p>●  提前准备好网卡驱动</p>
+<p>安装步骤</p>
+<p>1、使用解压工具把win7原版镜像文件解压到C盘之外的分区，比如D盘。然后打开文件夹点击setup.exe</p>
+<p><img src="http://www.xitongku.com/images/win7/7001/1.jpg" alt></p>
+<p>2、出现安装向导，点击“现在安装”</p>
+<p><img src="http://www.xitongku.com/images/win7/7001/2.jpg" alt></p>
+<p>3、选择“不获取最新安装更新”</p>
+<p><img src="http://www.xitongku.com/images/win7/7001/3.jpg" alt></p>
+<p>4、接受条款</p>
+<p><img src="http://www.xitongku.com/images/win7/7001/4.jpg" alt></p>
+<p>5、安装类型选择 “自定义（高级）”</p>
+<p><img src="http://www.xitongku.com/images/win7/7001/5.jpg" alt></p>
+<p>6、选择安装系统的硬盘（一般为C盘）</p>
+<p><img src="http://www.xitongku.com/images/win7/7001/6.jpg" alt></p>
+<p>7、开始执行win7系统的安装 , 期间计算机会自动重启多次，可能需要一些时间(期间可以先玩一会手机）</p>
+<p><img src="http://www.xitongku.com/images/win7/7001/7.jpg" alt></p>
+<p><img src="http://www.xitongku.com/images/win7/7001/8.jpg" alt></p>
+<p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/J8rHww2BD2AqQbHCJr9CLpdhWPzbueqouP7iXmK.UQI!/r/dDABAAAAAAAA" alt></p>
+<p><img src="http://www.xitongku.com/images/win7/7001/10.jpg" alt></p>
+<p>8、进入系统配置过程，一般默认即可</p>
+<p><img src="http://www.xitongku.com/images/win7/7001/11.jpg" alt></p>
+<p>9、创建用户名和电脑名称</p>
+<p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/d52BGATUuhKLKcPviQQNICKOHygDK7NGxy0VB0UFsnw!/r/dLgAAAAAAAAA" alt></p>
+<p>10、设置计算机登录密码（此项可不设置）</p>
+<p><img src="http://www.xitongku.com/images/win7/7001/13.jpg" alt></p>
+<p>11、选择以后询问我（A）</p>
+<p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/tW3A9M.Zhl3nXYQXdlgplX6TPQ2reiWe4A0sH.Qyb0Y!/r/dL8AAAAAAAAA" alt></p>
+<p>12、设置时间和日期（默认为当日北京时间）</p>
+<p><img src="http://www.xitongku.com/images/win7/7001/15.jpg" alt></p>
+<p>13、然后根据个人的需要来设置自己的网络</p>
+<p><img src="http://www.xitongku.com/images/win7/7001/16.jpg" alt></p>
+<p>14、稍等片刻后便会进入win7界面。恭喜你，你已经完成了win7系统的安装</p>
+<p><img src="http://www.xitongku.com/images/win7/7001/17.jpg" alt></p>
+<p>15、然后，我们可以把常用图标调出来。在桌面右键&gt;个性化&gt;更改桌面图标， 然后勾选你所需要显示的图标即可</p>
+<p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/N1V80k9ToXdvQnosei2XBicxMVDN9DU*QANSU4AePXk!/r/dD4BAAAAAAAA" alt></p>
+<p>16、查看系统激活情况，右键我的电脑&gt;属性查看（你可以使用密钥或第三方KMS激活，具体请百度一下）</p>
+<p><img src="http://www.xitongku.com/images/win7/7001/19.jpg" alt></p>
+<p>注意事项</p>
+<p>●  原版win7不带驱动，安装前需要准备好相关驱动安装包或离线版驱动工具</p>
+<p>●  切勿使用高版本安装低版本（如win10安装win7），容易出现其他的安装问题</p>
+<p>●  32位系统环境下要安装64位win7需通过其他介质来启动安装（如PE安装、U盘启动）</p>
+<p>●  如阅读本教程或安装使用中遇到任何疑问可随时留言咨询</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Windows/" rel="tag"># Windows</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/06/17/DiskPart命令对硬盘分区/" rel="next" title="DiskPart命令对硬盘分区">
+                  <i class="fa fa-chevron-left"></i> DiskPart命令对硬盘分区
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/06/17/原版Win10系统安装教程/" rel="prev" title="原版Win10系统安装教程">
+                  原版Win10系统安装教程 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Feihong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feihong</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

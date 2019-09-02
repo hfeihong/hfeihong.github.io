@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="某公司要开发内部的 “办公信息化管理系统”，请使用面向对象的思想描述以下员工信息。    程序运行参考效果图如下：  任务描述 一、语言和环境  实现语言  ​       Java语言  环境要求及开发工具  ​       JDK、Eclipse 二、程序整体要求  划分功能模块，根据题目要求设置不同的类，在类中实现相应功能的管理。 类的标识要清楚易懂，代码结构要层次分明，代码编辑思路要清晰、">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="办公信息化管理系统作业">
+<meta property="og:url" content="https://feihong.me/2019/03/11/办公信息化管理系统作业/index.html">
+<meta property="og:site_name" content="Feihong&#39;s Blog">
+<meta property="og:description" content="某公司要开发内部的 “办公信息化管理系统”，请使用面向对象的思想描述以下员工信息。    程序运行参考效果图如下：  任务描述 一、语言和环境  实现语言  ​       Java语言  环境要求及开发工具  ​       JDK、Eclipse 二、程序整体要求  划分功能模块，根据题目要求设置不同的类，在类中实现相应功能的管理。 类的标识要清楚易懂，代码结构要层次分明，代码编辑思路要清晰、">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://climg.mukewang.com/5837d74d0001ce1806340356.jpg">
+<meta property="og:image" content="https://climg.mukewang.com/5837d8c600015ff203020656.jpg">
+<meta property="og:updated_time" content="2019-03-11T06:23:38.302Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="办公信息化管理系统作业">
+<meta name="twitter:description" content="某公司要开发内部的 “办公信息化管理系统”，请使用面向对象的思想描述以下员工信息。    程序运行参考效果图如下：  任务描述 一、语言和环境  实现语言  ​       Java语言  环境要求及开发工具  ​       JDK、Eclipse 二、程序整体要求  划分功能模块，根据题目要求设置不同的类，在类中实现相应功能的管理。 类的标识要清楚易懂，代码结构要层次分明，代码编辑思路要清晰、">
+<meta name="twitter:image" content="https://climg.mukewang.com/5837d74d0001ce1806340356.jpg">
+  <link rel="canonical" href="https://feihong.me/2019/03/11/办公信息化管理系统作业/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>办公信息化管理系统作业 | Feihong's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+ <link rel="stylesheet" href="/dist/APlayer.min.css">
+ <div id="aplayer"></div>
+ <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+ <script type="text/javascript" src="/dist/music.js"></script>
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feihong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/03/11/办公信息化管理系统作业/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feihong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">办公信息化管理系统作业
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-03-11 14:18:06 / Modified: 14:23:38" itemprop="dateCreated datePublished" datetime="2019-03-11T14:18:06+08:00">2019-03-11</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>某公司要开发内部的 “办公信息化管理系统”，请使用面向对象的思想描述以下员工信息。</p>
+<p><img src="https://climg.mukewang.com/5837d74d0001ce1806340356.jpg" alt></p>
+<p>  程序运行参考效果图如下：</p>
+<p><img src="https://climg.mukewang.com/5837d8c600015ff203020656.jpg" alt></p>
+<p>任务描述</p>
+<p>一、语言和环境</p>
+<ul>
+<li>实现语言</li>
+</ul>
+<p>​       Java语言</p>
+<ul>
+<li>环境要求及开发工具</li>
+</ul>
+<p>​       JDK、Eclipse</p>
+<p>二、程序整体要求</p>
+<ol>
+<li>划分功能模块，根据题目要求设置不同的类，在类中实现相应功能的管理。</li>
+<li>类的标识要清楚易懂，代码结构要层次分明，代码编辑思路要清晰、整洁。</li>
+<li>要求Java代码书写、命名符合规范，属性所属数据类型要准确合理，在代码中添加必要的注释</li>
+<li>程序运行效果与提供的页面效果图、结构保持一致，信息间分隔符“=”号数量不做统一要求，文字大小、颜色也不做统一要求</li>
+<li>将作业项目形成压缩文件并提交</li>
+</ol>
+<p>三、思路分析：</p>
+<p>​      由场景和运行效果，可以分析出项目中可以抽取如下类（要求编码时注意面向对象思想及封装特性的应用）：</p>
+<ul>
+<li>部门类：</li>
+</ul>
+<p>​       类型描述：能够描述部门编号、部门名称、获取所有该部门员工信息</p>
+<p>​       要求：设定方法统计该部门员工个数</p>
+<ul>
+<li>职务类：</li>
+</ul>
+<p>​       类型描述：能够描述职务编号、职务名称</p>
+<ul>
+<li>员工类：</li>
+</ul>
+<p>​       类型描述：能够描述员工姓名、工号、年龄、性别、所属部门、职务信息</p>
+<p>​       要求：</p>
+<p>​        1、 设定方法限定年龄只能是18–65之间,反之则设置默认为18岁</p>
+<p>​        2、 设定方法限定性别只能是“男”或者“女”,反之则设置默认为”男”</p>
+<p>​        3、 设定方法，实现员工自我介绍信息，将员工信息作为字符串返回</p>
+<ul>
+<li>测试类：</li>
+</ul>
+<p>​       类型描述：测试程序，并参照效果图输出结果</p>
+<p>注意：可以在属性上添加适当的信息验证，提高信息的安全性</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.office;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Staff</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 成员属性：员工姓名、工号、年龄、性别</span></span><br><span class="line">	<span class="keyword">private</span> String staffName;</span><br><span class="line">	<span class="keyword">private</span> String staffNo;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> staffAge;</span><br><span class="line">	<span class="keyword">private</span> String staffSex;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 无参构造方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Staff</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 多参构造方法，实现对全部属性的赋值</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Staff</span><span class="params">(String staffName, String staffNo, <span class="keyword">int</span> staffAge, String staffSex)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.setStaffName(staffName);</span><br><span class="line">		<span class="keyword">this</span>.setStaffNo(staffNo);</span><br><span class="line">		<span class="keyword">this</span>.setStaffAge(staffAge);</span><br><span class="line">		<span class="keyword">this</span>.setStaffSex(staffSex);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getStaffName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> staffName;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStaffName</span><span class="params">(String staffName)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.staffName = staffName;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getStaffNo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> staffNo;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStaffNo</span><span class="params">(String staffNo)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.staffNo = staffNo;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getStaffAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> staffAge;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 限定年龄只能是18-65之间，反之则设置默认为18岁</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> staffAge</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStaffAge</span><span class="params">(<span class="keyword">int</span> staffAge)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (staffAge &lt; <span class="number">18</span> | staffAge &gt; <span class="number">65</span>)</span><br><span class="line">			<span class="keyword">this</span>.staffAge = <span class="number">18</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">this</span>.staffAge = staffAge;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getStaffSex</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> staffSex;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 对员工性别进行限制，“男”或者“女”，否则默认为“男”</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> staffSex</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStaffSex</span><span class="params">(String staffSex)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">this</span>.staffSex==<span class="string">"男"</span> || <span class="keyword">this</span>.staffSex==<span class="string">"女"</span>)</span><br><span class="line">			<span class="keyword">this</span>.staffSex = staffSex;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">this</span>.staffSex = <span class="string">"男"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 员工自我介绍方法</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> 自我介绍的信息，包括姓名、工号、性别、年龄</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">introduction</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		String str = <span class="string">"员工信息如下：\n姓名："</span> + <span class="keyword">this</span>.getStaffName() + <span class="string">"\n工号："</span> + <span class="keyword">this</span>.getStaffNo() + <span class="string">"\n性别："</span> + <span class="keyword">this</span>.getStaffSex()</span><br><span class="line">				+ <span class="string">"\n年龄："</span> + <span class="keyword">this</span>.getStaffAge();</span><br><span class="line">		<span class="keyword">return</span> str;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 员工自我介绍方法</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> myDepartment</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> myJob</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> 自我介绍信息，包括姓名、工号、性别、年龄、所在部门、职务</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">introduction</span><span class="params">(Department myDepartment,Job myJob)</span> </span>&#123;</span><br><span class="line">		String str = <span class="string">"员工信息如下：\n姓名："</span> + <span class="keyword">this</span>.getStaffName() + <span class="string">"\n工号："</span> + <span class="keyword">this</span>.getStaffNo() + <span class="string">"\n性别："</span> + <span class="keyword">this</span>.getStaffSex()</span><br><span class="line">				+ <span class="string">"\n年龄："</span> + <span class="keyword">this</span>.getStaffAge()+<span class="string">"\n职务："</span>+myDepartment.getDepartmentName()+myJob.getJobName();</span><br><span class="line">		<span class="keyword">return</span> str;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.office;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Job</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 职务：职务编号、职务名称</span></span><br><span class="line">	<span class="keyword">private</span> String jobNo;</span><br><span class="line">	<span class="keyword">private</span> String jobName;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 无参构造方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Job</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 带参构造方法，赋值给全部属性;</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Job</span><span class="params">(String jobNo, String jobName)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.setJobName(jobName);</span><br><span class="line">	<span class="keyword">this</span>.setJobNo(jobNo);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getJobName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> jobName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setJobName</span><span class="params">(String jobName)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.jobName = jobName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getJobNo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> jobNo;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setJobNo</span><span class="params">(String jobNo)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.jobNo = jobNo;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.office;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Department</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 部门编号、部门名称、员工数组、统计变量</span></span><br><span class="line">	<span class="keyword">private</span> String departmentNo;</span><br><span class="line">	<span class="keyword">private</span> String departmentName;</span><br><span class="line">	<span class="keyword">private</span> Staff[] myStaffs;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> staffNum;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 无参构造方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Department</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 带参构造方法，赋值给部门编号、部门名称</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Department</span><span class="params">(String departmentNo, String departName)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.setDepartmentName(departName);</span><br><span class="line">	<span class="keyword">this</span>.setDepartmentNo(departmentNo);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getDepartmentName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> departmentName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDepartmentName</span><span class="params">(String departmentName)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.departmentName = departmentName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getDepartmentNo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> departmentNo;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDepartmentNo</span><span class="params">(String departmentNo)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.departmentNo = departmentNo;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> Staff[] getMyStaffs() &#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">this</span>.myStaffs==<span class="keyword">null</span>)</span><br><span class="line">		<span class="keyword">this</span>.myStaffs=<span class="keyword">new</span> Staff[<span class="number">200</span>];</span><br><span class="line">	<span class="keyword">return</span> myStaffs;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMyStaffs</span><span class="params">(Staff[] myStaffs)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.myStaffs = myStaffs;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getStaffNum</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> staffNum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStaffNum</span><span class="params">(<span class="keyword">int</span> staffNum)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.staffNum = staffNum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 部门员工个数统计方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> sta</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addStaff</span><span class="params">(Staff sta)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.getMyStaffs().length;i++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">this</span>.getMyStaffs()[i]==<span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">this</span>.getMyStaffs()[i]=sta;</span><br><span class="line">			<span class="keyword">this</span>.staffNum=i+<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> me.feihong.office.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OfficeTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	Department dep1=<span class="keyword">new</span> Department(<span class="string">"D001"</span>,<span class="string">"人事部"</span>);</span><br><span class="line">	Department dep2=<span class="keyword">new</span> Department(<span class="string">"D002"</span>,<span class="string">"市场部"</span>);</span><br><span class="line">	Job job1=<span class="keyword">new</span> Job(<span class="string">"J001"</span>,<span class="string">"经理"</span>);</span><br><span class="line">	Job job2=<span class="keyword">new</span> Job(<span class="string">"J002"</span>,<span class="string">"助理"</span>);</span><br><span class="line">	Job job3=<span class="keyword">new</span> Job(<span class="string">"J003"</span>,<span class="string">"职员"</span>);</span><br><span class="line">	Staff sta1=<span class="keyword">new</span> Staff(<span class="string">"张铭"</span>,<span class="string">"S001"</span>,<span class="number">29</span>,<span class="string">"男"</span>);</span><br><span class="line">	Staff sta2=<span class="keyword">new</span> Staff(<span class="string">"李艾爱"</span>,<span class="string">"S002"</span>,<span class="number">21</span>,<span class="string">"女"</span>);</span><br><span class="line">	Staff sta3=<span class="keyword">new</span> Staff(<span class="string">"孙超"</span>,<span class="string">"S004"</span>,<span class="number">29</span>,<span class="string">"男"</span>);</span><br><span class="line">	Staff sta4=<span class="keyword">new</span> Staff(<span class="string">"张美美"</span>,<span class="string">"S005"</span>,<span class="number">26</span>,<span class="string">"女"</span>);</span><br><span class="line">	Staff sta5=<span class="keyword">new</span> Staff(<span class="string">"蓝迪"</span>,<span class="string">"S006"</span>,<span class="number">37</span>,<span class="string">"男"</span>);</span><br><span class="line">	Staff sta6=<span class="keyword">new</span> Staff(<span class="string">"米莉"</span>,<span class="string">"S007"</span>,<span class="number">24</span>,<span class="string">"女"</span>);</span><br><span class="line">	</span><br><span class="line">	System.out.println(sta1.introduction(dep1,job1));</span><br><span class="line">	System.out.println(<span class="string">"=============================="</span>);</span><br><span class="line">	System.out.println(sta2.introduction(dep1,job2));</span><br><span class="line">	System.out.println(<span class="string">"=============================="</span>);</span><br><span class="line">	System.out.println(sta3.introduction(dep1,job3));</span><br><span class="line">	System.out.println(<span class="string">"=============================="</span>);</span><br><span class="line">	System.out.println(sta4.introduction(dep2,job3));</span><br><span class="line">	System.out.println(<span class="string">"=============================="</span>);</span><br><span class="line">	System.out.println(sta5.introduction(dep2,job1));</span><br><span class="line">	System.out.println(<span class="string">"=============================="</span>);</span><br><span class="line">	System.out.println(sta6.introduction(dep2,job3));</span><br><span class="line">	System.out.println(<span class="string">"=============================="</span>);</span><br><span class="line">	dep1.addStaff(sta1);</span><br><span class="line">	dep1.addStaff(sta2);</span><br><span class="line">	dep1.addStaff(sta3);</span><br><span class="line">	dep2.addStaff(sta4);</span><br><span class="line">	dep2.addStaff(sta5);</span><br><span class="line">	dep2.addStaff(sta6);</span><br><span class="line">	System.out.println(dep1.getDepartmentName()+<span class="string">"总共有"</span>+dep1.getStaffNum()+<span class="string">"名员工"</span>);</span><br><span class="line">	System.out.println(dep2.getDepartmentName()+<span class="string">"总共有"</span>+dep2.getStaffNum()+<span class="string">"名员工"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Java/" rel="tag"># Java</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/02/28/Java封装综合案例/" rel="next" title="Java封装综合案例">
+                  <i class="fa fa-chevron-left"></i> Java封装综合案例
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/03/11/Java继承（上）/" rel="prev" title="Java继承（上）">
+                  Java继承（上） <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Feihong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feihong</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>
