@@ -122,6 +122,11 @@
  <div id="aplayer"></div>
  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
  <script type="text/javascript" src="/dist/music.js"></script>
+ 
+ <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -178,6 +183,17 @@
       
       
         
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
         <li class="menu-item menu-item-archives">
       
     
@@ -194,6 +210,17 @@
     
 
     <a href="/MyLove/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>MyLove</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-album">
+      
+    
+
+    <a href="/photos/" rel="section"><i class="menu-item-icon fa fa-fw fa-camera"></i> <br>Album</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -375,12 +402,23 @@
 <p>简而言之，就是<code>hexo d</code>要单独执行，其他命令可以组合执行，否则就会导致无法推送那两个文件。</p>
 
     </div>
+	
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+  
+</div>
 
     
     
     
         
-      
+      	  
 
       <footer class="post-footer">
           
@@ -469,6 +507,9 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="Feihong">
   <p class="site-author-name" itemprop="name">Feihong</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -486,9 +527,13 @@
       
       <div class="site-state-item site-state-tags">
         
+          
+            <a href="/tags/">
+          
+        
         <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span>
-        
+        </a>
       </div>
     
   </nav>
@@ -522,6 +567,7 @@
       </div>
 
     </div>
+	
   </aside>
   <div id="sidebar-dimmer"></div>
 
@@ -533,9 +579,9 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Feihong</span>
+  <span class="author" itemprop="copyrightHolder">Powered by Feihong</span>
 </div>
 
         
@@ -672,10 +718,13 @@
   
 
 
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
 <script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
 <script src="/js/schemes/pisces.js?v=7.4.0"></script>
 

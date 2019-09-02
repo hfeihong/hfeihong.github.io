@@ -132,6 +132,11 @@
  <div id="aplayer"></div>
  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
  <script type="text/javascript" src="/dist/music.js"></script>
+ 
+ <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -188,6 +193,17 @@
       
       
         
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
         <li class="menu-item menu-item-archives">
       
     
@@ -204,6 +220,17 @@
     
 
     <a href="/MyLove/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>MyLove</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-album">
+      
+    
+
+    <a href="/photos/" rel="section"><i class="menu-item-icon fa fa-fw fa-camera"></i> <br>Album</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -386,12 +413,23 @@
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在java应用程序中，异常处理机制为：抛出异常，捕捉异常，通过5个关键字来实现:try,catch,finally,throw,throws.<br>1，当我们把可能出现异常的代码放入try块中，且无异常信息发生时，catch块的代码不会被执行，只执行后面的代码。<br>2，但当try块中发生异常，产生异常对象，并且该异常对象类型与catch块类型匹配时，程序先进入catch块的执行环节，然后顺序执行<br>3，当try块抛出异常和catch块异常类型无法正常匹配时，则程序会中断执行，catch块后面的代码就不会正常执行。<br>4，如果try块后面代码会产生多种类型的异常，就可以通过多重catch的方式实现不同类型的异常的匹配。<br>5，我们可以在catch块后面加上finally块来保证某段代码无论是否执行catch块，都能够正常执行。<br>6，一旦在try块或catch块中加入System.exit(1)，finally块将会强制终止执行。<br>7，当代码出现return，表示finally块已经执行完毕，因为只有finally块执行完后，才会执行return代码，无论return语句放在何处。</p>
 
     </div>
+	
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+  
+</div>
 
     
     
     
         
-      
+      	  
 
       <footer class="post-footer">
           
@@ -480,6 +518,9 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="Feihong">
   <p class="site-author-name" itemprop="name">Feihong</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -497,9 +538,13 @@
       
       <div class="site-state-item site-state-tags">
         
+          
+            <a href="/tags/">
+          
+        
         <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span>
-        
+        </a>
       </div>
     
   </nav>
@@ -533,6 +578,7 @@
       </div>
 
     </div>
+	
   </aside>
   <div id="sidebar-dimmer"></div>
 
@@ -544,9 +590,9 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Feihong</span>
+  <span class="author" itemprop="copyrightHolder">Powered by Feihong</span>
 </div>
 
         
@@ -683,10 +729,13 @@
   
 
 
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
 <script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
 <script src="/js/schemes/pisces.js?v=7.4.0"></script>
 

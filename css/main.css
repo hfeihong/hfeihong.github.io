@@ -1680,7 +1680,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #e462ff;
+  background: #ff2d04;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1928,6 +1928,9 @@ article:last-child .post-eof {
 }
 .footer-inner {
   text-align: center;
+}
+#animate {
+  animation: iconAnimate 1.33s ease-in-out infinite;
 }
 .with-love {
   color: #808080;
