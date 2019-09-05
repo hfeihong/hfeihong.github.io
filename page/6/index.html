@@ -11,17 +11,6 @@
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
 
-<script>
-    (function(){
-        if('password'){
-            if (prompt('该部分已被加密，请输入密码进行访问：') !== 'password'){
-                alert('密码错误！');
-                history.back();
-            }
-        }
-    })();
-</script>
-
 
   <script>
   (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
@@ -294,7 +283,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/05/06/访问修饰符的分类及作用/">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/Java继承（上）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feihong">
@@ -308,7 +297,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/2019/05/06/访问修饰符的分类及作用/" class="post-title-link" itemprop="url">访问修饰符的分类及作用</a>
+            <a href="/Java继承（上）/" class="post-title-link" itemprop="url">Java继承（上）</a>
           
         </h2>
 
@@ -325,16 +314,24 @@
                 
               
 
-              <time title="Created: 2019-05-06 20:55:52 / Modified: 21:23:49" itemprop="dateCreated datePublished" datetime="2019-05-06T20:55:52+08:00">2019-05-06</time>
+              <time title="Created: 2019-03-11 16:53:55" itemprop="dateCreated datePublished" datetime="2019-03-11T16:53:55+08:00">2019-03-11</time>
             </span>
           
             
 
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-05 21:55:52" itemprop="dateModified" datetime="2019-09-05T21:55:52+08:00">2019-09-05</time>
+              </span>
+            
           
 
           
-            <span id="/2019/05/06/访问修饰符的分类及作用/" class="post-meta-item leancloud_visitors" data-flag-title="访问修饰符的分类及作用" title="Views">
+            <span id="/Java继承（上）/" class="post-meta-item leancloud_visitors" data-flag-title="Java继承（上）" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -352,137 +349,7 @@
       
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/05/06/访问修饰符的分类及作用/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/05/06/访问修饰符的分类及作用/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span>0</span>
-            </span>
-          
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span>1 mins.</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">访问修饰符分类：</span><br><span class="line">*公有的：public</span><br><span class="line">访问限定范围最大，可以在任何位置被访问</span><br><span class="line">只要能正确加载public成员所在的类型，就可以通过类型访问public成员。</span><br><span class="line"></span><br><span class="line">*私有的：private</span><br><span class="line">访问限定范围最小，只允许在本类中进行访问</span><br><span class="line"></span><br><span class="line">*受保护的：protected</span><br><span class="line">当前类，同包任意类型都可访问，跨包之中的子类都可以访问（跨包情况下非子类无法访问/调用）</span><br><span class="line"></span><br><span class="line">*默认 （不加任何访问修饰符）</span><br><span class="line">当前类，同包任何类都可以调用 【跨包子类无法调用】</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/06/访问修饰符的分类及作用/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-	
-<div>
-  
-</div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/03/11/Java继承（上）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feihong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feihong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/03/11/Java继承（上）/" class="post-title-link" itemprop="url">Java继承（上）</a>
-          
-        </h2>
-
-        <div class="post-meta">
-		
-		
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-03-11 16:53:55 / Modified: 17:29:06" itemprop="dateCreated datePublished" datetime="2019-03-11T16:53:55+08:00">2019-03-11</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-            <span id="/2019/03/11/Java继承（上）/" class="post-meta-item leancloud_visitors" data-flag-title="Java继承（上）" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/03/11/Java继承（上）/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/03/11/Java继承（上）/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/Java继承（上）/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/Java继承（上）/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -521,7 +388,7 @@
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/03/11/Java继承（上）/#more" rel="contents">
+              <a class="btn" href="/Java继承（上）/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -554,7 +421,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/03/11/办公信息化管理系统作业/">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/办公信息化管理系统作业/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feihong">
@@ -568,7 +435,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/2019/03/11/办公信息化管理系统作业/" class="post-title-link" itemprop="url">办公信息化管理系统作业</a>
+            <a href="/办公信息化管理系统作业/" class="post-title-link" itemprop="url">办公信息化管理系统作业</a>
           
         </h2>
 
@@ -585,16 +452,24 @@
                 
               
 
-              <time title="Created: 2019-03-11 14:18:06 / Modified: 14:23:38" itemprop="dateCreated datePublished" datetime="2019-03-11T14:18:06+08:00">2019-03-11</time>
+              <time title="Created: 2019-03-11 14:18:06" itemprop="dateCreated datePublished" datetime="2019-03-11T14:18:06+08:00">2019-03-11</time>
             </span>
           
             
 
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-05 21:59:57" itemprop="dateModified" datetime="2019-09-05T21:59:57+08:00">2019-09-05</time>
+              </span>
+            
           
 
           
-            <span id="/2019/03/11/办公信息化管理系统作业/" class="post-meta-item leancloud_visitors" data-flag-title="办公信息化管理系统作业" title="Views">
+            <span id="/办公信息化管理系统作业/" class="post-meta-item leancloud_visitors" data-flag-title="办公信息化管理系统作业" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -612,7 +487,7 @@
       
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/03/11/办公信息化管理系统作业/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/03/11/办公信息化管理系统作业/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/办公信息化管理系统作业/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/办公信息化管理系统作业/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -647,15 +522,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>某公司要开发内部的 “办公信息化管理系统”，请使用面向对象的思想描述以下员工信息。</p><p><img src="https://climg.mukewang.com/5837d74d0001ce1806340356.jpg" alt></p><p>  程序运行参考效果图如下：</p><p><img src="https://climg.mukewang.com/5837d8c600015ff203020656.jpg" alt></p><p>任务描述</p><p>一、语言和环境</p><ul>
-<li>实现语言</li>
-</ul><p>​       Java语言</p><ul>
-<li>环境要求及开发工具</li>
-</ul><p>​       JDK、Eclipse</p>
+          <p>某公司要开发内部的 “办公信息化管理系统”，请使用面向对象的思想描述以下员工信息。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/03/11/办公信息化管理系统作业/#more" rel="contents">
+              <a class="btn" href="/办公信息化管理系统作业/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -688,7 +559,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/02/28/Java封装综合案例/">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/Java封装综合案例/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feihong">
@@ -702,7 +573,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/2019/02/28/Java封装综合案例/" class="post-title-link" itemprop="url">Java封装综合案例</a>
+            <a href="/Java封装综合案例/" class="post-title-link" itemprop="url">Java封装综合案例</a>
           
         </h2>
 
@@ -730,13 +601,13 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-03-10 14:36:35" itemprop="dateModified" datetime="2019-03-10T14:36:35+08:00">2019-03-10</time>
+                <time title="Modified: 2019-09-05 21:55:15" itemprop="dateModified" datetime="2019-09-05T21:55:15+08:00">2019-09-05</time>
               </span>
             
           
 
           
-            <span id="/2019/02/28/Java封装综合案例/" class="post-meta-item leancloud_visitors" data-flag-title="Java封装综合案例" title="Views">
+            <span id="/Java封装综合案例/" class="post-meta-item leancloud_visitors" data-flag-title="Java封装综合案例" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -754,7 +625,7 @@
       
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/02/28/Java封装综合案例/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/02/28/Java封装综合案例/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/Java封装综合案例/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/Java封装综合案例/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -789,11 +660,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>请按照图中要求完成学生信息管理系统设计，程序运行参考效果图如下：</p><p><img src="http://bmob-cdn-23498.b0.upaiyun.com/2019/02/28/369b0da44001474080b785d511b97cfd.png" alt></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.feihong.model;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 成员属性：学科名称、学科编号、学制年限、报名选修的学生个数</span></span><br><span class="line">	<span class="keyword">private</span> String subjectName;</span><br><span class="line">	<span class="keyword">private</span> String subjectNo;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> subjectLife;</span><br><span class="line">	<span class="keyword">private</span> Student[] myStudents;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> studentNum;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 无参构造方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Subject</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 带参构造,实现对学科名称、编号、学制年限赋值</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Subject</span><span class="params">(String subjectName, String subjectNo, <span class="keyword">int</span> subjectLife)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.setSubjectName(subjectName);</span><br><span class="line">	<span class="keyword">this</span>.setSubjectNo(subjectNo);</span><br><span class="line">	<span class="keyword">this</span>.setSubjectLife(subjectLife);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Subject</span><span class="params">(String subjectName, String subjectNo, <span class="keyword">int</span> subjectLife,Student[] myStudents)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.setSubjectName(subjectName);</span><br><span class="line">	<span class="keyword">this</span>.setSubjectNo(subjectNo);</span><br><span class="line">	<span class="keyword">this</span>.setSubjectLife(subjectLife);</span><br><span class="line">	<span class="keyword">this</span>.setMyStudents(myStudents);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSubjectName</span><span class="params">(String subjectName)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.subjectName = subjectName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getSubjectName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.subjectName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSubjectNo</span><span class="params">(String subjectNo)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.subjectNo = subjectNo;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getSubjectNo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.subjectNo;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置学制年限，限制必须&gt;0</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSubjectLife</span><span class="params">(<span class="keyword">int</span> subjectLife)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (subjectLife &lt;= <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">this</span>.subjectLife = subjectLife;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取选修专业的学生信息，如果保存学生信息的数组未被初始化，则先进行初始化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> Student[] getMyStudents() &#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">this</span>.myStudents==<span class="keyword">null</span>)</span><br><span class="line">		<span class="keyword">this</span>.myStudents=<span class="keyword">new</span> Student[<span class="number">200</span>];</span><br><span class="line">	<span class="keyword">return</span> myStudents;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMyStudents</span><span class="params">(Student[] myStudents)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.myStudents = myStudents;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getStudentNum</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> studentNum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStudentNum</span><span class="params">(<span class="keyword">int</span> studentNum)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.studentNum = studentNum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSubjectLife</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.subjectLife;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 专业介绍的方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>专业介绍相关信息，包括名称、编号、年限</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">info</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	String str = <span class="string">"专业信息如下: \n专业名称:"</span> + <span class="keyword">this</span>.getSubjectName() + <span class="string">"\n专业编号："</span> + <span class="keyword">this</span>.getSubjectNo() + <span class="string">"\n学制年限:"</span></span><br><span class="line">			+ <span class="keyword">this</span>.getSubjectLife() + <span class="string">"年"</span>;</span><br><span class="line">	<span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addStudent</span><span class="params">(Student stu)</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 1、将学生保存到数组中</span></span><br><span class="line"><span class="comment">	 * 2、将学生个数保存到studentNum</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="comment">//1、将学生保存到数组中</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.getMyStudents().length;i++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">this</span>.getMyStudents()[i]==<span class="keyword">null</span>) &#123;</span><br><span class="line">			stu.setStudentSubject(<span class="keyword">this</span>);</span><br><span class="line">			<span class="keyword">this</span>.getMyStudents()[i]=stu;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//2、将学生个数保存到studentNum</span></span><br><span class="line">	<span class="keyword">this</span>.studentNum=i+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>请按照图中要求完成学生信息管理系统设计，程序运行参考效果图如下：</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/02/28/Java封装综合案例/#more" rel="contents">
+              <a class="btn" href="/Java封装综合案例/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -826,7 +697,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/02/15/Java封装/">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/Java封装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feihong">
@@ -840,7 +711,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/2019/02/15/Java封装/" class="post-title-link" itemprop="url">Java封装</a>
+            <a href="/Java封装/" class="post-title-link" itemprop="url">Java封装</a>
           
         </h2>
 
@@ -868,13 +739,13 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-02-19 22:36:43" itemprop="dateModified" datetime="2019-02-19T22:36:43+08:00">2019-02-19</time>
+                <time title="Modified: 2019-09-05 21:55:00" itemprop="dateModified" datetime="2019-09-05T21:55:00+08:00">2019-09-05</time>
               </span>
             
           
 
           
-            <span id="/2019/02/15/Java封装/" class="post-meta-item leancloud_visitors" data-flag-title="Java封装" title="Views">
+            <span id="/Java封装/" class="post-meta-item leancloud_visitors" data-flag-title="Java封装" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -892,7 +763,7 @@
       
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/02/15/Java封装/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/02/15/Java封装/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/Java封装/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/Java封装/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -927,11 +798,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>1-1 封装的概念和特点</p><p>封装<br>1.将类的某些信息隐藏在类内部，不允许外部程序直接访问。<br>2.通过该类提供的方法来实现对隐藏信息的操作和访问。<br>3.隐藏对象的信息。<br>4.留出访问的接口。<br>特点：<br>1.只能通过规定的方法访问数据；<br>2.隐藏类的实例细节，方便修改和实现；</p>
+          <p>1-1 封装的概念和特点</p>
+<p>封装<br>1.将类的某些信息隐藏在类内部，不允许外部程序直接访问。<br>2.通过该类提供的方法来实现对隐藏信息的操作和访问。<br>3.隐藏对象的信息。<br>4.留出访问的接口。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/02/15/Java封装/#more" rel="contents">
+              <a class="btn" href="/Java封装/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -964,7 +836,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/02/11/构造方法介绍/">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/构造方法介绍/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feihong">
@@ -978,7 +850,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/2019/02/11/构造方法介绍/" class="post-title-link" itemprop="url">构造方法介绍</a>
+            <a href="/构造方法介绍/" class="post-title-link" itemprop="url">构造方法介绍</a>
           
         </h2>
 
@@ -1006,13 +878,13 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-02-15 21:35:03" itemprop="dateModified" datetime="2019-02-15T21:35:03+08:00">2019-02-15</time>
+                <time title="Modified: 2019-09-05 22:02:28" itemprop="dateModified" datetime="2019-09-05T22:02:28+08:00">2019-09-05</time>
               </span>
             
           
 
           
-            <span id="/2019/02/11/构造方法介绍/" class="post-meta-item leancloud_visitors" data-flag-title="构造方法介绍" title="Views">
+            <span id="/构造方法介绍/" class="post-meta-item leancloud_visitors" data-flag-title="构造方法介绍" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1030,7 +902,7 @@
       
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/02/11/构造方法介绍/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/02/11/构造方法介绍/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/构造方法介绍/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/构造方法介绍/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -1065,11 +937,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>2-1 构造方法—无参构造方法</p><p>构造方法也称构造函数、构造器。</p><p>构造方法不能够被对象单独调用。</p><p>构造方法<br>1.当没有构造方法 系统会自动添加无参的构造方法<br>2.当有创建构造方法 无论有参无参 系统都不会再添加构造方法<br>3.一个类中可有多个构造方法<br>4.构造方法名与类名一定相同且没有返回值<br>5.构造方法使用 只能在对象实例化（new 了之后）时调用<br>6.与普通方法不同 只能通过new调用 不能通过对象调用</p>
+          <p>2-1 构造方法—无参构造方法</p>
+<p>构造方法也称构造函数、构造器。</p>
+<p>构造方法不能够被对象单独调用。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/02/11/构造方法介绍/#more" rel="contents">
+              <a class="btn" href="/构造方法介绍/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1102,7 +976,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/02/10/初识面向对象/">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/初识面向对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feihong">
@@ -1116,7 +990,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/2019/02/10/初识面向对象/" class="post-title-link" itemprop="url">初识面向对象</a>
+            <a href="/初识面向对象/" class="post-title-link" itemprop="url">初识面向对象</a>
           
         </h2>
 
@@ -1144,13 +1018,13 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-02-11 22:27:14" itemprop="dateModified" datetime="2019-02-11T22:27:14+08:00">2019-02-11</time>
+                <time title="Modified: 2019-09-05 22:01:25" itemprop="dateModified" datetime="2019-09-05T22:01:25+08:00">2019-09-05</time>
               </span>
             
           
 
           
-            <span id="/2019/02/10/初识面向对象/" class="post-meta-item leancloud_visitors" data-flag-title="初识面向对象" title="Views">
+            <span id="/初识面向对象/" class="post-meta-item leancloud_visitors" data-flag-title="初识面向对象" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1168,7 +1042,7 @@
       
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/02/10/初识面向对象/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/02/10/初识面向对象/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/初识面向对象/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/初识面向对象/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -1203,11 +1077,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>1-1 导学</p><p>稳定性，可扩展性，可重用性</p><p>1-2 类和对象</p><p>类是模型，确定对象将会拥有的特征（属性）和行为（方法）</p><p>对象是类的实例表现</p><p>类是对象的类型</p><p>对象是特定类型的数据</p><p>属性：对象具有的各种静态特征</p><p>​    -“对象有什么”</p>
+          <p>1-1 导学</p>
+<p>稳定性，可扩展性，可重用性</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/02/10/初识面向对象/#more" rel="contents">
+              <a class="btn" href="/初识面向对象/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1240,7 +1115,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/02/10/Java综合作业题1/">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/Java综合作业题1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feihong">
@@ -1254,7 +1129,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/2019/02/10/Java综合作业题1/" class="post-title-link" itemprop="url">Java综合作业题1</a>
+            <a href="/Java综合作业题1/" class="post-title-link" itemprop="url">Java综合作业题1</a>
           
         </h2>
 
@@ -1271,16 +1146,24 @@
                 
               
 
-              <time title="Created: 2019-02-10 21:10:25 / Modified: 21:19:30" itemprop="dateCreated datePublished" datetime="2019-02-10T21:10:25+08:00">2019-02-10</time>
+              <time title="Created: 2019-02-10 21:10:25" itemprop="dateCreated datePublished" datetime="2019-02-10T21:10:25+08:00">2019-02-10</time>
             </span>
           
             
 
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-05 21:58:31" itemprop="dateModified" datetime="2019-09-05T21:58:31+08:00">2019-09-05</time>
+              </span>
+            
           
 
           
-            <span id="/2019/02/10/Java综合作业题1/" class="post-meta-item leancloud_visitors" data-flag-title="Java综合作业题1" title="Views">
+            <span id="/Java综合作业题1/" class="post-meta-item leancloud_visitors" data-flag-title="Java综合作业题1" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1298,7 +1181,7 @@
       
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/02/10/Java综合作业题1/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/02/10/Java综合作业题1/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/Java综合作业题1/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/Java综合作业题1/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -1333,11 +1216,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>任务描述</p><p><strong>一、    项目准备</strong></p><p>开发工具：JDK、Eclipse</p><p>需求分析：见课程视频，并参考评分标准。</p><p>效果演示：见课程视频。</p><p><strong>二、整体要求</strong></p><p>1、    完成需求分析和详细设计中所涉及到的所有功能。</p><p>2、    代码结构要层次分明，代码编辑思路要清晰、整洁。</p>
+          <p>任务描述</p>
+<p><strong>一、    项目准备</strong></p>
+<p>开发工具：JDK、Eclipse</p>
+<p>需求分析：见课程视频，并参考评分标准。</p>
+<p>效果演示：见课程视频。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/02/10/Java综合作业题1/#more" rel="contents">
+              <a class="btn" href="/Java综合作业题1/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1370,7 +1257,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/02/06/Java注释/">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/Java注释/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feihong">
@@ -1384,7 +1271,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/2019/02/06/Java注释/" class="post-title-link" itemprop="url">Java注释</a>
+            <a href="/Java注释/" class="post-title-link" itemprop="url">Java注释</a>
           
         </h2>
 
@@ -1401,16 +1288,24 @@
                 
               
 
-              <time title="Created: 2019-02-06 19:34:07 / Modified: 19:38:28" itemprop="dateCreated datePublished" datetime="2019-02-06T19:34:07+08:00">2019-02-06</time>
+              <time title="Created: 2019-02-06 19:34:07" itemprop="dateCreated datePublished" datetime="2019-02-06T19:34:07+08:00">2019-02-06</time>
             </span>
           
             
 
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-05 21:58:04" itemprop="dateModified" datetime="2019-09-05T21:58:04+08:00">2019-09-05</time>
+              </span>
+            
           
 
           
-            <span id="/2019/02/06/Java注释/" class="post-meta-item leancloud_visitors" data-flag-title="Java注释" title="Views">
+            <span id="/Java注释/" class="post-meta-item leancloud_visitors" data-flag-title="Java注释" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1428,7 +1323,7 @@
       
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/02/06/Java注释/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/02/06/Java注释/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/Java注释/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/Java注释/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -1463,7 +1358,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单行注释</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">xxxxxxxxxxxxxxxxxxx</span></span><br><span class="line"><span class="comment">多行注释</span></span><br><span class="line"><span class="comment">xxxxxxxxxxxxxxxxxxx            </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*文档注释</span></span><br><span class="line"><span class="comment">*<span class="doctag">@author</span> </span></span><br><span class="line"><span class="comment">*<span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment">*javadoc生成文档命令：</span></span><br><span class="line"><span class="comment">*控制台输入  javadoc空格-d空格doc空格类名.java，打开生成的index.html文件进行查看</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+          <a id="more"></a>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单行注释</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">xxxxxxxxxxxxxxxxxxx</span></span><br><span class="line"><span class="comment">多行注释</span></span><br><span class="line"><span class="comment">xxxxxxxxxxxxxxxxxxx            </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*文档注释</span></span><br><span class="line"><span class="comment">*<span class="doctag">@author</span> </span></span><br><span class="line"><span class="comment">*<span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment">*javadoc生成文档命令：</span></span><br><span class="line"><span class="comment">*控制台输入  javadoc空格-d空格doc空格类名.java，打开生成的index.html文件进行查看</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
 
         
@@ -1493,7 +1390,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://feihong.me/2019/02/01/Java方法/">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/Java方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feihong">
@@ -1507,7 +1404,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
             
-            <a href="/2019/02/01/Java方法/" class="post-title-link" itemprop="url">Java方法</a>
+            <a href="/Java方法/" class="post-title-link" itemprop="url">Java方法</a>
           
         </h2>
 
@@ -1535,13 +1432,13 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-02-10 21:08:58" itemprop="dateModified" datetime="2019-02-10T21:08:58+08:00">2019-02-10</time>
+                <time title="Modified: 2019-09-05 21:54:43" itemprop="dateModified" datetime="2019-09-05T21:54:43+08:00">2019-09-05</time>
               </span>
             
           
 
           
-            <span id="/2019/02/01/Java方法/" class="post-meta-item leancloud_visitors" data-flag-title="Java方法" title="Views">
+            <span id="/Java方法/" class="post-meta-item leancloud_visitors" data-flag-title="Java方法" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1559,7 +1456,7 @@
       
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/02/01/Java方法/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/02/01/Java方法/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/Java方法/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/Java方法/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -1594,16 +1491,232 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>什么是方法</p><p>方法：就是用来解决一类问题的代码的有序组合，是一个功能模块。</p><p>方法声明</p><p>语法格式：</p><p>访问修饰符    返回类型        方法名（参数列表）｛</p><p>​        方法体</p><p>｝</p><p>方法分类</p><p>根据方法是否带参数、是否返回值，可分为四类：</p>
-          <!--noindex-->
+          <a id="more"></a>
+
+<p>什么是方法</p>
+<p>方法：就是用来解决一类问题的代码的有序组合，是一个功能模块。</p>
+<p>方法声明</p>
+<p>语法格式：</p>
+<p>访问修饰符    返回类型        方法名（参数列表）｛</p>
+<p>​        方法体</p>
+<p>｝</p>
+<p>方法分类</p>
+<p>根据方法是否带参数、是否返回值，可分为四类：</p>
+<p>-无参无返回值方法</p>
+<p>-无参带返回值方法</p>
+<p>-带参无返回值方法</p>
+<p>-带参带返回值方法</p>
+<p>无参无返回值方法</p>
+<p>例：一行打印输出一串星号</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MethodDemo</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//打印输出星号的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"*****************"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">	MethodDemo myMethodDemo=<span class="keyword">new</span> MethodDemo();</span><br><span class="line">	myMethodDemo.printStar();</span><br><span class="line">	<span class="comment">//System.out.println("*****************");</span></span><br><span class="line">	System.out.println(<span class="string">"欢迎来到Java的世界"</span>);</span><br><span class="line">	<span class="comment">//System.out.println("*****************");</span></span><br><span class="line">	myMethodDemo.printStar();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>无参带返回值方法</p>
+<p>例：求长方形的面积 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</span><br><span class="line">	<span class="comment">//求长方形面积的方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">area</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> length=<span class="number">10</span>;</span><br><span class="line">		<span class="keyword">int</span> width=<span class="number">5</span>;</span><br><span class="line">		<span class="keyword">int</span> getArea=length*width;</span><br><span class="line">		<span class="keyword">return</span> getArea;<span class="comment">//返回语句</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">	Rectangle rc=<span class="keyword">new</span> Rectangle();</span><br><span class="line">	System.out.println(<span class="string">"长方形的面积为："</span>+rc.area());</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>带参无返回值方法</p>
+<p>例：定义一个求两个float类型数据最大值的方法，在方法中将最大值打印输出。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MaxDemo</span> </span>&#123;</span><br><span class="line">	<span class="comment">//求最大值方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">max</span><span class="params">(<span class="keyword">float</span> a,<span class="keyword">float</span> b)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">float</span> max=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">if</span>(a&gt;b) &#123;</span><br><span class="line">			max=a;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			max=b;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"最大值为:"</span>+max);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">	MaxDemo maxDemo=<span class="keyword">new</span> MaxDemo();</span><br><span class="line">	<span class="keyword">int</span> a=<span class="number">5</span>,b=<span class="number">3</span>;</span><br><span class="line">	maxDemo.max(a, b);</span><br><span class="line">	<span class="keyword">float</span> m=<span class="number">5.6f</span>,n=<span class="number">9.8f</span>;</span><br><span class="line">	maxDemo.max(m, n);</span><br><span class="line">	maxDemo.max(<span class="number">9.8f</span>, <span class="number">12.8f</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 编程练习</p>
+<p>定义一个方法，根据商品总价，计算出对应的折扣并输出。折扣信息如下：</p>
+<p>1） 总价&lt;100，不打折</p>
+<p>2） 总价在100到199之间，打9.5折</p>
+<p>3） 总价在200以上，打8.5折</p>
+<p><strong>效果图：</strong>折后商品总价为:142.5</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DisCountDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">discount</span><span class="params">(<span class="keyword">double</span> price)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(price&lt;<span class="number">100</span>)&#123;</span><br><span class="line">            price=price*<span class="number">1</span>;</span><br><span class="line">            System.out.println(<span class="string">"折后商品总价为:"</span>+price);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>((price&gt;=<span class="number">100</span>)&amp;(price&lt;=<span class="number">199</span>))&#123;</span><br><span class="line">            price=price*<span class="number">0.95</span>;</span><br><span class="line">            System.out.println(<span class="string">"折后商品总价为:"</span>+price);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(price&gt;<span class="number">200</span>)&#123;</span><br><span class="line">            price=price*<span class="number">0.85</span>;</span><br><span class="line">            System.out.println(<span class="string">"折后商品总价为:"</span>+price);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="comment">//根据商品总价输出折后总价</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	DisCountDemo ds=<span class="keyword">new</span> DisCountDemo();<span class="comment">//定义对象</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">double</span> price=<span class="number">150</span>;<span class="comment">//定义商品总价存放到变量中</span></span><br><span class="line">	ds.discount(price);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//调用方法，输出折后商品总价</span></span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>带参有返回值方法</p>
+<p>定义一个求n!的方法，然后再求1！+2！+3！+4！+5！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FacDemo</span> </span>&#123;</span><br><span class="line">	<span class="comment">//求阶乘的方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">fac</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> s=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">			s*=i;<span class="comment">//s=s*i</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> s;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		FacDemo facDemo=<span class="keyword">new</span> FacDemo();</span><br><span class="line">		<span class="keyword">int</span> fac=facDemo.fac(<span class="number">3</span>);</span><br><span class="line">		System.out.println(<span class="string">"3!="</span>+fac);</span><br><span class="line">		<span class="comment">//求1！+2！+3！+4！+5！</span></span><br><span class="line">		<span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++) &#123;</span><br><span class="line">			fac=facDemo.fac(i);</span><br><span class="line">			sum=sum+fac;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"1！+2！+3！+4！+5！="</span>+sum);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>数组作为方法参数</p>
+<p>例：定义方法，打印输出数组元素的值</p>
+<p>public void printArray(int[] arr){}</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayMethod</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printArray</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length;i++) &#123;</span><br><span class="line">			System.out.println(arr[i]+<span class="string">"  "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] arr= &#123;<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>&#125;;</span><br><span class="line">		ArrayMethod Array=<span class="keyword">new</span> ArrayMethod();</span><br><span class="line">		Array.printArray(arr);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编程练习</p>
+<p>编写方法，求数组元素的平均值（效果：数组的平均值为:70.1）</p>
+<p>任务</p>
+<p>1、定义一个方法，求数组的平均值</p>
+<p>2、在主方法中定义对象，并初始化一个float类型的数组，调用方法求数组元素的平均值，并将平均值打印输出</p>
+<p><strong>提示</strong>：</p>
+<p>当数组元素的内容为：78.5,98.5,65.5,32.5和</p>
+<p>75.5时，可得到效果图所示的结果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AverageDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">avrArr</span><span class="params">(<span class="keyword">double</span>[] arr)</span></span>&#123;</span><br><span class="line">        <span class="keyword">double</span> sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">            sum=sum+arr[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">double</span> avr=sum/arr.length;</span><br><span class="line">        System.out.println(<span class="string">"数组的平均值为:"</span>+avr);</span><br><span class="line">    &#125;<span class="comment">//求数组元素的平均值</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	AverageDemo array=<span class="keyword">new</span> AverageDemo();<span class="comment">//定义对象</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">double</span>[] arr=&#123;<span class="number">78.5</span>,<span class="number">98.5</span>,<span class="number">65.5</span>,<span class="number">32.5</span>,<span class="number">75.5</span>&#125;;</span><br><span class="line">	<span class="comment">//创建float类型的数组并初始化</span></span><br><span class="line">	</span><br><span class="line">	array.avrArr(arr);<span class="comment">//调用方法求平均值并打印输出</span></span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>例：查找数组元素的值</p>
+<p>​                –方法参数为：数组、要查找的元素</p>
+<p>​                –返回值：boolean类型</p>
+<p>public boolean search(int n,int[] arr){}</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArraySearch</span> </span>&#123;</span><br><span class="line">	<span class="comment">//查找数组元素值的方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">boolean</span> flag=<span class="keyword">false</span>;<span class="comment">//默认是没找到</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length;i++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(arr[i]==n) &#123;</span><br><span class="line">				flag=<span class="keyword">true</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> flag;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[] arr1= &#123;<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">60</span>&#125;;</span><br><span class="line">	Scanner sc=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">	System.out.println(<span class="string">"请输入要查找的数据:"</span>);</span><br><span class="line">	<span class="keyword">int</span> n1=sc.nextInt();</span><br><span class="line">	ArraySearch as=<span class="keyword">new</span> ArraySearch();</span><br><span class="line">	<span class="keyword">boolean</span> flag=as.search(n1, arr1);</span><br><span class="line">	<span class="keyword">if</span>(flag) &#123;</span><br><span class="line">		System.out.println(<span class="string">"找到了！"</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">"没找到！"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方法重载</p>
+<p>方法重载原则：<br>方法名相同，参数列表不同，这里的不同即可以是数量不同，也可以是类型不同。<br>方法重载作用：<br>重载的最直接作用是方便了程序员可以根据不同的参数个数，顺序，类型，自动匹配方法，减少写过个函数名或方法名的重复步骤</p>
+<p>方法重载的应用</p>
+<p>定义三个方法，实现int、double、和数组类型和的问题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MathDemo</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//求两个int类型数的和</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">plus</span><span class="params">(<span class="keyword">int</span> m,<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> m+n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//求两个double类型数的和</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">plus</span><span class="params">(<span class="keyword">double</span> m,<span class="keyword">double</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> m+n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">plus</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length;i++) &#123;</span><br><span class="line">		sum=sum+arr[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m=<span class="number">5</span>,n=<span class="number">10</span>;</span><br><span class="line">	<span class="keyword">int</span>[] arr= &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line">	MathDemo mathDemo=<span class="keyword">new</span> MathDemo();</span><br><span class="line">	System.out.println(<span class="string">"int类型的和:"</span>+mathDemo.plus(m, n));</span><br><span class="line">	System.out.println(<span class="string">"double类型的和:"</span>+mathDemo.plus(m, n));</span><br><span class="line">	System.out.println(<span class="string">"数组元素的和:"</span>+mathDemo.plus(arr  ));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编程练习</p>
+<p>定义两个重载的方法，分别求圆和长方形的面积。</p>
+<p>效果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">圆的面积为:63.61725123519331</span><br><span class="line">长方形面积为:40.0</span><br></pre></td></tr></table></figure>
+
+<p>任务：</p>
+<p>1、定义两个求面积的重载方法，圆周率可以用Math.PI表示</p>
+<p>2、在主方法中调用方法并将结果输出。</p>
+<p>注意：当圆的半径为4.5，长方形长和宽分别为8和5时，可得到如效果图所示的结果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AreaDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">Area</span><span class="params">(<span class="keyword">double</span> r)</span></span>&#123;</span><br><span class="line">        <span class="keyword">double</span> s=Math.PI*r*r;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;<span class="comment">//求圆形面积</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">Area</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> s=a*b;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;<span class="comment">//求长方形面积</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	AreaDemo area=<span class="keyword">new</span> AreaDemo();<span class="comment">//定义对象</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">double</span> r=<span class="number">4.5</span>;</span><br><span class="line">	<span class="comment">//定义一个double类型的变量存放半径，并初始化</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">double</span> a=<span class="number">8</span>,b=<span class="number">5</span>;<span class="comment">//定义两个变量存放长和宽，并初始化</span></span><br><span class="line">	</span><br><span class="line">	System.out.println(<span class="string">"圆的面积为:"</span>+area.Area(r));</span><br><span class="line">	<span class="comment">//调用方法，求圆的面积并打印输出</span></span><br><span class="line">	</span><br><span class="line">	System.out.println(<span class="string">"长方形面积为:"</span>+area.Area(a,b));</span><br><span class="line">	<span class="comment">//调用方法，求长方形面积并打印输出</span></span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>基本数据类型的传值</p>
+<p>值传递：实参将值拷贝传给形参，形参的改变并不会影响实参的改变。</p>
+<p>在普通方法中调用当前类中的其它方法时，与在主方法中不同，无需创建对象再调用方法，可以直接调用方法使用<br>主方法和普通方法调用时候的区别：<br>1.主方法必须使用对象名调用（就是xx a=new xx();a.xxx();<br>2.普通方法如果和当前方法在一个类里面，直接使用方法名调用即可，不用定义对象</p>
+<p>基本数据类型进行传递的时候，传递的是值的拷贝，例如：int a = 1;传递进去的是1而不是a的内存地址（特殊例子是String）<br>而引用数据类型，如对象（含数组）传递的都是地址，它们都指向同一块内存空间</p>
+<p>可变参数列表</p>
+<p>int… n 可变参数列表<br>可变参数：例如：public void sum(int… n),可变参数必须写在参数列表的最后。</p>
+<p>可以将数组传给可变参数，在方法重载中，参数若为数组和可变参数，即视为重复，报错。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> MoocJava;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArgsDemo</span> </span>&#123;</span><br><span class="line">	<span class="comment">//求和</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span>... n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i:n) &#123;</span><br><span class="line">			sum=sum+i;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"sum="</span>+sum);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		ArgsDemo ad=<span class="keyword">new</span> ArgsDemo();</span><br><span class="line">		ad.sum(<span class="number">1</span>);</span><br><span class="line">		ad.sum(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">		ad.sum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> MoocJava;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArgsDemo1</span> </span>&#123;</span><br><span class="line">	<span class="comment">//查找</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span>... a)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">boolean</span> flag=<span class="keyword">false</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> a1:a) &#123;</span><br><span class="line">			<span class="keyword">if</span>(a1==n) &#123;</span><br><span class="line">				flag=<span class="keyword">true</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(flag) &#123;</span><br><span class="line">			System.out.println(<span class="string">"找到了！"</span>+n);</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"没找到！"</span>+n);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//	public void search(int n,int[] a) &#123;&#125;</span></span><br><span class="line"><span class="comment">//	报错，数组和可变参数视为同一种</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		ArgsDemo1 ad1=<span class="keyword">new</span> ArgsDemo1();</span><br><span class="line">		ad1.search(<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">		<span class="keyword">int</span>[] a= &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">		ad1.search(<span class="number">3</span>, a);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方法的调试</p>
+<p>方法的调试跟普通调试没有太大的区别</p>
+<p>F5:跳入方法中调试<br>F6：单步调试<br>F7：由方法内部跳入调用处</p>
+<p>在eclipes 中如果写入Scanner 语句没有自动导入相应的包，按ctrl+shift+o</p>
+
+        
+      
+    </div>
+	
+<div>
+  
+</div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/博客优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feihong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+            
+            <a href="/博客优化/" class="post-title-link" itemprop="url">博客优化</a>
           
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/02/01/Java方法/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
+        </h2>
+
+        <div class="post-meta">
+		
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-01-31 22:05:35" itemprop="dateCreated datePublished" datetime="2019-01-31T22:05:35+08:00">2019-01-31</time>
+            </span>
           
-          <!--/noindex-->
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-02-10 22:21:14" itemprop="dateModified" datetime="2019-02-10T22:21:14+08:00">2019-02-10</time>
+              </span>
+            
+          
+
+          
+            <span id="/博客优化/" class="post-meta-item leancloud_visitors" data-flag-title="博客优化" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/博客优化/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/博客优化/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>83</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>强迫症发作(╯﹏╰)</p>
+<p>虽然只是自己用来做做笔记，还是花了两天时间对博客进行了优化</p>
+<p>添加了许多小插件和功能看起来也更美观啦ヾ(o◕∀◕)ﾉヾ</p>
+<p>自己看着也好开心哈哈哈(＾∀＾)</p>
+
         
       
     </div>
@@ -1630,7 +1743,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1678,7 +1791,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-count">80</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1691,7 +1804,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
@@ -1738,7 +1851,7 @@
           <h3 class="widget-title"></h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="200" height="150" id="resCanvas" style="width=100%">
-                  <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dairy/">Dairy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Diary/">Diary</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/">Html</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSP/">JSP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">53</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/">JavaWeb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/">Servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Use/">Use</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/">XML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Diary/">Diary</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/">Html</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSP/">JSP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">53</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/">JavaWeb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/">Servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Use/">Use</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/">XML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
         </div>
@@ -1759,7 +1872,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Powered by Feihong</span>
+  <span class="author" itemprop="copyrightHolder">Feihong</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
@@ -1773,7 +1886,7 @@
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
     
-    <span title="Reading time total">55 mins.</span>
+    <span title="Reading time total">54 mins.</span>
 </div>
 
 
