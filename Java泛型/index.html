@@ -65,13 +65,13 @@
   };
 </script>
 
-  <meta name="description" content="泛型概述为什么要使用泛型在Java中增加泛型之前，泛型程序设计使用继承来实现的坏处：需要强制转换可向集合中添加任意类型的对象，存在风险 泛型的使用List list=new ArrayList();javaSE7及以后的版本中，构造方法中可以省略泛型类型List list=new ArrayList&amp;lt;&amp;gt;(); 多态与泛型class Animal{}class Cat extends">
+  <meta name="description" content="泛型概述为什么要使用泛型在Java中增加泛型之前，泛型程序设计使用继承来实现的坏处：需要强制转换可向集合中添加任意类型的对象，存在风险">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java泛型">
 <meta property="og:url" content="https://feihong.me/Java泛型/index.html">
 <meta property="og:site_name" content="Feihong&#39;s Blog">
-<meta property="og:description" content="泛型概述为什么要使用泛型在Java中增加泛型之前，泛型程序设计使用继承来实现的坏处：需要强制转换可向集合中添加任意类型的对象，存在风险 泛型的使用List list=new ArrayList();javaSE7及以后的版本中，构造方法中可以省略泛型类型List list=new ArrayList&amp;lt;&amp;gt;(); 多态与泛型class Animal{}class Cat extends">
+<meta property="og:description" content="泛型概述为什么要使用泛型在Java中增加泛型之前，泛型程序设计使用继承来实现的坏处：需要强制转换可向集合中添加任意类型的对象，存在风险">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://climg.mukewang.com/58b675460001439c01870116.jpg">
 <meta property="og:image" content="https://img.mukewang.com/climg/593b9ac100019fd112800720.jpg">
@@ -79,7 +79,7 @@
 <meta property="og:updated_time" content="2019-09-05T13:54:35.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java泛型">
-<meta name="twitter:description" content="泛型概述为什么要使用泛型在Java中增加泛型之前，泛型程序设计使用继承来实现的坏处：需要强制转换可向集合中添加任意类型的对象，存在风险 泛型的使用List list=new ArrayList();javaSE7及以后的版本中，构造方法中可以省略泛型类型List list=new ArrayList&amp;lt;&amp;gt;(); 多态与泛型class Animal{}class Cat extends">
+<meta name="twitter:description" content="泛型概述为什么要使用泛型在Java中增加泛型之前，泛型程序设计使用继承来实现的坏处：需要强制转换可向集合中添加任意类型的对象，存在风险">
 <meta name="twitter:image" content="https://climg.mukewang.com/58b675460001439c01870116.jpg">
   <link rel="canonical" href="https://feihong.me/Java泛型/">
 
@@ -393,9 +393,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <a id="more"></a>
+        <a id="more"></a><h2 id="泛型概述"><a href="#泛型概述" class="headerlink" title="泛型概述"></a>泛型概述</h2><p>为什么要使用泛型<br>在Java中增加泛型之前，泛型程序设计使用继承来实现的<br>坏处：<br>需要强制转换<br>可向集合中添加任意类型的对象，存在风险</p><a id="more"></a>
 
-<h2 id="泛型概述"><a href="#泛型概述" class="headerlink" title="泛型概述"></a>泛型概述</h2><p>为什么要使用泛型<br>在Java中增加泛型之前，泛型程序设计使用继承来实现的<br>坏处：<br>需要强制转换<br>可向集合中添加任意类型的对象，存在风险</p>
+
 <p>泛型的使用<br>List<string> list=new ArrayList<string>();<br>javaSE7及以后的版本中，构造方法中可以省略泛型类型<br>List<string> list=new ArrayList&lt;&gt;();</string></string></string></p>
 <p>多态与泛型<br>class Animal{}<br>class Cat extends Animal{}<br>List<animal> list=new ArrayList<cat>(); //这是不允许的，变量声明的类型必须匹配传递给实际对象的类型<br>其它错误的例子：<br>List<object> list=new ArrayList<string>();<br>List<number> number=new ArrayList<integer>();</integer></number></string></object></cat></animal></p>
 <h2 id="泛型作为方法参数"><a href="#泛型作为方法参数" class="headerlink" title="泛型作为方法参数"></a>泛型作为方法参数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.generic;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Shoes</span> <span class="keyword">extends</span> <span class="title">Goods</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sell</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"sell shoes "</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
