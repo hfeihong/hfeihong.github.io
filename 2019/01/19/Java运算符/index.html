@@ -13,8 +13,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('该部分已被加密，请输入密码进行访问：') !== ''){
+        if('password'){
+            if (prompt('该部分已被加密，请输入密码进行访问：') !== 'password'){
                 alert('密码错误！');
                 history.back();
             }
@@ -76,13 +76,13 @@
   };
 </script>
 
-  <meta name="description" content="1.运算符概述表达式=操作数（+运算符）；单个数字或变量也可以算作表达式。例：5num1num1+num2sum=num1+num2运算符：算术运算符    赋值运算符    关系运算符    逻辑运算符    条件运算符    位运算符【赋值运算符】1.格式：变量=表达式;例：int n = 3; //将3赋值给变量n注意：赋值运算符是从右往左运算！2.double d = 123.4; dou">
+  <meta name="description" content="1.运算符概述表达式=操作数（+运算符）；单个数字或变量也可以算作表达式。例：5num1num1+num2sum=num1+num2运算符：算术运算符    赋值运算符    关系运算符    逻辑运算符    条件运算符    位运算符">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java运算符">
 <meta property="og:url" content="https://feihong.me/2019/01/19/Java运算符/index.html">
 <meta property="og:site_name" content="Feihong&#39;s Blog">
-<meta property="og:description" content="1.运算符概述表达式=操作数（+运算符）；单个数字或变量也可以算作表达式。例：5num1num1+num2sum=num1+num2运算符：算术运算符    赋值运算符    关系运算符    逻辑运算符    条件运算符    位运算符【赋值运算符】1.格式：变量=表达式;例：int n = 3; //将3赋值给变量n注意：赋值运算符是从右往左运算！2.double d = 123.4; dou">
+<meta property="og:description" content="1.运算符概述表达式=操作数（+运算符）；单个数字或变量也可以算作表达式。例：5num1num1+num2sum=num1+num2运算符：算术运算符    赋值运算符    关系运算符    逻辑运算符    条件运算符    位运算符">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://bmob-cdn-23498.b0.upaiyun.com/2019/01/18/38c1e9f84041b08d802aed817897f240.png">
 <meta property="og:image" content="http://bmob-cdn-23498.b0.upaiyun.com/2019/01/19/513846204002d85580d8800be295b2a8.png">
@@ -96,7 +96,7 @@
 <meta property="og:updated_time" content="2019-01-19T14:29:42.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java运算符">
-<meta name="twitter:description" content="1.运算符概述表达式=操作数（+运算符）；单个数字或变量也可以算作表达式。例：5num1num1+num2sum=num1+num2运算符：算术运算符    赋值运算符    关系运算符    逻辑运算符    条件运算符    位运算符【赋值运算符】1.格式：变量=表达式;例：int n = 3; //将3赋值给变量n注意：赋值运算符是从右往左运算！2.double d = 123.4; dou">
+<meta name="twitter:description" content="1.运算符概述表达式=操作数（+运算符）；单个数字或变量也可以算作表达式。例：5num1num1+num2sum=num1+num2运算符：算术运算符    赋值运算符    关系运算符    逻辑运算符    条件运算符    位运算符">
 <meta name="twitter:image" content="http://bmob-cdn-23498.b0.upaiyun.com/2019/01/18/38c1e9f84041b08d802aed817897f240.png">
   <link rel="canonical" href="https://feihong.me/2019/01/19/Java运算符/">
 
@@ -146,6 +146,14 @@
   </style>
 </noscript>
 
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  
+  <!--相册-->
+<script src="/js/photoswipe.min.js?v="></script>
+<script src="/js/photoswipe-ui-default.min.js?v="></script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -156,8 +164,6 @@
  
  <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/clicklove.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -396,10 +402,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>1.运算符概述</p><p>表达式=操作数（+运算符）；单个数字或变量也可以算作表达式。<br>例：<br>5<br>num1<br>num1+num2<br>sum=num1+num2</p><p>运算符：算术运算符    赋值运算符    关系运算符    逻辑运算符    条件运算符    位运算符</p><p>【赋值运算符】<br>1.格式：变量=表达式;<br>例：int n = 3; //将3赋值给变量n<br>注意：赋值运算符是从右往左运算！<br>2.double d = 123.4; double d1 = d;<br>注意：赋值运算符的左边不能为常量</p><a id="more"></a>
+        <p>1.运算符概述</p><p>表达式=操作数（+运算符）；单个数字或变量也可以算作表达式。<br>例：<br>5<br>num1<br>num1+num2<br>sum=num1+num2</p><p>运算符：算术运算符    赋值运算符    关系运算符    逻辑运算符    条件运算符    位运算符</p><a id="more"></a>
 
 
-
+<p>【赋值运算符】<br>1.格式：变量=表达式;<br>例：int n = 3; //将3赋值给变量n<br>注意：赋值运算符是从右往左运算！<br>2.double d = 123.4; double d1 = d;<br>注意：赋值运算符的左边不能为常量</p>
 <p>复合运算符</p>
 <p><img src="http://bmob-cdn-23498.b0.upaiyun.com/2019/01/18/38c1e9f84041b08d802aed817897f240.png" alt></p>
 <p>算术运算符</p>
@@ -870,5 +876,8 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
 </script>
 
     </div>
+  
+  
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":95,"height":140},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>

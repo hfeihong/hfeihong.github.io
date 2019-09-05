@@ -13,8 +13,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('该部分已被加密，请输入密码进行访问：') !== ''){
+        if('password'){
+            if (prompt('该部分已被加密，请输入密码进行访问：') !== 'password'){
                 alert('密码错误！');
                 history.back();
             }
@@ -131,6 +131,14 @@
   </style>
 </noscript>
 
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  
+  <!--相册-->
+<script src="/js/photoswipe.min.js?v="></script>
+<script src="/js/photoswipe-ui-default.min.js?v="></script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -141,8 +149,6 @@
  
  <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/clicklove.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -381,7 +387,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>1.eclipse简介</p><p>2.在eclipse下开发Java程序</p><p>创建工程：flie–&gt;new–&gt;java project</p><p>project name :输入工程名字</p><p>工程文件包含包和src      src–&gt;存储.java源文件；</p><p>在src里面创建包，包的名字一般是域名的反写；创建类</p><p>结构：</p><p>imoocProj</p>
+          <p>1.eclipse简介</p><p>2.在eclipse下开发Java程序</p><p>创建工程：flie–&gt;new–&gt;java project</p><p>project name :输入工程名字</p><p>工程文件包含包和src      src–&gt;存储.java源文件；</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -641,7 +647,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Java是一门面向对象的语言</p><p>1995年由sun公司发布</p><p>2010年sun公司被Oracle公司收购</p><p>JDK是开发工具包</p><p>JVM（java virtual machine），java虚拟机</p><p>JVM是java平台无关性实现的关键</p><p>java程序执行流程：</p><p><img src="http://bmob-cdn-23498.b0.upaiyun.com/2019/01/17/a3816b74407b20d88095893fe31366e3.png" alt></p><p>JDK（java development kit）,java语言的软件开发工具包</p>
+          <p>Java是一门面向对象的语言</p><p>1995年由sun公司发布</p><p>2010年sun公司被Oracle公司收购</p><p>JDK是开发工具包</p><p>JVM（java virtual machine），java虚拟机</p><p>JVM是java平台无关性实现的关键</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -2008,5 +2014,8 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
 </script>
 
     </div>
+  
+  
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":95,"height":140},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>

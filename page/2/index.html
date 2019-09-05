@@ -13,8 +13,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('该部分已被加密，请输入密码进行访问：') !== ''){
+        if('password'){
+            if (prompt('该部分已被加密，请输入密码进行访问：') !== 'password'){
                 alert('密码错误！');
                 history.back();
             }
@@ -131,6 +131,14 @@
   </style>
 </noscript>
 
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  
+  <!--相册-->
+<script src="/js/photoswipe.min.js?v="></script>
+<script src="/js/photoswipe-ui-default.min.js?v="></script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -141,8 +149,6 @@
  
  <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/clicklove.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -389,7 +395,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="js概述"><a href="#js概述" class="headerlink" title="js概述"></a>js概述</h2><p>JS是一种脚本语言</p><h2 id="第一个js程序"><a href="#第一个js程序" class="headerlink" title="第一个js程序"></a>第一个js程序</h2><p><img src="https://img.mukewang.com/climg/5d0ae99c000104f912800720.jpg" alt></p><p>js调试：①alert弹框调试②console.log(flag)控制台输出调试</p><p><img src="https://img.mukewang.com/climg/5cdd862e00018b5c12800720.jpg" alt></p><p><img src="https://img.mukewang.com/climg/5d0c7f350001b05212800720.jpg" alt></p><h2 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h2><p>2个创建方法，第二个方法不建议使用</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fun1 = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> x+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="https://img.mukewang.com/climg/5ccfe5a900014cbb12800720.jpg" alt></p><h2 id="数据类型及转换"><a href="#数据类型及转换" class="headerlink" title="数据类型及转换"></a>数据类型及转换</h2><p><img src="https://img.mukewang.com/climg/5d0afa9400014eec12800720.jpg" alt></p><p><img src="https://img.mukewang.com/climg/5d0afa9e000106d412800720.jpg" alt></p><p><img src="https://img.mukewang.com/climg/5d0afaf60001d94812800720.jpg" alt></p><h2 id="字符函数"><a href="#字符函数" class="headerlink" title="字符函数"></a>字符函数</h2><p><img src="https://img.mukewang.com/climg/5d3add3600017f0312800720.jpg" alt></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">str=<span class="string">"520134199804061223"</span>; </span><br><span class="line">截取str的部分数字</span><br><span class="line">str.substr(开始索引为<span class="number">0</span>,截取长度)；</span><br><span class="line">str.substr(<span class="number">6</span>,<span class="number">4</span>) ;---<span class="number">-1998</span></span><br><span class="line">截取str的部分数字</span><br><span class="line">str.substring(开始索引为<span class="number">0</span>,结束的位置)；取前不取后，后索引+<span class="number">1</span>；</span><br><span class="line">str.substring(<span class="number">6</span>,<span class="number">10</span>);----<span class="number">-1998</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">charAt(从<span class="number">1</span>开始，截取长度)根据位置获取字符串的值 </span><br><span class="line">str.charAt(<span class="number">16</span>);----<span class="number">-2</span></span><br><span class="line"></span><br><span class="line">获取str的长度str.length。</span><br><span class="line">str.length;-----<span class="number">-18</span></span><br><span class="line"></span><br><span class="line">查找str里面第一次出现<span class="number">1</span>的位置索，引从<span class="number">0</span>开始</span><br><span class="line">indexOf(<span class="number">1</span>)；----<span class="number">-3</span></span><br><span class="line">从编号为<span class="number">4</span>的位置开始查找<span class="number">1</span>出现的位置</span><br><span class="line">indexOf(<span class="number">1</span>,<span class="number">4</span>);----<span class="number">-6</span></span><br><span class="line"></span><br><span class="line">以逗号为标记将str转为数组</span><br><span class="line"><span class="keyword">var</span> str=<span class="string">"aa,ttt.123,gg,aa.bb"</span>;</span><br><span class="line"><span class="keyword">var</span> arr=str.split();</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br><span class="line">往str后面添加字符串</span><br><span class="line">str.concat(<span class="string">",11"</span>,<span class="string">",55"</span>,<span class="string">",66"</span>);</span><br><span class="line">往arr后面添加字符</span><br><span class="line">arr.concat(<span class="string">",11"</span>,<span class="string">",55"</span>,<span class="string">",66"</span>);</span><br><span class="line">将第一个一个aa替换为imooc</span><br><span class="line">str.replace(<span class="string">"aa"</span>,<span class="string">"imooc"</span>);</span><br></pre></td></tr></table></figure>
+          <h2 id="js概述"><a href="#js概述" class="headerlink" title="js概述"></a>js概述</h2><p>JS是一种脚本语言</p><h2 id="第一个js程序"><a href="#第一个js程序" class="headerlink" title="第一个js程序"></a>第一个js程序</h2><p><img src="https://img.mukewang.com/climg/5d0ae99c000104f912800720.jpg" alt></p><p>js调试：①alert弹框调试②console.log(flag)控制台输出调试</p><p><img src="https://img.mukewang.com/climg/5cdd862e00018b5c12800720.jpg" alt></p><p><img src="https://img.mukewang.com/climg/5d0c7f350001b05212800720.jpg" alt></p><h2 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h2><p>2个创建方法，第二个方法不建议使用</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fun1 = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> x+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -519,7 +525,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="概述及相对定位"><a href="#概述及相对定位" class="headerlink" title="概述及相对定位"></a>概述及相对定位</h2><p>定位：<br>position:relative(相对)、absolute（绝对）、static（无定位）、fixed（固定）<br>相对定位：相对定位的偏移参考元素是元素本身，不会使元素脱离文档流。元素的初始位置占据的空间会被保留。</p><h2 id="编程练习1"><a href="#编程练习1" class="headerlink" title="编程练习1"></a><strong>编程练习1</strong></h2><p>补全下列代码，使得蓝色区块覆盖红色区块 并且蓝色区块分别距离顶部和左边50px。</p>
+          <h2 id="概述及相对定位"><a href="#概述及相对定位" class="headerlink" title="概述及相对定位"></a>概述及相对定位</h2><p>定位：<br>position:relative(相对)、absolute（绝对）、static（无定位）、fixed（固定）<br>相对定位：相对定位的偏移参考元素是元素本身，不会使元素脱离文档流。元素的初始位置占据的空间会被保留。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -657,7 +663,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Div设置（上）"><a href="#Div设置（上）" class="headerlink" title="Div设置（上）"></a><strong>Div设置（上）</strong></h2><p>DIV是层叠样式表中的定位技术，全称division</p><p>有时把div称为图层，更多的时候称为块</p><h2 id="编程练习1"><a href="#编程练习1" class="headerlink" title="编程练习1"></a><strong>编程练习</strong>1</h2><p>编写div块级元素，设置背景颜色为红色，使用绝对定位设置，并设置div距离左侧50%的距离。</p><p><img src="https://img.mukewang.com/climg/5c7e4f090001332211730204.jpg" alt></p><p>任务提示</p><p>1、设置div高度和宽度相同。</p><p>2、使用left属性设置百分比使div距离左侧50%的距离。</p>
+          <h2 id="Div设置（上）"><a href="#Div设置（上）" class="headerlink" title="Div设置（上）"></a><strong>Div设置（上）</strong></h2><p>DIV是层叠样式表中的定位技术，全称division</p><p>有时把div称为图层，更多的时候称为块</p><h2 id="编程练习1"><a href="#编程练习1" class="headerlink" title="编程练习1"></a><strong>编程练习</strong>1</h2><p>编写div块级元素，设置背景颜色为红色，使用绝对定位设置，并设置div距离左侧50%的距离。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -795,7 +801,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="CSS基础"><a href="#CSS基础" class="headerlink" title="CSS基础"></a>CSS基础</h2><p>CSS样式文件结构</p><p>p{</p><p>​            background-color:red;</p><p>​            font-size:20px;</p><p>}</p><p>样式选择器（p是标签选择器），html所有标签都可以作为样式选择器</p><p>选择器里面为属性和属性值</p><p><img src="https://img.mukewang.com/climg/5d35b70500010d9d13660768.jpg" alt></p><p>type=”text/css”表示标签里面的内容为文本或者CSS</p>
+          <h2 id="CSS基础"><a href="#CSS基础" class="headerlink" title="CSS基础"></a>CSS基础</h2><p>CSS样式文件结构</p><p>p{</p><p>​            background-color:red;</p><p>​            font-size:20px;</p><p>}</p><p>样式选择器（p是标签选择器），html所有标签都可以作为样式选择器</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1469,7 +1475,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="集合排序概述"><a href="#集合排序概述" class="headerlink" title="集合排序概述"></a>集合排序概述</h2><p>数组的排序<br>int[] arr= {2,3,4,5,2,1};<br>Arrays.sort(arr);<br>集合排序<br>使用Collection类的sort方法<br>sort(List<t>list)<br>–根据元素的自然顺序对指定列表按升序进行排序，整型数据从小到大，对于字符串和字符数据，会按ASCII码值对其进行排序</t></p><h2 id="案例：对整型进行排序"><a href="#案例：对整型进行排序" class="headerlink" title="案例：对整型进行排序"></a>案例：对整型进行排序</h2>
+          <h2 id="集合排序概述"><a href="#集合排序概述" class="headerlink" title="集合排序概述"></a>集合排序概述</h2><p>数组的排序<br>int[] arr= {2,3,4,5,2,1};<br>Arrays.sort(arr);<br>集合排序<br>使用Collection类的sort方法<br>sort(List<t>list)<br>–根据元素的自然顺序对指定列表按升序进行排序，整型数据从小到大，对于字符串和字符数据，会按ASCII码值对其进行排序</t></p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -2003,5 +2009,8 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
 </script>
 
     </div>
+  
+  
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":95,"height":140},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>

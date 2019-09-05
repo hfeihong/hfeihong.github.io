@@ -13,8 +13,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('该部分已被加密，请输入密码进行访问：') !== ''){
+        if('password'){
+            if (prompt('该部分已被加密，请输入密码进行访问：') !== 'password'){
                 alert('密码错误！');
                 history.back();
             }
@@ -131,6 +131,14 @@
   </style>
 </noscript>
 
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  
+  <!--相册-->
+<script src="/js/photoswipe.min.js?v="></script>
+<script src="/js/photoswipe-ui-default.min.js?v="></script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -141,8 +149,6 @@
  
  <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/clicklove.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -790,7 +796,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>顺序结构：从上往下依次执行<br>选择结构：根据条件执行对应的内容<br>循环结构:<br>1.while循环<br>2.do-while循环<br>3.for循环<br>4.循环嵌套</p><p>使用   break语句    continue语句跳出循环</p><p>while(循环条件)</p><p>｛</p><p>语句；</p><p>  ｝</p><p>循环输出小于5的数</p><p>int n=1;</p><p>while(n&lt;5)</p><p>{                        //n必须进行初始化</p>
+          <p>顺序结构：从上往下依次执行<br>选择结构：根据条件执行对应的内容<br>循环结构:<br>1.while循环<br>2.do-while循环<br>3.for循环<br>4.循环嵌套</p><p>使用   break语句    continue语句跳出循环</p><p>while(循环条件)</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1050,7 +1056,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>1.运算符概述</p><p>表达式=操作数（+运算符）；单个数字或变量也可以算作表达式。<br>例：<br>5<br>num1<br>num1+num2<br>sum=num1+num2</p><p>运算符：算术运算符    赋值运算符    关系运算符    逻辑运算符    条件运算符    位运算符</p><p>【赋值运算符】<br>1.格式：变量=表达式;<br>例：int n = 3; //将3赋值给变量n<br>注意：赋值运算符是从右往左运算！<br>2.double d = 123.4; double d1 = d;<br>注意：赋值运算符的左边不能为常量</p>
+          <p>1.运算符概述</p><p>表达式=操作数（+运算符）；单个数字或变量也可以算作表达式。<br>例：<br>5<br>num1<br>num1+num2<br>sum=num1+num2</p><p>运算符：算术运算符    赋值运算符    关系运算符    逻辑运算符    条件运算符    位运算符</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1448,7 +1454,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>1.什么是变量</p><p>数据临时存储的位置</p><p>变量的三个元素：变量类型、变量名和变量值。</p><p>命名规则：<br>1、满足标识符命名规则<br>2、符合驼峰法命名规范<br>3、尽量简单，做到见名知意<br>4、变量名的长度没有限制</p><p>驼峰法命名：<br>单个单词，全部小写<br>多个单词，第一个单词首字母小写，后面的单词首字母大写。</p><p>类命名规则：<br>Pascal原则：组成类名的单词的首字母都要大写。</p>
+          <p>1.什么是变量</p><p>数据临时存储的位置</p><p>变量的三个元素：变量类型、变量名和变量值。</p><p>命名规则：<br>1、满足标识符命名规则<br>2、符合驼峰法命名规范<br>3、尽量简单，做到见名知意<br>4、变量名的长度没有限制</p><p>驼峰法命名：<br>单个单词，全部小写<br>多个单词，第一个单词首字母小写，后面的单词首字母大写。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1974,5 +1980,8 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
 </script>
 
     </div>
+  
+  
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":95,"height":140},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>

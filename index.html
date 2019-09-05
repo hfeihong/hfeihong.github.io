@@ -13,8 +13,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('该部分已被加密，请输入密码进行访问：') !== ''){
+        if('password'){
+            if (prompt('该部分已被加密，请输入密码进行访问：') !== 'password'){
                 alert('密码错误！');
                 history.back();
             }
@@ -131,6 +131,14 @@
   </style>
 </noscript>
 
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  
+  <!--相册-->
+<script src="/js/photoswipe.min.js?v="></script>
+<script src="/js/photoswipe-ui-default.min.js?v="></script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -141,8 +149,6 @@
  
  <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/clicklove.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -796,7 +802,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>JSP的本质就是Servlet，所有写在JSP中的无论是html还是java都会被转译成servlet，最后进行编译执行，最后输出相应的响应返回给浏览器，浏览器输出相应的html，整个过程即完成。</p><h2 id="JSP基本语法"><a href="#JSP基本语法" class="headerlink" title="JSP基本语法"></a>JSP基本语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">JSP 的基本语法：</span><br><span class="line">1、JSP语法按功能可分为四种：</span><br><span class="line">1）JSP代码块 ；</span><br><span class="line">2） JSP声明构造；</span><br><span class="line">3）JSP输出指令;</span><br><span class="line">4）JSP处理指令；</span><br><span class="line"></span><br><span class="line">一、JSP代码块：</span><br><span class="line">1、JSP代码块用于在JSP嵌入Java代码；</span><br><span class="line">2、JSP代码块语法：&lt;% Java代码 %&gt;；</span><br><span class="line">例如：&lt;%System.out.println(&quot;hello World!&quot;)%&gt;</span><br><span class="line">注：System.out.println(&quot;&quot;)：是在控制台输出；</span><br><span class="line">out.println(&quot;&quot;)：是在浏览器里面输出；</span><br><span class="line"></span><br><span class="line">二、JSP声明构造块：</span><br><span class="line">1、JSP 声明构造块用于声明变量或方法；</span><br><span class="line">2、声明构造块的构造语法：&lt;%! 声明语句 %&gt;</span><br><span class="line">例如：&lt;%! public int add (int a,int b)&#123;return a+b;&#125; %&gt;</span><br><span class="line"></span><br><span class="line">三、JSP 输出指令：</span><br><span class="line">1、JSP 输出指令用于在JSP页面中显示Java代码执行结果；</span><br><span class="line">2、JSP输出指令语法：&lt;%= java代码 %&gt;；</span><br><span class="line">例如：&lt;%= &quot;&lt;b&gt;&quot; + name + &quot;&lt;/b&gt;&quot; %&gt;</span><br><span class="line"></span><br><span class="line">四、JSP 处理指令：</span><br><span class="line">1、JSP 处理指令用于提供JSP 执行过程中的辅助信息;</span><br><span class="line">2、JSP 处理指令语法：&lt;%@ jsp指令 %&gt;</span><br><span class="line">例如：&lt;%@ page import=&quot;java.util.*&quot; %&gt;</span><br><span class="line"></span><br><span class="line">五、三种 JSP 常用处理指令：</span><br><span class="line">1、&lt;%@ page %&gt; 定义当前JSP页面全局设置；</span><br><span class="line">2、&lt;%@ include %&gt; 将其他JSP 页面与当前JSP 页面合并；</span><br><span class="line">3、&lt;%@ taglib %&gt; 引入JSP标签库；</span><br><span class="line"></span><br><span class="line">六、JSP 中注释的区别：</span><br><span class="line">1、&lt;%-- 注释 --%&gt;：JSP注释，被注释语句不做任何处理；</span><br><span class="line">2、//、/* */：用于注释&lt;% %&gt;java代码，被注释代码不执行；</span><br><span class="line">3、&lt;!-- 注释 --&gt; :HTML注释，被注释的语句不会被浏览器解释；</span><br></pre></td></tr></table></figure>
+          <p>JSP的本质就是Servlet，所有写在JSP中的无论是html还是java都会被转译成servlet，最后进行编译执行，最后输出相应的响应返回给浏览器，浏览器输出相应的html，整个过程即完成。</p><h2 id="JSP基本语法"><a href="#JSP基本语法" class="headerlink" title="JSP基本语法"></a>JSP基本语法</h2>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -934,7 +940,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Tomcat与Servlet"><a href="#Tomcat与Servlet" class="headerlink" title="Tomcat与Servlet"></a>Tomcat与Servlet</h2><p>一、B/S模式执行流程</p><p>二、请求与响应：<br>1、从浏览器发出送给服务器的数据包称为 “请求（request）”；<br>2、从服务器返回给浏览器的结果称为 “响应（response）”；<br>3、请求与响应必须要成对存在；</p><p>三、J2EE是什么：<br>1、J2EE（Java 2 Platform Enterprise Edition）是指 “Java 2 企业版”；<br>2、开发BS（Web）应用程序就是J2EE最核心的功能；<br>3、J2EE由13个功能模块组成：</p>
+          <h2 id="Tomcat与Servlet"><a href="#Tomcat与Servlet" class="headerlink" title="Tomcat与Servlet"></a>Tomcat与Servlet</h2><p>一、B/S模式执行流程</p><p>二、请求与响应：<br>1、从浏览器发出送给服务器的数据包称为 “请求（request）”；<br>2、从服务器返回给浏览器的结果称为 “响应（response）”；<br>3、请求与响应必须要成对存在；</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1072,7 +1078,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="XML的概念与用途"><a href="#XML的概念与用途" class="headerlink" title="XML的概念与用途"></a>XML的概念与用途</h2><p>XML是可扩展标记语言(Extensible Markup Language，XML)缩写，用于标记电子文件使其具有结构性的标记语言，可以用来标记数据、定义数据类型，是一种允许用户对自己的标记语言进行定义的源语言。</p><p>XML与HTML的比较<br>1.XML与HTML非常相似，都是编写标签<br>2.XML没有预定义标签，HTML存在大量预定义标签<br>3.XML重在保存和传输数据，HTML用于显示信息</p>
+          <h2 id="XML的概念与用途"><a href="#XML的概念与用途" class="headerlink" title="XML的概念与用途"></a>XML的概念与用途</h2><p>XML是可扩展标记语言(Extensible Markup Language，XML)缩写，用于标记电子文件使其具有结构性的标记语言，可以用来标记数据、定义数据类型，是一种允许用户对自己的标记语言进行定义的源语言。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1332,7 +1338,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>效果图如下：</p><p><img src="https://img.mukewang.com/climg/5acb023c000132fb25003260.jpg" alt></p><p>任务描述</p><p>一、语言和环境</p><p>​      1、实现语言</p><p>​            HTML、CSS</p><p>​      2、 环境要求及开发工具</p><p>​             建议 Sublime text</p><p>二、网页整体要求：</p><p>​      1、要求页面整洁、美观，与提供的页面效果图、结构基本保持一致；</p><p>​      2、要求HTML代码和CSS代码书写、命名符合规范，在代码中添加必要的注释，方便后期的维护。</p>
+          <p>效果图如下：</p><p><img src="https://img.mukewang.com/climg/5acb023c000132fb25003260.jpg" alt></p><p>任务描述</p><p>一、语言和环境</p><p>​      1、实现语言</p><p>​            HTML、CSS</p><p>​      2、 环境要求及开发工具</p><p>​             建议 Sublime text</p><p>二、网页整体要求：</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -2020,5 +2026,8 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
 </script>
 
     </div>
+  
+  
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":95,"height":140},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>

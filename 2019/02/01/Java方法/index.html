@@ -13,8 +13,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('该部分已被加密，请输入密码进行访问：') !== ''){
+        if('password'){
+            if (prompt('该部分已被加密，请输入密码进行访问：') !== 'password'){
                 alert('密码错误！');
                 history.back();
             }
@@ -76,18 +76,18 @@
   };
 </script>
 
-  <meta name="description" content="什么是方法方法：就是用来解决一类问题的代码的有序组合，是一个功能模块。方法声明语法格式：访问修饰符    返回类型        方法名（参数列表）｛​        方法体｝方法分类根据方法是否带参数、是否返回值，可分为四类：-无参无返回值方法-无参带返回值方法-带参无返回值方法-带参带返回值方法无参无返回值方法">
+  <meta name="description" content="什么是方法方法：就是用来解决一类问题的代码的有序组合，是一个功能模块。方法声明语法格式：访问修饰符    返回类型        方法名（参数列表）｛​        方法体｝方法分类根据方法是否带参数、是否返回值，可分为四类：">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java方法">
 <meta property="og:url" content="https://feihong.me/2019/02/01/Java方法/index.html">
 <meta property="og:site_name" content="Feihong&#39;s Blog">
-<meta property="og:description" content="什么是方法方法：就是用来解决一类问题的代码的有序组合，是一个功能模块。方法声明语法格式：访问修饰符    返回类型        方法名（参数列表）｛​        方法体｝方法分类根据方法是否带参数、是否返回值，可分为四类：-无参无返回值方法-无参带返回值方法-带参无返回值方法-带参带返回值方法无参无返回值方法">
+<meta property="og:description" content="什么是方法方法：就是用来解决一类问题的代码的有序组合，是一个功能模块。方法声明语法格式：访问修饰符    返回类型        方法名（参数列表）｛​        方法体｝方法分类根据方法是否带参数、是否返回值，可分为四类：">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-02-10T13:08:58.061Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java方法">
-<meta name="twitter:description" content="什么是方法方法：就是用来解决一类问题的代码的有序组合，是一个功能模块。方法声明语法格式：访问修饰符    返回类型        方法名（参数列表）｛​        方法体｝方法分类根据方法是否带参数、是否返回值，可分为四类：-无参无返回值方法-无参带返回值方法-带参无返回值方法-带参带返回值方法无参无返回值方法">
+<meta name="twitter:description" content="什么是方法方法：就是用来解决一类问题的代码的有序组合，是一个功能模块。方法声明语法格式：访问修饰符    返回类型        方法名（参数列表）｛​        方法体｝方法分类根据方法是否带参数、是否返回值，可分为四类：">
   <link rel="canonical" href="https://feihong.me/2019/02/01/Java方法/">
 
 
@@ -136,6 +136,14 @@
   </style>
 </noscript>
 
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  
+  <!--相册-->
+<script src="/js/photoswipe.min.js?v="></script>
+<script src="/js/photoswipe-ui-default.min.js?v="></script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -146,8 +154,6 @@
  
  <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/clicklove.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -394,7 +400,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>什么是方法</p><p>方法：就是用来解决一类问题的代码的有序组合，是一个功能模块。</p><p>方法声明</p><p>语法格式：</p><p>访问修饰符    返回类型        方法名（参数列表）｛</p><p>​        方法体</p><p>｝</p><p>方法分类</p><p>根据方法是否带参数、是否返回值，可分为四类：</p><p>-无参无返回值方法</p><p>-无参带返回值方法</p><p>-带参无返回值方法</p><p>-带参带返回值方法</p><p>无参无返回值方法</p><a id="more"></a>
+        <p>什么是方法</p><p>方法：就是用来解决一类问题的代码的有序组合，是一个功能模块。</p><p>方法声明</p><p>语法格式：</p><p>访问修饰符    返回类型        方法名（参数列表）｛</p><p>​        方法体</p><p>｝</p><p>方法分类</p><p>根据方法是否带参数、是否返回值，可分为四类：</p><a id="more"></a>
 
 
 
@@ -403,11 +409,11 @@
 
 
 
-
-
-
-
-
+<p>-无参无返回值方法</p>
+<p>-无参带返回值方法</p>
+<p>-带参无返回值方法</p>
+<p>-带参带返回值方法</p>
+<p>无参无返回值方法</p>
 <p>例：一行打印输出一串星号</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> imoocProj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MethodDemo</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//打印输出星号的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"*****************"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">	MethodDemo myMethodDemo=<span class="keyword">new</span> MethodDemo();</span><br><span class="line">	myMethodDemo.printStar();</span><br><span class="line">	<span class="comment">//System.out.println("*****************");</span></span><br><span class="line">	System.out.println(<span class="string">"欢迎来到Java的世界"</span>);</span><br><span class="line">	<span class="comment">//System.out.println("*****************");</span></span><br><span class="line">	myMethodDemo.printStar();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -912,5 +918,8 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
 </script>
 
     </div>
+  
+  
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":95,"height":140},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>

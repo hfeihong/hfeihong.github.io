@@ -13,8 +13,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('该部分已被加密，请输入密码进行访问：') !== ''){
+        if('password'){
+            if (prompt('该部分已被加密，请输入密码进行访问：') !== 'password'){
                 alert('密码错误！');
                 history.back();
             }
@@ -76,18 +76,18 @@
   };
 </script>
 
-  <meta name="description" content="Object类是所有类的父类，java中的每个类都可以使用Object中定义的方法equals();toString();final1.修饰类表示不循序被继承2.修饰方法表示不允许被子类重写（但是可以被子类继承）3.修饰变量表示不允许被修改4.static final 静态不允许被修改注解：用元素来进行署名，注释">
+  <meta name="description" content="Object类是所有类的父类，java中的每个类都可以使用Object中定义的方法equals();toString();final1.修饰类表示不循序被继承2.修饰方法表示不允许被子类重写（但是可以被子类继承）3.修饰变量表示不允许被修改4.static final 静态不允许被修改">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java继承--总结">
 <meta property="og:url" content="https://feihong.me/2019/06/11/Java继承-总结/index.html">
 <meta property="og:site_name" content="Feihong&#39;s Blog">
-<meta property="og:description" content="Object类是所有类的父类，java中的每个类都可以使用Object中定义的方法equals();toString();final1.修饰类表示不循序被继承2.修饰方法表示不允许被子类重写（但是可以被子类继承）3.修饰变量表示不允许被修改4.static final 静态不允许被修改注解：用元素来进行署名，注释">
+<meta property="og:description" content="Object类是所有类的父类，java中的每个类都可以使用Object中定义的方法equals();toString();final1.修饰类表示不循序被继承2.修饰方法表示不允许被子类重写（但是可以被子类继承）3.修饰变量表示不允许被修改4.static final 静态不允许被修改">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-06-11T13:15:42.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java继承--总结">
-<meta name="twitter:description" content="Object类是所有类的父类，java中的每个类都可以使用Object中定义的方法equals();toString();final1.修饰类表示不循序被继承2.修饰方法表示不允许被子类重写（但是可以被子类继承）3.修饰变量表示不允许被修改4.static final 静态不允许被修改注解：用元素来进行署名，注释">
+<meta name="twitter:description" content="Object类是所有类的父类，java中的每个类都可以使用Object中定义的方法equals();toString();final1.修饰类表示不循序被继承2.修饰方法表示不允许被子类重写（但是可以被子类继承）3.修饰变量表示不允许被修改4.static final 静态不允许被修改">
   <link rel="canonical" href="https://feihong.me/2019/06/11/Java继承-总结/">
 
 
@@ -136,6 +136,14 @@
   </style>
 </noscript>
 
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  
+  <!--相册-->
+<script src="/js/photoswipe.min.js?v="></script>
+<script src="/js/photoswipe-ui-default.min.js?v="></script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -146,8 +154,6 @@
  
  <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/clicklove.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -386,9 +392,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Object类是所有类的父类，<br>java中的每个类都可以使用Object中定义的方法<br>equals();<br>toString();</p><p>final<br>1.修饰类表示不循序被继承<br>2.修饰方法表示不允许被子类重写（但是可以被子类继承）<br>3.修饰变量表示不允许被修改<br>4.static final 静态不允许被修改</p><p>注解：<br>用元素来进行署名，注释</p><a id="more"></a>
+        <p>Object类是所有类的父类，<br>java中的每个类都可以使用Object中定义的方法<br>equals();<br>toString();</p><p>final<br>1.修饰类表示不循序被继承<br>2.修饰方法表示不允许被子类重写（但是可以被子类继承）<br>3.修饰变量表示不允许被修改<br>4.static final 静态不允许被修改</p><a id="more"></a>
 
-
+<p>注解：<br>用元素来进行署名，注释</p>
 <p>方法重写：<br>1.满足继承关系的子类中<br>2，方法名 参数个数 顺序 类型 与父类相同<br>-返回值类型与父类兼容<br>–访问修饰符的先ing范围大于等于父类方法</p>
 <p>重载：同一个类中 方法名相同 参数个数 顺序类型 类型不同 返回值类型，访问修饰符任意</p>
 
@@ -819,5 +825,8 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
 </script>
 
     </div>
+  
+  
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":95,"height":140},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>

@@ -13,8 +13,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('该部分已被加密，请输入密码进行访问：') !== ''){
+        if('password'){
+            if (prompt('该部分已被加密，请输入密码进行访问：') !== 'password'){
                 alert('密码错误！');
                 history.back();
             }
@@ -131,6 +131,14 @@
   </style>
 </noscript>
 
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  
+  <!--相册-->
+<script src="/js/photoswipe.min.js?v="></script>
+<script src="/js/photoswipe-ui-default.min.js?v="></script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -141,8 +149,6 @@
  
  <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/clicklove.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -389,11 +395,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="String常用方法简介"><a href="#String常用方法简介" class="headerlink" title="String常用方法简介"></a>String常用方法简介</h2><p>创建String对象的方法：<br>String s1=”imooc”;等同于String s3=new String(“imooc”);<br>都是创建了一个字符串对象imooc</p><p><img src="https://img.mukewang.com/climg/5ac0a0390001769812800720.jpg" alt></p><p><img src="https://img.mukewang.com/climg/5d247d430001f19212800720.jpg" alt></p><h2 id="String常用方法（上）"><a href="#String常用方法（上）" class="headerlink" title="String常用方法（上）"></a>String常用方法（上）</h2><p>​    1.求字符串长度：<br>​    str.length();</p><ol start="2">
-<li>取出位置在6的字符；字符串中的字符从0开始数，也就是第7个字符<br>str.charAt(6);</li>
-<li>取出子串，即字符串位置5及位置5以后的字符串<br>str.substring(5);</li>
-<li>取出子串,即字符串位置5（包括位置5）及位置7之前的字符串（不包括位置7）<br>str.substring(5,7)</li>
-</ol>
+          <h2 id="String常用方法简介"><a href="#String常用方法简介" class="headerlink" title="String常用方法简介"></a>String常用方法简介</h2><p>创建String对象的方法：<br>String s1=”imooc”;等同于String s3=new String(“imooc”);<br>都是创建了一个字符串对象imooc</p><p><img src="https://img.mukewang.com/climg/5ac0a0390001769812800720.jpg" alt></p><p><img src="https://img.mukewang.com/climg/5d247d430001f19212800720.jpg" alt></p><h2 id="String常用方法（上）"><a href="#String常用方法（上）" class="headerlink" title="String常用方法（上）"></a>String常用方法（上）</h2>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -531,7 +533,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="包装类与基本数据类型"><a href="#包装类与基本数据类型" class="headerlink" title="包装类与基本数据类型"></a>包装类与基本数据类型</h2><p>包装类：可以让基本数据类型获取跟对象一样的属性和特征，行使对象的相关权益<br>命名：大部分包装类的命名是它的基本类型的名称首字母大写(如float-Float,byte-Byte)，但有两个特例，int对应的包装类Integer,以及char对应的包装类Character</p><p><img src="https://img.mukewang.com/climg/593365010001265212800720.jpg" alt></p><h2 id="包装类常用方法"><a href="#包装类常用方法" class="headerlink" title="包装类常用方法"></a>包装类常用方法</h2><p>包装类都是final修饰的，不能被继承。<br>所有的数值型包装类（Integer Byte Short Long Float Double ）直接父类都是Number类；<br>字符型和布尔型（Character Boolean）直接父类为Object类；<br>每个包装类有很多方法，去甲骨文官网去看API</p>
+          <h2 id="包装类与基本数据类型"><a href="#包装类与基本数据类型" class="headerlink" title="包装类与基本数据类型"></a>包装类与基本数据类型</h2><p>包装类：可以让基本数据类型获取跟对象一样的属性和特征，行使对象的相关权益<br>命名：大部分包装类的命名是它的基本类型的名称首字母大写(如float-Float,byte-Byte)，但有两个特例，int对应的包装类Integer,以及char对应的包装类Character</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -939,9 +941,7 @@
 <li>包含抽象方法play( )</li>
 </ul><ol start="2">
 <li>创建外部类BallTest</li>
-</ol><ul>
-<li>定义方法 void playBall(Ball ball)，调用接口中的 play( ) 方法</li>
-</ul>
+</ol>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1071,7 +1071,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1  概述"></a>1  概述</h1><p>1，可以将一个类定义在另一个类里面或者一个方法里面，这样的类称为内部类。<br>2，与之对应，包含内部类的类被称为外部类<br>3，内部类的信息获取需要借助外部类去访问,<br>4，内部类隐藏在外部类内，更好的实现了信息隐藏<br>5，内部类的分类：<br>成员内部类<br>静态内部类<br>方法内部类<br>匿名内部类</p><p><img src="https://img.mukewang.com/climg/5a523ce800011cd112800720.jpg" alt></p><h1 id="2-成员内部类"><a href="#2-成员内部类" class="headerlink" title="2 成员内部类"></a>2 成员内部类</h1><p>内部类<br>需要借由外部类信息才能实例化！<br>获取内部类实例对象：</p>
+          <h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1  概述"></a>1  概述</h1><p>1，可以将一个类定义在另一个类里面或者一个方法里面，这样的类称为内部类。<br>2，与之对应，包含内部类的类被称为外部类<br>3，内部类的信息获取需要借助外部类去访问,<br>4，内部类隐藏在外部类内，更好的实现了信息隐藏<br>5，内部类的分类：<br>成员内部类<br>静态内部类<br>方法内部类<br>匿名内部类</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1201,7 +1201,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>使用接口的知识， 定义接口IFly,创建三个类Plane类、Bird类、Balloon类，分别重写接口中的fly( )方法，然后再测试类中进行调用。</p><p>程序运行参考效果如图所示：</p><p><img src="https://climg.mukewang.com/5847d59a00018db101490091.jpg" alt></p><p>任务</p><p>任务分析：</p><p>1、创建接口IFly( )</p><p>​     方法：创建抽象方法 fly() 方法</p><p>2、创建子类：Plane</p><p>​     方法：实现接口中的方法fly( )，输出信息“飞机在天上飞”</p>
+          <p>使用接口的知识， 定义接口IFly,创建三个类Plane类、Bird类、Balloon类，分别重写接口中的fly( )方法，然后再测试类中进行调用。</p><p>程序运行参考效果如图所示：</p><p><img src="https://climg.mukewang.com/5847d59a00018db101490091.jpg" alt></p><p>任务</p><p>任务分析：</p><p>1、创建接口IFly( )</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1461,7 +1461,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>定义一个抽象类图形Shape类，由该派生出两个子类圆Circle类和矩形Rectangle类。Shape里声明了抽象方法area()，该方法分别在两个子类里得到实现。</p><p>程序参考运行效果图如下：</p><p><img src="https://climg.mukewang.com/5847d0a10001049102290079.jpg" alt></p><p>任务</p><p>任务分析：</p><p>1、定义一个抽象类Shape，在它里面创建抽象方法area（）方法</p><p>2、它的子类Circle类和Rectangle类</p>
+          <p>定义一个抽象类图形Shape类，由该派生出两个子类圆Circle类和矩形Rectangle类。Shape里声明了抽象方法area()，该方法分别在两个子类里得到实现。</p><p>程序参考运行效果图如下：</p><p><img src="https://climg.mukewang.com/5847d0a10001049102290079.jpg" alt></p><p>任务</p><p>任务分析：</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1591,7 +1591,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>应用继承和多态的思想，编写动物类，成员方法是动物叫声。写三个具体的类（猫、狗、羊），它们都是动物类的子类，并重写父类的成员方法。编写测试类，随机产生三种具体动物，调用叫声这个方法。</p><p>程序参考运行效果如图所示：</p><p><img src="https://climg.mukewang.com/5847c87c0001c5c002510140.jpg" alt></p><p><strong>任务</strong></p><p><strong>任务分析：</strong></p><p><strong>1.      定义一个父类Animal类</strong></p><p>属性：kind(种类)</p><p>方法：创建带参（kind为参数）构造方法</p>
+          <p>应用继承和多态的思想，编写动物类，成员方法是动物叫声。写三个具体的类（猫、狗、羊），它们都是动物类的子类，并重写父类的成员方法。编写测试类，随机产生三种具体动物，调用叫声这个方法。</p><p>程序参考运行效果如图所示：</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1987,5 +1987,8 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
 </script>
 
     </div>
+  
+  
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":95,"height":140},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>

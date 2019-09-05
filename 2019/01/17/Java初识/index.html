@@ -13,8 +13,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('该部分已被加密，请输入密码进行访问：') !== ''){
+        if('password'){
+            if (prompt('该部分已被加密，请输入密码进行访问：') !== 'password'){
                 alert('密码错误！');
                 history.back();
             }
@@ -76,20 +76,20 @@
   };
 </script>
 
-  <meta name="description" content="Java是一门面向对象的语言1995年由sun公司发布2010年sun公司被Oracle公司收购JDK是开发工具包JVM（java virtual machine），java虚拟机JVM是java平台无关性实现的关键java程序执行流程：JDK（java development kit）,java语言的软件开发工具包">
+  <meta name="description" content="Java是一门面向对象的语言1995年由sun公司发布2010年sun公司被Oracle公司收购JDK是开发工具包JVM（java virtual machine），java虚拟机JVM是java平台无关性实现的关键">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java初识">
 <meta property="og:url" content="https://feihong.me/2019/01/17/Java初识/index.html">
 <meta property="og:site_name" content="Feihong&#39;s Blog">
-<meta property="og:description" content="Java是一门面向对象的语言1995年由sun公司发布2010年sun公司被Oracle公司收购JDK是开发工具包JVM（java virtual machine），java虚拟机JVM是java平台无关性实现的关键java程序执行流程：JDK（java development kit）,java语言的软件开发工具包">
+<meta property="og:description" content="Java是一门面向对象的语言1995年由sun公司发布2010年sun公司被Oracle公司收购JDK是开发工具包JVM（java virtual machine），java虚拟机JVM是java平台无关性实现的关键">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://bmob-cdn-23498.b0.upaiyun.com/2019/01/17/a3816b74407b20d88095893fe31366e3.png">
 <meta property="og:image" content="http://bmob-cdn-23498.b0.upaiyun.com/2019/01/17/c67144fc40704f308028a7f7e6eebc40.png">
 <meta property="og:updated_time" content="2019-01-17T11:40:18.930Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java初识">
-<meta name="twitter:description" content="Java是一门面向对象的语言1995年由sun公司发布2010年sun公司被Oracle公司收购JDK是开发工具包JVM（java virtual machine），java虚拟机JVM是java平台无关性实现的关键java程序执行流程：JDK（java development kit）,java语言的软件开发工具包">
+<meta name="twitter:description" content="Java是一门面向对象的语言1995年由sun公司发布2010年sun公司被Oracle公司收购JDK是开发工具包JVM（java virtual machine），java虚拟机JVM是java平台无关性实现的关键">
 <meta name="twitter:image" content="http://bmob-cdn-23498.b0.upaiyun.com/2019/01/17/a3816b74407b20d88095893fe31366e3.png">
   <link rel="canonical" href="https://feihong.me/2019/01/17/Java初识/">
 
@@ -139,6 +139,14 @@
   </style>
 </noscript>
 
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  
+  <!--相册-->
+<script src="/js/photoswipe.min.js?v="></script>
+<script src="/js/photoswipe-ui-default.min.js?v="></script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -149,8 +157,6 @@
  
  <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/clicklove.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -389,15 +395,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Java是一门面向对象的语言</p><p>1995年由sun公司发布</p><p>2010年sun公司被Oracle公司收购</p><p>JDK是开发工具包</p><p>JVM（java virtual machine），java虚拟机</p><p>JVM是java平台无关性实现的关键</p><p>java程序执行流程：</p><p><img src="http://bmob-cdn-23498.b0.upaiyun.com/2019/01/17/a3816b74407b20d88095893fe31366e3.png" alt></p><p>JDK（java development kit）,java语言的软件开发工具包</p><a id="more"></a>
+        <p>Java是一门面向对象的语言</p><p>1995年由sun公司发布</p><p>2010年sun公司被Oracle公司收购</p><p>JDK是开发工具包</p><p>JVM（java virtual machine），java虚拟机</p><p>JVM是java平台无关性实现的关键</p><a id="more"></a>
 
 
 
 
 
-
-
-
+<p>java程序执行流程：</p>
+<p><img src="http://bmob-cdn-23498.b0.upaiyun.com/2019/01/17/a3816b74407b20d88095893fe31366e3.png" alt></p>
+<p>JDK（java development kit）,java语言的软件开发工具包</p>
 <p>两个主要组件：</p>
 <p>​    -javac-编译器，将源程序转成字节码</p>
 <p>​    -java-运行编译后的java程序（.class后缀的）</p>
@@ -840,5 +846,8 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
 </script>
 
     </div>
+  
+  
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":95,"height":140},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>

@@ -13,8 +13,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('该部分已被加密，请输入密码进行访问：') !== ''){
+        if('password'){
+            if (prompt('该部分已被加密，请输入密码进行访问：') !== 'password'){
                 alert('密码错误！');
                 history.back();
             }
@@ -76,13 +76,13 @@
   };
 </script>
 
-  <meta name="description" content="包装类与基本数据类型包装类：可以让基本数据类型获取跟对象一样的属性和特征，行使对象的相关权益命名：大部分包装类的命名是它的基本类型的名称首字母大写(如float-Float,byte-Byte)，但有两个特例，int对应的包装类Integer,以及char对应的包装类Character包装类常用方法包装类都是final修饰的，不能被继承。所有的数值型包装类（Integer Byte Short L">
+  <meta name="description" content="包装类与基本数据类型包装类：可以让基本数据类型获取跟对象一样的属性和特征，行使对象的相关权益命名：大部分包装类的命名是它的基本类型的名称首字母大写(如float-Float,byte-Byte)，但有两个特例，int对应的包装类Integer,以及char对应的包装类Character">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java包装类">
 <meta property="og:url" content="https://feihong.me/2019/07/07/Java包装类/index.html">
 <meta property="og:site_name" content="Feihong&#39;s Blog">
-<meta property="og:description" content="包装类与基本数据类型包装类：可以让基本数据类型获取跟对象一样的属性和特征，行使对象的相关权益命名：大部分包装类的命名是它的基本类型的名称首字母大写(如float-Float,byte-Byte)，但有两个特例，int对应的包装类Integer,以及char对应的包装类Character包装类常用方法包装类都是final修饰的，不能被继承。所有的数值型包装类（Integer Byte Short L">
+<meta property="og:description" content="包装类与基本数据类型包装类：可以让基本数据类型获取跟对象一样的属性和特征，行使对象的相关权益命名：大部分包装类的命名是它的基本类型的名称首字母大写(如float-Float,byte-Byte)，但有两个特例，int对应的包装类Integer,以及char对应的包装类Character">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://img.mukewang.com/climg/593365010001265212800720.jpg">
 <meta property="og:image" content="https://img.mukewang.com/climg/5abcb59d000111ed12800720.jpg">
@@ -96,7 +96,7 @@
 <meta property="og:updated_time" content="2019-07-08T14:24:46.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java包装类">
-<meta name="twitter:description" content="包装类与基本数据类型包装类：可以让基本数据类型获取跟对象一样的属性和特征，行使对象的相关权益命名：大部分包装类的命名是它的基本类型的名称首字母大写(如float-Float,byte-Byte)，但有两个特例，int对应的包装类Integer,以及char对应的包装类Character包装类常用方法包装类都是final修饰的，不能被继承。所有的数值型包装类（Integer Byte Short L">
+<meta name="twitter:description" content="包装类与基本数据类型包装类：可以让基本数据类型获取跟对象一样的属性和特征，行使对象的相关权益命名：大部分包装类的命名是它的基本类型的名称首字母大写(如float-Float,byte-Byte)，但有两个特例，int对应的包装类Integer,以及char对应的包装类Character">
 <meta name="twitter:image" content="https://img.mukewang.com/climg/593365010001265212800720.jpg">
   <link rel="canonical" href="https://feihong.me/2019/07/07/Java包装类/">
 
@@ -146,6 +146,14 @@
   </style>
 </noscript>
 
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  
+  <!--相册-->
+<script src="/js/photoswipe.min.js?v="></script>
+<script src="/js/photoswipe-ui-default.min.js?v="></script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -156,8 +164,6 @@
  
  <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/clicklove.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -404,9 +410,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="包装类与基本数据类型"><a href="#包装类与基本数据类型" class="headerlink" title="包装类与基本数据类型"></a>包装类与基本数据类型</h2><p>包装类：可以让基本数据类型获取跟对象一样的属性和特征，行使对象的相关权益<br>命名：大部分包装类的命名是它的基本类型的名称首字母大写(如float-Float,byte-Byte)，但有两个特例，int对应的包装类Integer,以及char对应的包装类Character</p><p><img src="https://img.mukewang.com/climg/593365010001265212800720.jpg" alt></p><h2 id="包装类常用方法"><a href="#包装类常用方法" class="headerlink" title="包装类常用方法"></a>包装类常用方法</h2><p>包装类都是final修饰的，不能被继承。<br>所有的数值型包装类（Integer Byte Short Long Float Double ）直接父类都是Number类；<br>字符型和布尔型（Character Boolean）直接父类为Object类；<br>每个包装类有很多方法，去甲骨文官网去看API</p><a id="more"></a>
-
-
+        <h2 id="包装类与基本数据类型"><a href="#包装类与基本数据类型" class="headerlink" title="包装类与基本数据类型"></a>包装类与基本数据类型</h2><p>包装类：可以让基本数据类型获取跟对象一样的属性和特征，行使对象的相关权益<br>命名：大部分包装类的命名是它的基本类型的名称首字母大写(如float-Float,byte-Byte)，但有两个特例，int对应的包装类Integer,以及char对应的包装类Character</p><a id="more"></a>
+<p><img src="https://img.mukewang.com/climg/593365010001265212800720.jpg" alt></p>
+<h2 id="包装类常用方法"><a href="#包装类常用方法" class="headerlink" title="包装类常用方法"></a>包装类常用方法</h2><p>包装类都是final修饰的，不能被继承。<br>所有的数值型包装类（Integer Byte Short Long Float Double ）直接父类都是Number类；<br>字符型和布尔型（Character Boolean）直接父类为Object类；<br>每个包装类有很多方法，去甲骨文官网去看API</p>
 <p><img src="https://img.mukewang.com/climg/5abcb59d000111ed12800720.jpg" alt></p>
 <h2 id="基本数据类型和包装类之间的转换"><a href="#基本数据类型和包装类之间的转换" class="headerlink" title="基本数据类型和包装类之间的转换"></a>基本数据类型和包装类之间的转换</h2><p>​    1、每一种基本数据类型都应该有对应的对象类型，方便对基本类型进行操作。包装类型可以解决一些        基本类型解决不了的问题，如有时候需要传递一个Object变量 而你想传递int类型的进去显然不行，        这就要用到包装类。<br>​    2、集合不允许存放基本类型数据，只能存放包装类型。</p>
 <ol start="3">
@@ -869,5 +875,8 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
 </script>
 
     </div>
+  
+  
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":95,"height":140},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>

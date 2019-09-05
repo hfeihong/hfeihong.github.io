@@ -13,8 +13,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('该部分已被加密，请输入密码进行访问：') !== ''){
+        if('password'){
+            if (prompt('该部分已被加密，请输入密码进行访问：') !== 'password'){
                 alert('密码错误！');
                 history.back();
             }
@@ -131,6 +131,14 @@
   </style>
 </noscript>
 
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  
+  <!--相册-->
+<script src="/js/photoswipe.min.js?v="></script>
+<script src="/js/photoswipe-ui-default.min.js?v="></script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -141,8 +149,6 @@
  
  <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/clicklove.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -787,7 +793,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>请使用面向对象的思想，实现出租车和家用轿车的信息描述。</p><p>程序运行参考效果图如下：</p><p><img src="https://climg.mukewang.com/58916be60001098309920566.jpg" alt></p><p>任务</p><p><strong>要求：</strong></p><p><strong>1、    根据出租车和家用轿车的共性，抽取父类Car</strong></p><p>属性：车的颜色color、车主姓名userName</p><p>方法：</p><p>1)    带参构造函数（参数为color和useName）</p><p>2)    创建无参无返回值得方法use（描述内容为：我是机动车！）</p>
+          <p>请使用面向对象的思想，实现出租车和家用轿车的信息描述。</p><p>程序运行参考效果图如下：</p><p><img src="https://climg.mukewang.com/58916be60001098309920566.jpg" alt></p><p>任务</p><p><strong>要求：</strong></p><p><strong>1、    根据出租车和家用轿车的共性，抽取父类Car</strong></p><p>属性：车的颜色color、车主姓名userName</p><p>方法：</p><p>1)    带参构造函数（参数为color和useName）</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -917,7 +923,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Object类是所有类的父类，<br>java中的每个类都可以使用Object中定义的方法<br>equals();<br>toString();</p><p>final<br>1.修饰类表示不循序被继承<br>2.修饰方法表示不允许被子类重写（但是可以被子类继承）<br>3.修饰变量表示不允许被修改<br>4.static final 静态不允许被修改</p><p>注解：<br>用元素来进行署名，注释</p>
+          <p>Object类是所有类的父类，<br>java中的每个类都可以使用Object中定义的方法<br>equals();<br>toString();</p><p>final<br>1.修饰类表示不循序被继承<br>2.修饰方法表示不允许被子类重写（但是可以被子类继承）<br>3.修饰变量表示不允许被修改<br>4.static final 静态不允许被修改</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1047,7 +1053,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>请使用面向对象的思想，实现杨梅和仙人蕉的信息描述。</p><p>程序参考运行效果图如下：</p><p><img src="https://climg.mukewang.com/58469a750001fb4507760309.jpg" alt></p><p>任务</p><p>思路分析：</p><p><strong>1、根据杨梅和香蕉的共性，抽取父类水果（Fruits）</strong></p><p>私有属性：水果的形状（shape）和口感（taste）</p><p>方法：</p><p>1) 带参构造函数（参数为shape和taste）</p><p>2) 创建无参无返回值得方法eat（描述内容为：水果可供人们食用！）</p>
+          <p>请使用面向对象的思想，实现杨梅和仙人蕉的信息描述。</p><p>程序参考运行效果图如下：</p><p><img src="https://climg.mukewang.com/58469a750001fb4507760309.jpg" alt></p><p>任务</p><p>思路分析：</p><p><strong>1、根据杨梅和香蕉的共性，抽取父类水果（Fruits）</strong></p><p>私有属性：水果的形状（shape）和口感（taste）</p><p>方法：</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1177,7 +1183,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>final 修饰的类不能被继承;<br>final 修饰的方法不允许被重写,可以正常被子类使用;<br>final 方法局部变量：只要在使用之前 进行赋值就可以了，一旦赋值不允许修改<br>final 类中成员属性：赋值过程：1、定义直接初始化 2、构造方法 3、构造代码块</p><p><img src="https://img.mukewang.com/climg/5a531cdb000192f712800720.jpg" alt></p><p>final 所修饰的对象，被实例化后不允许再次实例化；<br>但对象中的属性和方法可以重新赋值；</p>
+          <p>final 修饰的类不能被继承;<br>final 修饰的方法不允许被重写,可以正常被子类使用;<br>final 方法局部变量：只要在使用之前 进行赋值就可以了，一旦赋值不允许修改<br>final 类中成员属性：赋值过程：1、定义直接初始化 2、构造方法 3、构造代码块</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1307,7 +1313,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>请使用面向对象的思想，设计自定义类Person继承Object类，重写toString方法实现对象信息输出。</p><p>运行效果如下图所示：</p><p><strong>姓名：李明  年龄：18  性别：男</strong><br><strong>姓名：李明  年龄：18  性别：男</strong></p><p><strong>任务：</strong></p><p>思路分析</p><p>1、创建一个 Person 类继承自 Object，其中类的结构要求为：</p><p>​      属性：name（姓名）、age(年龄)、sex（性别）</p>
+          <p>请使用面向对象的思想，设计自定义类Person继承Object类，重写toString方法实现对象信息输出。</p><p>运行效果如下图所示：</p><p><strong>姓名：李明  年龄：18  性别：男</strong><br><strong>姓名：李明  年龄：18  性别：男</strong></p><p><strong>任务：</strong></p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1577,9 +1583,7 @@
       
           <p>编程练习：请使用面向对象的思想，设计自定义类完成如下功能要求：</p><p>接收用户输入的信息，选择需要完成的工作任务。其中，可供选择的有：测试工作和研发工作。关于类型设定描述如下：</p><ul>
 <li>测试工作</li>
-</ul><p>​       属性：工作名称、编写的测试用例个数、发现的Bug数量</p><p>​       方法：工作描述</p><ul>
-<li>研发工作</li>
-</ul><p>​       属性：工作名称、有效编码行数、目前没有解决的Bug个数</p>
+</ul><p>​       属性：工作名称、编写的测试用例个数、发现的Bug数量</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1975,5 +1979,8 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
 </script>
 
     </div>
+  
+  
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":95,"height":140},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>

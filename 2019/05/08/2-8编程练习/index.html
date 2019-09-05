@@ -13,8 +13,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('该部分已被加密，请输入密码进行访问：') !== ''){
+        if('password'){
+            if (prompt('该部分已被加密，请输入密码进行访问：') !== 'password'){
                 alert('密码错误！');
                 history.back();
             }
@@ -76,18 +76,18 @@
   };
 </script>
 
-  <meta name="description" content="编程练习：请使用面向对象的思想，设计自定义类完成如下功能要求：接收用户输入的信息，选择需要完成的工作任务。其中，可供选择的有：测试工作和研发工作。关于类型设定描述如下： 测试工作 ​       属性：工作名称、编写的测试用例个数、发现的Bug数量​       方法：工作描述 研发工作 ​       属性：工作名称、有效编码行数、目前没有解决的Bug个数">
+  <meta name="description" content="编程练习：请使用面向对象的思想，设计自定义类完成如下功能要求：接收用户输入的信息，选择需要完成的工作任务。其中，可供选择的有：测试工作和研发工作。关于类型设定描述如下： 测试工作 ​       属性：工作名称、编写的测试用例个数、发现的Bug数量">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2-8编程练习">
 <meta property="og:url" content="https://feihong.me/2019/05/08/2-8编程练习/index.html">
 <meta property="og:site_name" content="Feihong&#39;s Blog">
-<meta property="og:description" content="编程练习：请使用面向对象的思想，设计自定义类完成如下功能要求：接收用户输入的信息，选择需要完成的工作任务。其中，可供选择的有：测试工作和研发工作。关于类型设定描述如下： 测试工作 ​       属性：工作名称、编写的测试用例个数、发现的Bug数量​       方法：工作描述 研发工作 ​       属性：工作名称、有效编码行数、目前没有解决的Bug个数">
+<meta property="og:description" content="编程练习：请使用面向对象的思想，设计自定义类完成如下功能要求：接收用户输入的信息，选择需要完成的工作任务。其中，可供选择的有：测试工作和研发工作。关于类型设定描述如下： 测试工作 ​       属性：工作名称、编写的测试用例个数、发现的Bug数量">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-05-13T15:06:39.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2-8编程练习">
-<meta name="twitter:description" content="编程练习：请使用面向对象的思想，设计自定义类完成如下功能要求：接收用户输入的信息，选择需要完成的工作任务。其中，可供选择的有：测试工作和研发工作。关于类型设定描述如下： 测试工作 ​       属性：工作名称、编写的测试用例个数、发现的Bug数量​       方法：工作描述 研发工作 ​       属性：工作名称、有效编码行数、目前没有解决的Bug个数">
+<meta name="twitter:description" content="编程练习：请使用面向对象的思想，设计自定义类完成如下功能要求：接收用户输入的信息，选择需要完成的工作任务。其中，可供选择的有：测试工作和研发工作。关于类型设定描述如下： 测试工作 ​       属性：工作名称、编写的测试用例个数、发现的Bug数量">
   <link rel="canonical" href="https://feihong.me/2019/05/08/2-8编程练习/">
 
 
@@ -136,6 +136,14 @@
   </style>
 </noscript>
 
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  
+  <!--相册-->
+<script src="/js/photoswipe.min.js?v="></script>
+<script src="/js/photoswipe-ui-default.min.js?v="></script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -146,8 +154,6 @@
  
  <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/clicklove.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -396,15 +402,15 @@
       
         <p>编程练习：请使用面向对象的思想，设计自定义类完成如下功能要求：</p><p>接收用户输入的信息，选择需要完成的工作任务。其中，可供选择的有：测试工作和研发工作。关于类型设定描述如下：</p><ul>
 <li>测试工作</li>
-</ul><p>​       属性：工作名称、编写的测试用例个数、发现的Bug数量</p><p>​       方法：工作描述</p><ul>
+</ul><p>​       属性：工作名称、编写的测试用例个数、发现的Bug数量</p><a id="more"></a>
+
+
+
+<p>​       方法：工作描述</p>
+<ul>
 <li>研发工作</li>
-</ul><p>​       属性：工作名称、有效编码行数、目前没有解决的Bug个数</p><a id="more"></a>
-
-
-
-
-
-
+</ul>
+<p>​       属性：工作名称、有效编码行数、目前没有解决的Bug个数</p>
 <p>​       方法：工作描述</p>
 <p>程序运行参考效果图如下：</p>
 <p><strong>父类信息测试：开心工作</strong><br><strong>测试工作类信息测试：测试工作的日报是：今天编写了10个测试用例，发现了5个BUG。</strong><br><strong>研发工作类信息测试：研发工作的日报是：今天编写了1000行代码，目前仍有10个BUG没有解决</strong></p>
@@ -876,5 +882,8 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
 </script>
 
     </div>
+  
+  
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":95,"height":140},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>

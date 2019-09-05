@@ -13,8 +13,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('该部分已被加密，请输入密码进行访问：') !== ''){
+        if('password'){
+            if (prompt('该部分已被加密，请输入密码进行访问：') !== 'password'){
                 alert('密码错误！');
                 history.back();
             }
@@ -76,18 +76,18 @@
   };
 </script>
 
-  <meta name="description" content="顺序结构：从上往下依次执行选择结构：根据条件执行对应的内容循环结构:1.while循环2.do-while循环3.for循环4.循环嵌套使用   break语句    continue语句跳出循环while(循环条件)｛语句；  ｝循环输出小于5的数int n=1;while(n&amp;lt;5){                        //n必须进行初始化">
+  <meta name="description" content="顺序结构：从上往下依次执行选择结构：根据条件执行对应的内容循环结构:1.while循环2.do-while循环3.for循环4.循环嵌套使用   break语句    continue语句跳出循环while(循环条件)">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java流程控制之循环结构">
 <meta property="og:url" content="https://feihong.me/2019/01/24/Java流程控制之循环结构/index.html">
 <meta property="og:site_name" content="Feihong&#39;s Blog">
-<meta property="og:description" content="顺序结构：从上往下依次执行选择结构：根据条件执行对应的内容循环结构:1.while循环2.do-while循环3.for循环4.循环嵌套使用   break语句    continue语句跳出循环while(循环条件)｛语句；  ｝循环输出小于5的数int n=1;while(n&amp;lt;5){                        //n必须进行初始化">
+<meta property="og:description" content="顺序结构：从上往下依次执行选择结构：根据条件执行对应的内容循环结构:1.while循环2.do-while循环3.for循环4.循环嵌套使用   break语句    continue语句跳出循环while(循环条件)">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-01-27T12:29:14.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java流程控制之循环结构">
-<meta name="twitter:description" content="顺序结构：从上往下依次执行选择结构：根据条件执行对应的内容循环结构:1.while循环2.do-while循环3.for循环4.循环嵌套使用   break语句    continue语句跳出循环while(循环条件)｛语句；  ｝循环输出小于5的数int n=1;while(n&amp;lt;5){                        //n必须进行初始化">
+<meta name="twitter:description" content="顺序结构：从上往下依次执行选择结构：根据条件执行对应的内容循环结构:1.while循环2.do-while循环3.for循环4.循环嵌套使用   break语句    continue语句跳出循环while(循环条件)">
   <link rel="canonical" href="https://feihong.me/2019/01/24/Java流程控制之循环结构/">
 
 
@@ -136,6 +136,14 @@
   </style>
 </noscript>
 
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  
+  <!--相册-->
+<script src="/js/photoswipe.min.js?v="></script>
+<script src="/js/photoswipe-ui-default.min.js?v="></script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -146,8 +154,6 @@
  
  <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/clicklove.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -394,16 +400,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>顺序结构：从上往下依次执行<br>选择结构：根据条件执行对应的内容<br>循环结构:<br>1.while循环<br>2.do-while循环<br>3.for循环<br>4.循环嵌套</p><p>使用   break语句    continue语句跳出循环</p><p>while(循环条件)</p><p>｛</p><p>语句；</p><p>  ｝</p><p>循环输出小于5的数</p><p>int n=1;</p><p>while(n&lt;5)</p><p>{                        //n必须进行初始化</p><a id="more"></a>
+        <p>顺序结构：从上往下依次执行<br>选择结构：根据条件执行对应的内容<br>循环结构:<br>1.while循环<br>2.do-while循环<br>3.for循环<br>4.循环嵌套</p><p>使用   break语句    continue语句跳出循环</p><p>while(循环条件)</p><a id="more"></a>
 
 
-
-
-
-
-
-
-
+<p>｛</p>
+<p>语句；</p>
+<p>  ｝</p>
+<p>循环输出小于5的数</p>
+<p>int n=1;</p>
+<p>while(n&lt;5)</p>
+<p>{                        //n必须进行初始化</p>
 <p>​    //输出n的值            循环变量n的值必须被改变，避免死循环</p>
 <p>​    n++;</p>
 <p>}</p>
@@ -881,5 +887,8 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
 </script>
 
     </div>
+  
+  
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":95,"height":140},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>

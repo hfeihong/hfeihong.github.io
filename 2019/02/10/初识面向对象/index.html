@@ -13,8 +13,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('该部分已被加密，请输入密码进行访问：') !== ''){
+        if('password'){
+            if (prompt('该部分已被加密，请输入密码进行访问：') !== 'password'){
                 alert('密码错误！');
                 history.back();
             }
@@ -76,18 +76,18 @@
   };
 </script>
 
-  <meta name="description" content="1-1 导学稳定性，可扩展性，可重用性1-2 类和对象类是模型，确定对象将会拥有的特征（属性）和行为（方法）对象是类的实例表现类是对象的类型对象是特定类型的数据属性：对象具有的各种静态特征​    -“对象有什么”方法：对象具有的各种动态行为​    -“对象能做什么”1-3 创建类12345678910111213141516171819202122232425package com.imooc">
+  <meta name="description" content="1-1 导学稳定性，可扩展性，可重用性1-2 类和对象类是模型，确定对象将会拥有的特征（属性）和行为（方法）对象是类的实例表现类是对象的类型对象是特定类型的数据属性：对象具有的各种静态特征​    -“对象有什么”">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初识面向对象">
 <meta property="og:url" content="https://feihong.me/2019/02/10/初识面向对象/index.html">
 <meta property="og:site_name" content="Feihong&#39;s Blog">
-<meta property="og:description" content="1-1 导学稳定性，可扩展性，可重用性1-2 类和对象类是模型，确定对象将会拥有的特征（属性）和行为（方法）对象是类的实例表现类是对象的类型对象是特定类型的数据属性：对象具有的各种静态特征​    -“对象有什么”方法：对象具有的各种动态行为​    -“对象能做什么”1-3 创建类12345678910111213141516171819202122232425package com.imooc">
+<meta property="og:description" content="1-1 导学稳定性，可扩展性，可重用性1-2 类和对象类是模型，确定对象将会拥有的特征（属性）和行为（方法）对象是类的实例表现类是对象的类型对象是特定类型的数据属性：对象具有的各种静态特征​    -“对象有什么”">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-02-11T14:27:14.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初识面向对象">
-<meta name="twitter:description" content="1-1 导学稳定性，可扩展性，可重用性1-2 类和对象类是模型，确定对象将会拥有的特征（属性）和行为（方法）对象是类的实例表现类是对象的类型对象是特定类型的数据属性：对象具有的各种静态特征​    -“对象有什么”方法：对象具有的各种动态行为​    -“对象能做什么”1-3 创建类12345678910111213141516171819202122232425package com.imooc">
+<meta name="twitter:description" content="1-1 导学稳定性，可扩展性，可重用性1-2 类和对象类是模型，确定对象将会拥有的特征（属性）和行为（方法）对象是类的实例表现类是对象的类型对象是特定类型的数据属性：对象具有的各种静态特征​    -“对象有什么”">
   <link rel="canonical" href="https://feihong.me/2019/02/10/初识面向对象/">
 
 
@@ -136,6 +136,14 @@
   </style>
 </noscript>
 
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  
+  <!--相册-->
+<script src="/js/photoswipe.min.js?v="></script>
+<script src="/js/photoswipe-ui-default.min.js?v="></script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -146,8 +154,6 @@
  
  <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/clicklove.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -394,7 +400,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>1-1 导学</p><p>稳定性，可扩展性，可重用性</p><p>1-2 类和对象</p><p>类是模型，确定对象将会拥有的特征（属性）和行为（方法）</p><p>对象是类的实例表现</p><p>类是对象的类型</p><p>对象是特定类型的数据</p><p>属性：对象具有的各种静态特征</p><p>​    -“对象有什么”</p><p>方法：对象具有的各种动态行为</p><p>​    -“对象能做什么”</p><p>1-3 创建类</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.animal;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 宠物猫类</span></span><br><span class="line"><span class="comment">* <span class="doctag">@author</span> HeFeihong</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">	<span class="comment">//成员属性：昵称、年龄、体重、品种</span></span><br><span class="line">	String name;<span class="comment">//昵称   默认值null</span></span><br><span class="line">	<span class="keyword">int</span> month;<span class="comment">//年龄		默认值0</span></span><br><span class="line">	<span class="keyword">double</span> weight;<span class="comment">//体重	默认值0.0</span></span><br><span class="line">	String species;<span class="comment">//品种</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">//成员方法：跑动、吃东西</span></span><br><span class="line"><span class="comment">//跑动的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"小猫快跑"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//吃东西的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"小猫吃鱼"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a>
+        <p>1-1 导学</p><p>稳定性，可扩展性，可重用性</p><p>1-2 类和对象</p><p>类是模型，确定对象将会拥有的特征（属性）和行为（方法）</p><p>对象是类的实例表现</p><p>类是对象的类型</p><p>对象是特定类型的数据</p><p>属性：对象具有的各种静态特征</p><p>​    -“对象有什么”</p><a id="more"></a>
 
 
 
@@ -403,10 +409,10 @@
 
 
 
-
-
-
-
+<p>方法：对象具有的各种动态行为</p>
+<p>​    -“对象能做什么”</p>
+<p>1-3 创建类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.animal;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 宠物猫类</span></span><br><span class="line"><span class="comment">* <span class="doctag">@author</span> HeFeihong</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">	<span class="comment">//成员属性：昵称、年龄、体重、品种</span></span><br><span class="line">	String name;<span class="comment">//昵称   默认值null</span></span><br><span class="line">	<span class="keyword">int</span> month;<span class="comment">//年龄		默认值0</span></span><br><span class="line">	<span class="keyword">double</span> weight;<span class="comment">//体重	默认值0.0</span></span><br><span class="line">	String species;<span class="comment">//品种</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">//成员方法：跑动、吃东西</span></span><br><span class="line"><span class="comment">//跑动的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"小猫快跑"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//吃东西的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"小猫吃鱼"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>1-4 实例化对象</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.animal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CatTest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//对象实例化</span></span><br><span class="line">		Cat one=<span class="keyword">new</span> Cat();</span><br><span class="line">		<span class="comment">//测试</span></span><br><span class="line">		one.eat();</span><br><span class="line">		one.run();</span><br><span class="line">		one.name=<span class="string">"花花"</span>;</span><br><span class="line">		one.month=<span class="number">2</span>;</span><br><span class="line">		one.weight=<span class="number">1000</span>;</span><br><span class="line">		one.species=<span class="string">"英国短毛猫"</span>;</span><br><span class="line">		System.out.println(<span class="string">"昵称："</span>+one.name);</span><br><span class="line">		System.out.println(<span class="string">"年龄："</span>+one.month);</span><br><span class="line">		System.out.println(<span class="string">"体重："</span>+one.weight);</span><br><span class="line">		System.out.println(<span class="string">"品种："</span>+one.species);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -868,5 +874,8 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
 </script>
 
     </div>
+  
+  
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":95,"height":140},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>

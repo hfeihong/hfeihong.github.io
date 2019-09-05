@@ -13,8 +13,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('该部分已被加密，请输入密码进行访问：') !== ''){
+        if('password'){
+            if (prompt('该部分已被加密，请输入密码进行访问：') !== 'password'){
                 alert('密码错误！');
                 history.back();
             }
@@ -76,13 +76,13 @@
   };
 </script>
 
-  <meta name="description" content="购买新电脑或新硬盘的时，往往只有一个分区，为了更好地区分系统盘和进行磁盘的管理，我们就需要手动去进行硬盘的分区，方法也比较简单，也比较合适新设备。分区步骤1、右键我的电脑，点击“管理”，然后选择“磁盘管理”2、选择你需要进行分区的磁盘，右键选择“压缩卷”3、选择好压缩空间的大小，然后进行压缩4、等待完成后会出现一个刚才压缩的可用空间，右键选择“新建简单卷”">
+  <meta name="description" content="购买新电脑或新硬盘的时，往往只有一个分区，为了更好地区分系统盘和进行磁盘的管理，我们就需要手动去进行硬盘的分区，方法也比较简单，也比较合适新设备。分区步骤1、右键我的电脑，点击“管理”，然后选择“磁盘管理”">
 <meta name="keywords" content="Windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何给新电脑和磁盘进行分区">
 <meta property="og:url" content="https://feihong.me/2019/06/17/如何给新电脑和磁盘进行分区/index.html">
 <meta property="og:site_name" content="Feihong&#39;s Blog">
-<meta property="og:description" content="购买新电脑或新硬盘的时，往往只有一个分区，为了更好地区分系统盘和进行磁盘的管理，我们就需要手动去进行硬盘的分区，方法也比较简单，也比较合适新设备。分区步骤1、右键我的电脑，点击“管理”，然后选择“磁盘管理”2、选择你需要进行分区的磁盘，右键选择“压缩卷”3、选择好压缩空间的大小，然后进行压缩4、等待完成后会出现一个刚才压缩的可用空间，右键选择“新建简单卷”">
+<meta property="og:description" content="购买新电脑或新硬盘的时，往往只有一个分区，为了更好地区分系统盘和进行磁盘的管理，我们就需要手动去进行硬盘的分区，方法也比较简单，也比较合适新设备。分区步骤1、右键我的电脑，点击“管理”，然后选择“磁盘管理”">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://www.xitongku.com/images/partition/01/1.png">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/XevcJpCq873nT07QnQ4TE7gqtTF0VxrkseWOefaRqlA!/r/dLYAAAAAAAAA">
@@ -98,7 +98,7 @@
 <meta property="og:updated_time" content="2019-06-17T07:46:35.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何给新电脑和磁盘进行分区">
-<meta name="twitter:description" content="购买新电脑或新硬盘的时，往往只有一个分区，为了更好地区分系统盘和进行磁盘的管理，我们就需要手动去进行硬盘的分区，方法也比较简单，也比较合适新设备。分区步骤1、右键我的电脑，点击“管理”，然后选择“磁盘管理”2、选择你需要进行分区的磁盘，右键选择“压缩卷”3、选择好压缩空间的大小，然后进行压缩4、等待完成后会出现一个刚才压缩的可用空间，右键选择“新建简单卷”">
+<meta name="twitter:description" content="购买新电脑或新硬盘的时，往往只有一个分区，为了更好地区分系统盘和进行磁盘的管理，我们就需要手动去进行硬盘的分区，方法也比较简单，也比较合适新设备。分区步骤1、右键我的电脑，点击“管理”，然后选择“磁盘管理”">
 <meta name="twitter:image" content="http://www.xitongku.com/images/partition/01/1.png">
   <link rel="canonical" href="https://feihong.me/2019/06/17/如何给新电脑和磁盘进行分区/">
 
@@ -148,6 +148,14 @@
   </style>
 </noscript>
 
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  
+  <!--相册-->
+<script src="/js/photoswipe.min.js?v="></script>
+<script src="/js/photoswipe-ui-default.min.js?v="></script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -158,8 +166,6 @@
  
  <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/clicklove.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="/js/FunnyTitle.js"></script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -398,16 +404,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>购买新电脑或新硬盘的时，往往只有一个分区，为了更好地区分系统盘和进行磁盘的管理，我们就需要手动去进行硬盘的分区，方法也比较简单，也比较合适新设备。</p><p>分区步骤</p><p>1、右键我的电脑，点击“管理”，然后选择“磁盘管理”</p><p><img src="http://www.xitongku.com/images/partition/01/1.png" alt></p><p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/XevcJpCq873nT07QnQ4TE7gqtTF0VxrkseWOefaRqlA!/r/dLYAAAAAAAAA" alt></p><p>2、选择你需要进行分区的磁盘，右键选择“压缩卷”</p><p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/TJ7KzoBvKnmc1eT7UzhUPon7QA0.Vi6qdDq9jDQ3MJY!/r/dIQAAAAAAAAA" alt></p><p>3、选择好压缩空间的大小，然后进行压缩</p><p><img src="http://www.xitongku.com/images/partition/01/4.png" alt></p><p>4、等待完成后会出现一个刚才压缩的可用空间，右键选择“新建简单卷”</p><a id="more"></a>
+        <p>购买新电脑或新硬盘的时，往往只有一个分区，为了更好地区分系统盘和进行磁盘的管理，我们就需要手动去进行硬盘的分区，方法也比较简单，也比较合适新设备。</p><p>分区步骤</p><p>1、右键我的电脑，点击“管理”，然后选择“磁盘管理”</p><a id="more"></a>
 
 
-
-
-
-
-
-
-
+<p><img src="http://www.xitongku.com/images/partition/01/1.png" alt></p>
+<p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/XevcJpCq873nT07QnQ4TE7gqtTF0VxrkseWOefaRqlA!/r/dLYAAAAAAAAA" alt></p>
+<p>2、选择你需要进行分区的磁盘，右键选择“压缩卷”</p>
+<p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/TJ7KzoBvKnmc1eT7UzhUPon7QA0.Vi6qdDq9jDQ3MJY!/r/dIQAAAAAAAAA" alt></p>
+<p>3、选择好压缩空间的大小，然后进行压缩</p>
+<p><img src="http://www.xitongku.com/images/partition/01/4.png" alt></p>
+<p>4、等待完成后会出现一个刚才压缩的可用空间，右键选择“新建简单卷”</p>
 <p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/5KnkpMEmZHCzHaNd0s*l5jUassVPpKdZCQTVenhnNYI!/r/dFEBAAAAAAAA" alt></p>
 <p><img src="http://r.photo.store.qq.com/psb?/V14bAP1n2T5n57/ToXUB.KYBeYLEBntj.IlMEGdkmN8xbkflbAhUM1w6*Y!/r/dEgBAAAAAAAA" alt></p>
 <p>5、进入新建简单卷向导后，输入自己需要的大小</p>
@@ -848,5 +854,8 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
 </script>
 
     </div>
+  
+  
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":95,"height":140},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>
