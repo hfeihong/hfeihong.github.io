@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "82179a82"
+    });
+  daovoice('update');
+  </script>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="1-1 封装的概念和特点 封装1.将类的某些信息隐藏在类内部，不允许外部程序直接访问。2.通过该类提供的方法来实现对隐藏信息的操作和访问。3.隐藏对象的信息。4.留出访问的接口。">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java封装">
+<meta property="og:url" content="https://feihong.me/posts/da56ff58/index.html">
+<meta property="og:site_name" content="Feihong&#39;s Blog">
+<meta property="og:description" content="1-1 封装的概念和特点 封装1.将类的某些信息隐藏在类内部，不允许外部程序直接访问。2.通过该类提供的方法来实现对隐藏信息的操作和访问。3.隐藏对象的信息。4.留出访问的接口。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://img.mukewang.com/climg/591aefc20001de2512800720.jpg">
+<meta property="og:image" content="https://img.mukewang.com/climg/591af46c0001445312800720.jpg">
+<meta property="og:updated_time" content="2019-09-07T10:14:51.345Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java封装">
+<meta name="twitter:description" content="1-1 封装的概念和特点 封装1.将类的某些信息隐藏在类内部，不允许外部程序直接访问。2.通过该类提供的方法来实现对隐藏信息的操作和访问。3.隐藏对象的信息。4.留出访问的接口。">
+<meta name="twitter:image" content="https://img.mukewang.com/climg/591aefc20001de2512800720.jpg">
+  <link rel="canonical" href="https://feihong.me/posts/da56ff58/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Java封装 | Feihong's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  
+  <!--相册-->
+<script src="/js/photoswipe.min.js?v="></script>
+<script src="/js/photoswipe-ui-default.min.js?v="></script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+ <link rel="stylesheet" href="/dist/APlayer.min.css">
+ <div id="aplayer"></div>
+ <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+ <script type="text/javascript" src="/dist/music.js"></script>
+ 
+ <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feihong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-mylove">
+      
+    
+
+    <a href="/MyLove/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>MyLove</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-album">
+      
+    
+
+    <a href="/photos/" rel="section"><i class="menu-item-icon fa fa-fw fa-camera"></i> <br>Album</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://feihong.me/posts/da56ff58/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feihong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">Java封装
+
+          
+        </h2>
+
+        <div class="post-meta">
+		
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-02-15 21:35:15" itemprop="dateCreated datePublished" datetime="2019-02-15T21:35:15+08:00">2019-02-15</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-07 18:14:51" itemprop="dateModified" datetime="2019-09-07T18:14:51+08:00">2019-09-07</time>
+              </span>
+            
+          
+
+          
+            <span id="/posts/da56ff58/" class="post-meta-item leancloud_visitors" data-flag-title="Java封装" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/posts/da56ff58/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/posts/da56ff58/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>2.1k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>2 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>1-1 封装的概念和特点</p>
+<p>封装<br>1.将类的某些信息隐藏在类内部，不允许外部程序直接访问。<br>2.通过该类提供的方法来实现对隐藏信息的操作和访问。<br>3.隐藏对象的信息。<br>4.留出访问的接口。</p>
+<a id="more"></a>
+
+<p>特点：<br>1.只能通过规定的方法访问数据；<br>2.隐藏类的实例细节，方便修改和实现；</p>
+<p>1-2封装的代码实现（上）</p>
+<p>封装的代码实现实现步骤：<br>1.修改属性的可见性设为private（限定只能在当前类中被访问）<br>2.创建getter/setter方法，设为public用于属性的读写<br>3.在getter/setter方法中加入属性控制语句；</p>
+<p>例子：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.animal;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">- 宠物猫类</span></span><br><span class="line"><span class="comment">- <span class="doctag">@author</span> HeFeihong</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">	<span class="comment">//成员属性：昵称、年龄、体重、品种</span></span><br><span class="line">	<span class="comment">//修改属性的可见性---private限定只能在当前类内访问</span></span><br><span class="line">	<span class="keyword">private</span> String name;<span class="comment">//昵称</span></span><br><span class="line">	<span class="keyword">int</span> month;<span class="comment">//年龄</span></span><br><span class="line">	<span class="keyword">double</span> weight;<span class="comment">//体重</span></span><br><span class="line">	String species;<span class="comment">//品种</span></span><br><span class="line">	</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"我是带参构造方法"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">(String newName,<span class="keyword">int</span> newMonth,<span class="keyword">double</span> newWeight,String newSpecies)</span> </span>&#123;</span><br><span class="line">	name=newName;</span><br><span class="line">	month=newMonth;</span><br><span class="line">	weight=newWeight;</span><br><span class="line">	species=newSpecies;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建get/set方法</span></span><br><span class="line"><span class="comment">//在get/set方法中添加对属性的限定</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name=name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span>  <span class="string">"我是一只名叫："</span>+<span class="keyword">this</span>.name+<span class="string">"的宠物猫"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.animal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CatTest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//对象实例化</span></span><br><span class="line">		Cat one=<span class="keyword">new</span> Cat(<span class="string">"花花"</span>,<span class="number">2</span>,<span class="number">1000</span>,<span class="string">"英国短毛猫"</span>);</span><br><span class="line">		<span class="comment">//测试</span></span><br><span class="line">		one.setName(<span class="string">"凡凡"</span>);</span><br><span class="line">		System.out.println(one.getName());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>1-3 封装的代码实现（下）</p>
+<p>属性只有setXXX方法–只读属性<br>属性只有getXXX方法–只写属性</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.animal;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">- 宠物猫类</span></span><br><span class="line"><span class="comment">- <span class="doctag">@author</span> HeFeihong</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">	<span class="comment">//成员属性：昵称、年龄、体重、品种</span></span><br><span class="line">	<span class="comment">//修改属性的可见性---private限定只能在当前类内访问</span></span><br><span class="line">	<span class="keyword">private</span> String name;<span class="comment">//昵称</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> month;<span class="comment">//年龄</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> weight;<span class="comment">//体重</span></span><br><span class="line">	<span class="keyword">private</span> String species;<span class="comment">//品种</span></span><br><span class="line">	</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"我是带参构造方法"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">(String newName,<span class="keyword">int</span> newMonth,<span class="keyword">double</span> newWeight,String newSpecies)</span> </span>&#123;</span><br><span class="line">	name=newName;</span><br><span class="line">	month=newMonth;</span><br><span class="line">	weight=newWeight;</span><br><span class="line">	species=newSpecies;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建get/set方法</span></span><br><span class="line"><span class="comment">//在get/set方法中添加对属性的限定</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name=name;      <span class="comment">//最好改为this.setName=name;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span>  <span class="string">"我是一只名叫："</span>+<span class="keyword">this</span>.name+<span class="string">"的宠物猫"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">​	</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMonth</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> month;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMonth</span><span class="params">(<span class="keyword">int</span> month)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(month&lt;=<span class="number">0</span>) &#123;</span><br><span class="line">		System.out.println(<span class="string">"输入信息错误，宠物猫的年龄必须大于0"</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">this</span>.month = month;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getWeight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> weight;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeight</span><span class="params">(<span class="keyword">double</span> weight)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.weight = weight;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getSpecies</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> species;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSpecies</span><span class="params">(String species)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.species = species;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.animal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CatTest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//对象实例化</span></span><br><span class="line">		Cat one=<span class="keyword">new</span> Cat(<span class="string">"花花"</span>,<span class="number">2</span>,<span class="number">1000</span>,<span class="string">"英国短毛猫"</span>);</span><br><span class="line">		<span class="comment">//测试</span></span><br><span class="line"></span><br><span class="line">​		one.setName(<span class="string">"凡凡"</span>);</span><br><span class="line">​		one.setMonth(-<span class="number">3</span>);<span class="comment">//=-3</span></span><br><span class="line">​		System.out.println(one.getName());</span><br><span class="line">​		System.out.println(one.getMonth());</span><br><span class="line">​	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>1-4  编程练习</p>
+<p>编写自定义类实现图书信息设置。请按照编辑器中的注释，在对应的空白区域填写对应的代码，完成程序设计。</p>
+<p>运行参考效果如下所示：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入信息错误，图书价格必须大于10</span><br><span class="line">书名：红楼梦</span><br><span class="line">作者：曹雪芹</span><br><span class="line">出版社：人民文学出版社</span><br><span class="line">价格:10.0元</span><br><span class="line">==================================</span><br><span class="line">书名：小李飞刀</span><br><span class="line">作者：古龙</span><br><span class="line">出版社：中国长安出版社</span><br><span class="line">价格:55.5元</span><br></pre></td></tr></table></figure></div>
+
+<p>任务</p>
+<p>属性：书名、作者、出版社、价格</p>
+<p>方法：信息介绍</p>
+<p>要求：</p>
+<p>1、 设计构造函数实现对属性赋值</p>
+<p>2、 设置私有属性，get/set方法实现对属性的访问</p>
+<p>3、 限定图书价格必须大于10，如果无效需进行提示，并强制赋值为10</p>
+<p>4、 限定作者、书名均为只读属性</p>
+<p>5、信息介绍方法描述图书所有信息</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Book</span> </span>&#123;</span><br><span class="line">  <span class="comment">//私有属性：书名、作者、出版社、价格</span></span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> String author;</span><br><span class="line">  <span class="keyword">private</span> String press;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">double</span> price;</span><br><span class="line">     </span><br><span class="line">  <span class="comment">//通过构造方法实现属性赋值</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Book</span><span class="params">()</span></span>&#123;</span><br><span class="line">      </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Book</span><span class="params">(String name,String author,String press,<span class="keyword">double</span> price)</span></span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.name=name;</span><br><span class="line">      <span class="keyword">this</span>.author=author;</span><br><span class="line">      <span class="keyword">this</span>.press=press;</span><br><span class="line">      <span class="keyword">this</span>.price=price;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*通过公有的get/set方法实现属性的访问，其中：</span></span><br><span class="line"><span class="comment">1、限定图书价格必须大于10，如果无效需进行提示，并强制赋值为10</span></span><br><span class="line"><span class="comment">2、限定作者、书名均为只读属性</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//信息介绍方法，描述图书所有信息</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	  <span class="keyword">return</span>  <span class="string">"书名："</span>+<span class="keyword">this</span>.name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getAuthor</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"作者："</span>+<span class="keyword">this</span>.author;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPress</span><span class="params">(String press)</span></span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.press=press;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getPress</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"出版社："</span>+<span class="keyword">this</span>.press;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPrice</span><span class="params">(<span class="keyword">double</span> price)</span></span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(price&lt;<span class="number">10</span>)&#123;</span><br><span class="line">          System.out.println(<span class="string">"输入信息错误，图书价格必须大于10"</span>);</span><br><span class="line">          <span class="keyword">this</span>.price=<span class="number">10</span>;</span><br><span class="line">      &#125;<span class="keyword">else</span></span><br><span class="line">          <span class="keyword">this</span>.price=price;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getPrice</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.price;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 测试方法</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  <span class="comment">//实例化对象，调用相关方法实现运行效果</span></span><br><span class="line">  Book one=<span class="keyword">new</span> Book(<span class="string">"红楼梦"</span>,<span class="string">"曹雪芹"</span>,<span class="string">"人民文学出版社"</span>,<span class="number">15</span>);</span><br><span class="line">  one.setPrice(<span class="number">5</span>);</span><br><span class="line">  System.out.println(one.getName());</span><br><span class="line">  System.out.println(one.getAuthor());</span><br><span class="line">  System.out.println(one.getPress());</span><br><span class="line">  System.out.println(<span class="string">"价格:"</span>+one.getPrice()+<span class="string">"元"</span>);</span><br><span class="line">  System.out.println(<span class="string">"=================================="</span>);</span><br><span class="line">  </span><br><span class="line">  Book two=<span class="keyword">new</span> Book(<span class="string">"小李飞刀"</span>,<span class="string">"古龙"</span>,<span class="string">"中国长安出版社"</span>,<span class="number">55.5</span>);</span><br><span class="line">  System.out.println(two.getName());</span><br><span class="line">  System.out.println(two.getAuthor());</span><br><span class="line">  System.out.println(two.getPress());</span><br><span class="line">  System.out.println(<span class="string">"价格:"</span>+two.getPrice()+<span class="string">"元"</span>);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>1-5 使用包进行类管理–创建包</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">包：</span><br><span class="line">一个包内，类不能重名</span><br><span class="line">域名的倒叙+模块+功能</span><br><span class="line">域名全都小写</span><br><span class="line">每个包存储信息功能单一</span><br></pre></td></tr></table></figure></div>
+
+<p>1-6 使用包进行类管理–导入包</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">如果要导入的多个包中有相同的类名，如：</span><br><span class="line">import com.imooc.animal.Cat;</span><br><span class="line">import com.imooc.mechanics.Cat;</span><br><span class="line">第二条语句系统会报错，系统分不清要导入哪个Cat。</span><br><span class="line">再比如：</span><br><span class="line">import com.imooc.mechanics.*;</span><br><span class="line">import com.imooc.animal.Cat;</span><br><span class="line">这样系统调用Cat类时，会解析animal下的类，而不会找到mechanics下的Cat类。因为animal下的Cat类首先解析。如果要访问mechanics下的Cat类时，只能在代码中直接加载。</span><br><span class="line">import加载时，如有 import com.imooc.*;只能加载imooc文件夹下能找到的类，而不会再向下级文件查找。没有类的话就找不到。</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//import com.imooc.animal.*;//加载com.imooc.animal下所有类</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.imooc.animal.Cat;<span class="comment">//加载com.imooc.animal下指定的cat类</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//直接加载com.imooc.animal.catTest</span></span><br><span class="line"></span><br><span class="line">com.imooc.animal.CatTest tex=<span class="keyword">new</span> com.imooc.animal.CatTest();</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">常用系统包</span><br><span class="line">java.lang baohjava语言基础的类，该包系统加载时默认导入，如System、String、Math</span><br><span class="line">java.tuil 包含Java语言中常用工具，如Scanner、Random</span><br><span class="line">java.io 包含输入、输出相关功能的类，如File、InputStream</span><br></pre></td></tr></table></figure></div>
+
+<p>1-7 编程练习</p>
+<p>编写自定义类实现用户信息类。请按照编辑器中的注释，在对应的空白区域填写对应的代码，完成程序设计。</p>
+<p>程序参考运行效果图如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">用户名Lucy</span><br><span class="line">密码:123456</span><br><span class="line">用户名Mike</span><br><span class="line">密码:123456</span><br><span class="line">========================</span><br><span class="line">用户名不一致</span><br><span class="line">密码一致</span><br></pre></td></tr></table></figure></div>
+
+<p>任务</p>
+<ul>
+<li>用户类：</li>
+</ul>
+<p>​       属性：用户名、密码</p>
+<ul>
+<li>用户管理类：</li>
+</ul>
+<p>​       方法：用户信息验证</p>
+<p>要求：</p>
+<p>​        1、 设计构造函数实现对属性赋值</p>
+<p>​        2、 设置私有属性，get/set方法实现对属性的访问</p>
+<p>​        3、用户信息验证判断两个用户信息是否一致</p>
+<p>PS: 可以通过equals（）方法进行字符串内容的判断，如果内容相等返回值为true，反之为false，如当str代表用户性别时，可以通过如下代码，判断性别为“男”还是“女”</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserManager</span></span>&#123;</span><br><span class="line">    <span class="comment">// 用户信息验证的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">checkUser</span><span class="params">(User one, User two)</span> </span>&#123;</span><br><span class="line">       <span class="comment">// 判断用户名是否为空，是否一致</span></span><br><span class="line"><span class="comment">/*       if(one.getUsername().equals(null))&#123;</span></span><br><span class="line"><span class="comment">           System.out.println("用户名为空");</span></span><br><span class="line"><span class="comment">       &#125;</span></span><br><span class="line"><span class="comment">       else*/</span> <span class="keyword">if</span>(one.getUsername().equals(two.getUsername()))&#123;</span><br><span class="line">           System.out.println(<span class="string">"用户名一致"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">else</span>&#123;</span><br><span class="line">           System.out.println(<span class="string">"用户名不一致"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">          </span><br><span class="line"><span class="comment">// 判断密码是否为空，是否一致</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*      if(one.getPassword().equals(""))&#123;</span></span><br><span class="line"><span class="comment">          System.out.println("密码为空");</span></span><br><span class="line"><span class="comment">      &#125;</span></span><br><span class="line"><span class="comment">      else*/</span> <span class="keyword">if</span>(one.getPassword().equals(two.getPassword()))&#123;</span><br><span class="line">          System.out.println(<span class="string">"密码一致"</span>);</span><br><span class="line">      &#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">return</span> <span class="string">""</span> ;  </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">    <span class="comment">//定义属性用户名、密码</span></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String username,String password)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUsername</span><span class="params">(String username)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.username=username;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getUsername</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.username;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.password=password;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.password;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">message</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"用户名"</span>+username);</span><br><span class="line">    System.out.println(<span class="string">"密码:"</span>+password);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="comment">// 测试方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">     <span class="comment">//实例化对象，调用相关方法实现运行效果</span></span><br><span class="line">     User one=<span class="keyword">new</span> User();</span><br><span class="line">     User two=<span class="keyword">new</span> User();</span><br><span class="line">     one.setUsername(<span class="string">"Lucy"</span>);</span><br><span class="line">     one.setPassword(<span class="string">"123456"</span>);</span><br><span class="line">     two.setUsername(<span class="string">"Mike"</span>);</span><br><span class="line">     two.setPassword(<span class="string">"123456"</span>);</span><br><span class="line">     UserManager test=<span class="keyword">new</span> UserManager();</span><br><span class="line">     one.message();</span><br><span class="line">     two.message();</span><br><span class="line">     System.out.println(<span class="string">"========================"</span>);</span><br><span class="line">     System.out.println(test.checkUser(one,two));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>2-1 static关键字</p>
+<p>static：静态成员、类成员<br>特征：类加载时就产生，无论创建多少个对象，它们共用同一块静态空间，只有当所有对象被销毁时，static开辟的静态空间才会被销毁。static定义的变量以最后赋值为基准，<br>静态成员的访问方法：<br>1：对象.成员<br>2：类.成员</p>
+<p>static（静态，静态成员，类成员）: 可以添加到成员属性或成员方法前面<br>1.添加到成员属性前面→成员属性变为静态属性（类属性）→类属性的调用（对象名或类名）<br>2.添加到普通成员方法前面→成员方法变成类方法→类方法的调用（同上，通过对象名或类名）<br>3.添加到类前面是非法的<br>4.在方法中可定义局部变量，在局部变量前面不可以添加static修饰符，只能加final<br>5.在我们前面定义的成员方法当中，我们可以直接调用当前类当中的任意成员，比如在普通成员方法run()中，既可以直接调用与它同一类的静态方法eat()，也可以通过this关键字调用普通成员属性或静态属性。也就是说，在成员方法中，可以直接访问类的静态成员<br>6.但是静态方法当中不能直接访问非静态成员（包括非静态的方法和属性），只能直接调用静态成员<br>7.static和this关键字也是冲突的，static代表类共享，而this代表实例，因此在静态方法中不可以使用this关键字</p>
+<p><img src="https://img.mukewang.com/climg/591aefc20001de2512800720.jpg" alt></p>
+<p>{}代码块 （知识点梳理）<br>1.（1）当它出现在方法里的时候，我们称之为普通代码块，它的执行顺序和一般语句的执行顺序是一样的，即顺序执行。<br>（2）它可以有任意数量，在方法中有任意位置。<br>2.（1）当它在不在方法中，而在类里单独出现时，被称为构造代码块，在创建对象时即被调用，优先于构造方法执行。<br>（2）在类中同样能有多个。<br>（3）在构造代码块前面加static之后，它就升级成了静态代码块，静态代码块首先执行，在类中能有多个静态代码块。<br>3.问：静态代码块代表的是类共有的相关信息，当我们在测试类中创建了多个对象实例的时候，静态代码块会执行几次，而构造代码块又会执行几次呢？<br>答：静态代码块，无论实例化多少个对象，它只会被执行一次，而且是最先被全部执行完毕；而构造代码块，每次进行实例化的时候，它都会被执行一次<br>4.在静态代码块中，只能给静态成员进行赋值，不能给普通成员赋值；在构造代码块中就没这些限制咯</p>
+<p><img src="https://img.mukewang.com/climg/591af46c0001445312800720.jpg" alt></p>
+<p>2-2 编程练习</p>
+<p>请根据效果图以及任务要求完成代码。</p>
+<p>程序参考运行效果图如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CodeBlock的静态代码块</span><br><span class="line">CodeBlock的主方法</span><br><span class="line">产生Code类实例对象</span><br><span class="line">Code静态代码块</span><br><span class="line">Code构造代码块</span><br><span class="line">Code构造方法</span><br><span class="line">产生CodeBlock类实例对象</span><br><span class="line">CodeBlock的构造代码块</span><br><span class="line">CodeBlock构造方法</span><br></pre></td></tr></table></figure></div>
+
+<p>任务</p>
+<ol>
+<li>创建类Code，类中编写构造块、静态代码块以及构造方法</li>
+<li>创建CodeBlock，类中编写的构造块、静态代码块以及构造方法</li>
+<li>在主函数中测试他们的执行的优先顺序（运行结果参见效果图）</li>
+</ol>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Code</span></span>&#123;</span><br><span class="line">   <span class="comment">//创建外部类Code构造块（构造块）</span></span><br><span class="line">   &#123;</span><br><span class="line">       System.out.println(<span class="string">"Code构造代码块"</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//创建外部类Code静态代码块（静态代码块）</span></span><br><span class="line">   <span class="keyword">static</span>&#123;</span><br><span class="line">       System.out.println(<span class="string">"Code静态代码块"</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//创建外部类Code构造方法（构造方法）</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Code</span><span class="params">()</span></span>&#123;</span><br><span class="line">       System.out.println(<span class="string">"Code构造方法"</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CodeBlock</span></span>&#123;</span><br><span class="line">   <span class="comment">// 创建CodeBlock的构造块</span></span><br><span class="line">   &#123;</span><br><span class="line">       System.out.println(<span class="string">"CodeBlock的构造代码块"</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//创建CodeBlock的静态代码块</span></span><br><span class="line">   <span class="keyword">static</span>&#123;</span><br><span class="line">       System.out.println(<span class="string">"CodeBlock的静态代码块"</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//创建CodeBlock的构造方法</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">CodeBlock</span><span class="params">()</span></span>&#123;</span><br><span class="line">       System.out.println(<span class="string">"CodeBlock构造方法"</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      <span class="comment">//编写代码测试运行优先顺序，运行结果参见效果图</span></span><br><span class="line">      System.out.println(<span class="string">"CodeBlock的主方法"</span>);</span><br><span class="line">      System.out.println(<span class="string">"产生Code类实例对象"</span>);</span><br><span class="line">      Code code=<span class="keyword">new</span> Code();</span><br><span class="line">      System.out.println(<span class="string">"产生CodeBlock类实例对象"</span>);</span><br><span class="line">      CodeBlock codeblock=<span class="keyword">new</span> CodeBlock();</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">         </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>2-3 static关键字（续）</p>
+<p>代码块内部的变量存活周期是从代码块开始到代码块结束，作用范围只在代码块内有效，结束之后会被回收。<br>而方法体的局部变量的作用范围，从定义的位置直到方法体完，且不会回收。</p>
+<p>方法体中局部变量的作用域：<br>1、代码块内部：只在该代码块内生效；<br>2、代码块外部：从变量被定义开始生效一直到方法结束。</p>
+
+    </div>
+	
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+  
+</div>
+
+    
+    
+    
+        
+      	  
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Java/" rel="tag"># Java</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/posts/e1d276c/" rel="next" title="构造方法介绍">
+                  <i class="fa fa-chevron-left"></i> 构造方法介绍
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/posts/557f99c7/" rel="prev" title="Java封装综合案例">
+                  Java封装综合案例 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="Feihong">
+  <p class="site-author-name" itemprop="name">Feihong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/hfeihong" title="GitHub &rarr; https://github.com/hfeihong" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:6390804@@qq.com" title="E-Mail &rarr; mailto:6390804@@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+	  
+	  
+        <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+        <div class="widget-wrap">
+          <h3 class="widget-title"></h3>
+          <div id="myCanvasContainer" class="widget tagcloud">
+              <canvas width="200" height="150" id="resCanvas" style="width=100%">
+                  <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Diary/">Diary</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/">Html</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSP/">JSP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">53</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/">JavaWeb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/">Servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Use/">Use</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/">XML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li></ul>
+              </canvas>
+          </div>
+        </div>
+      
+
+    </div>
+	
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feihong</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    
+    <span title="Symbols count total">60k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    
+    <span title="Reading time total">55 mins.</span>
+</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user">&nbsp;Vistors:</i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye">&nbsp;Views:</i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+  
+  <!-- 网站运行时间的设置 -->
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2019,01,13,19,36,26); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML="&nbsp;"+"|"+" &nbsp;"+" Run&nbsp;for&nbsp;"+/*diffYears+" 年 "+*/diffDays+" Days "+diffHours+" Hours "+diffMinutes+" Minutes "+diffSeconds+" Seconds";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var id = element.id || '';
+    var src = element.src || '';
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (id !=='') {
+      script.id = element.id;
+    }
+    if (src !== '') {
+      script.src = src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: 'H9sbq6cd96a6gjUiF3IqA1SU-gzGzoHsz',
+    appKey: 'QQFWG86T1DmtDj2cCupL3rYL',
+    placeholder: '在这里说点什么吧ヾ(≧O≦)〃~',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+    </div>
+  
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":95,"height":140},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+</html>
