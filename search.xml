@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>JSTL与EL表达式</title>
+      <link href="/posts/a5dbb3b8/"/>
+      <url>/posts/a5dbb3b8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="初识EL表达式"><a href="#初识EL表达式" class="headerlink" title="初识EL表达式"></a>初识EL表达式</h2><p>全名为Expression Language。<br>基本语法： ${expression}<br>以上语句中，expression为有效的表达式。该表达式可以和静态文本混合，还可以与其他表达式结合成为更大的表达式。</p><a id="more"></a><h4 id="EL的作用域对象："><a href="#EL的作用域对象：" class="headerlink" title="EL的作用域对象："></a>EL的作用域对象：</h4><p>一、EL 表达式内置四种 作用域对象：<br>二、忽略书写作用域对象时，el 则按作用域从小到大依次尝试获取；（建议还是写上，不然会降低程序效率）<br>1、pageScope —– 从当前页面取值；<br>2、requestScope —– 从当前请求中获取属性值；<br>3、sessionScope —— 从当前会话中获取属性值；<br>4、applicationScope —– 从当前应用获取全局属性值；</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;姓名：$&#123;requestScope.student.name&#125;&lt;/h1&gt;</span><br><span class="line">&lt;h2&gt;手机：$&#123;requestScope.student.mobile&#125;&lt;/h2&gt;</span><br><span class="line">&lt;h2&gt;评级：$&#123;requestScope.grade&#125;&lt;/h2&gt;</span><br><span class="line">&lt;h2&gt;对象：$&#123;student&#125;&lt;/h2&gt;</span><br><span class="line">&lt;h2&gt;教师：$&#123;param.teacher&#125;&lt;/h2&gt;</span><br></pre></td></tr></table></figure><p>我们可以使用EL的内置对象param来简化获取url或者请求体中的数据<br>语法：${param.参数名}<br>例如url是<a href="https://class.imooc.com/lesson/mid=17331" target="_blank" rel="noopener">https://class.imooc.com/lesson/mid=17331</a><br>在Servlet中，我们用request.getParamete(“mid”)h获取<br>而现在可以用${param.mid}获取了<br>其实，${param.参数名}就是request.getParameter（“参数名”）；的简化形式</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> JavaWeb </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Servlet与JSP进阶</title>
       <link href="/posts/b71d39a8/"/>
       <url>/posts/b71d39a8/</url>
@@ -136,9 +155,9 @@
       
         <tags>
             
-            <tag> Html </tag>
-            
             <tag> JavaWeb </tag>
+            
+            <tag> Html </tag>
             
         </tags>
       
@@ -159,11 +178,11 @@
             
             <tag> CSS </tag>
             
+            <tag> JavaWeb </tag>
+            
             <tag> JavaScript </tag>
             
             <tag> Html </tag>
-            
-            <tag> JavaWeb </tag>
             
         </tags>
       
