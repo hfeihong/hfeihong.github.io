@@ -73,7 +73,7 @@
 <meta property="og:site_name" content="Feihong&#39;s Blog">
 <meta property="og:description" content="初识EL表达式全名为Expression Language。基本语法： ${expression}以上语句中，expression为有效的表达式。该表达式可以和静态文本混合，还可以与其他表达式结合成为更大的表达式。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-09T14:25:43.495Z">
+<meta property="og:updated_time" content="2019-09-10T13:30:54.584Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSTL与EL表达式">
 <meta name="twitter:description" content="初识EL表达式全名为Expression Language。基本语法： ${expression}以上语句中，expression为有效的表达式。该表达式可以和静态文本混合，还可以与其他表达式结合成为更大的表达式。">
@@ -319,11 +319,19 @@
                 
               
 
-              <time title="Created: 2019-09-09 19:23:37 / Modified: 22:25:43" itemprop="dateCreated datePublished" datetime="2019-09-09T19:23:37+08:00">2019-09-09</time>
+              <time title="Created: 2019-09-09 19:23:37" itemprop="dateCreated datePublished" datetime="2019-09-09T19:23:37+08:00">2019-09-09</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-10 21:30:54" itemprop="dateModified" datetime="2019-09-10T21:30:54+08:00">2019-09-10</time>
+              </span>
             
           
 
@@ -358,7 +366,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span>512</span>
+              <span>1.3k</span>
             </span>
           
             <span class="post-meta-item" title="Reading time">
@@ -388,6 +396,16 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;姓名：$&#123;requestScope.student.name&#125;&lt;/h1&gt;</span><br><span class="line">&lt;h2&gt;手机：$&#123;requestScope.student.mobile&#125;&lt;/h2&gt;</span><br><span class="line">&lt;h2&gt;评级：$&#123;requestScope.grade&#125;&lt;/h2&gt;</span><br><span class="line">&lt;h2&gt;对象：$&#123;student&#125;&lt;/h2&gt;</span><br><span class="line">&lt;h2&gt;教师：$&#123;param.teacher&#125;&lt;/h2&gt;</span><br></pre></td></tr></table></figure>
 
 <p>我们可以使用EL的内置对象param来简化获取url或者请求体中的数据<br>语法：${param.参数名}<br>例如url是<a href="https://class.imooc.com/lesson/mid=17331" target="_blank" rel="noopener">https://class.imooc.com/lesson/mid=17331</a><br>在Servlet中，我们用request.getParamete(“mid”)h获取<br>而现在可以用${param.mid}获取了<br>其实，${param.参数名}就是request.getParameter（“参数名”）；的简化形式</p>
+<h2 id="安装JSTL-标签库："><a href="#安装JSTL-标签库：" class="headerlink" title="安装JSTL 标签库："></a>安装JSTL 标签库：</h2><p>1、JSTL 两种安装方式：<br>1）将 Jar 文件复制到工程的 /WEB - INF / lib 目录（推荐）；<br>2）将 Jar 文件复制到 Tomcat 安装目录的lib目录；</p>
+<p>/WEB - INF / lib 目录：用于保存所有第三方jar包；</p>
+<p>注：J2EE只定义了标准，具体的实现是由第三方厂商决定，在javaWEB中tomcat提供的jar包，就是标准的实现，对于理解j2ee非常重要</p>
+<p>JSTL有五个标签库<br>分别是：核心标签库、格式标签库、函数标签库、SQL标签库、XML标签库。<br>主要用前两者。<br>&lt;%@ taglib uri = “<a href="http://java.sun.com/jsp/jstl/core&quot;" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/core&quot;</a> prefix = “c” %&gt;</p>
+<p>当标签库的包导入工程后，我们要引入标签库，方法：<br>&lt;%@ Taglib prefix=”c” uri=”<a href="http://java.sun.com/jsp/jstl/core&quot;" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/core&quot;</a> %&gt;<br>prefix : 前缀。 就是让写上我们引入的标签库的前缀名，因为我们引入的是core标签库，所以prefix值是c。<br>uri后面的网址是怎么回事？<br>因为我们引入的jar包中有许多.tld文件（标签定义文件），其中有个文件c.tld里面定义了我们引用的库的内容，其中，有<url><a href="http://java.sun.com/jsp/jstl/core" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/core</a></url><br>这样我们就可以找到它了</p>
+<h2 id="JSTL判断标签"><a href="#JSTL判断标签" class="headerlink" title="JSTL判断标签"></a>JSTL判断标签</h2><p>1、JSTL 核心库提供了两组判断的标签；<br>2、&lt;c:if&gt; – 单分支判断；<br>3、&lt;c:choose&gt; &lt;c:when&gt; &lt;c：otherwise&gt; — 多分支判断； // 跟java 的 if else if else 差不大</p>
+<h2 id="JSTL遍历集合"><a href="#JSTL遍历集合" class="headerlink" title="JSTL遍历集合"></a>JSTL遍历集合</h2><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1、&lt;c:forEach&gt; 标签用于遍历集合(Collection) 中的每一个对象；</span><br><span class="line">循环遍历 通常用于存放在request、session、Application 中的集合</span><br><span class="line">例：</span><br><span class="line">items：数据源，其中persons代表的是List或者是set集合；</span><br><span class="line">varStatus：代表的是索引，从 0 开始；</span><br><span class="line">&lt;c:forEach var = &quot;p&quot; items = &quot;$&#123;persons&#125;&quot; varStatus=&quot;idx&quot;&gt;</span><br><span class="line">第 $&#123;idx.index + 1&#125;位 &lt;br/&gt;</span><br><span class="line">姓名：$&#123;p.name&#125;</span><br><span class="line">性别：$&#123;p.sex&#125;</span><br><span class="line">年龄：$&#123;p.age&#125;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="fmt格式化标签库——日期"><a href="#fmt格式化标签库——日期" class="headerlink" title="fmt格式化标签库——日期"></a>fmt格式化标签库——日期</h2><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%@page</span> <span class="attr">import</span>=<span class="string">"java.util.Date"</span>%&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">language</span>=<span class="string">"java"</span> <span class="attr">contentType</span>=<span class="string">"text/html; charset=UTF-8"</span></span></span><br><span class="line"><span class="tag"><span class="attr">pageEncoding</span>=<span class="string">"UTF-8"</span>%&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">taglib</span> <span class="attr">uri</span>=<span class="string">"http://java.sun.com/jsp/jstl/fmt"</span> <span class="attr">prefix</span>=<span class="string">"fmt"</span>%&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Insert title here<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%</span></span></span><br><span class="line"><span class="tag"><span class="attr">request.setAttribute</span>("<span class="attr">amt</span>", "<span class="attr">1898923.234</span>");</span></span><br><span class="line"><span class="tag"><span class="attr">request.setAttribute</span>("<span class="attr">now</span>", <span class="attr">new</span> <span class="attr">Date</span>());</span></span><br><span class="line">request.setAttribute("html", "&lt;a href='index.html'&gt;index&lt;/a&gt;");</span><br><span class="line">request.setAttribute("nothing", null);</span><br><span class="line">%&gt;</span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">formatDate patttern</span></span><br><span class="line"><span class="comment">yyyy - 四位年</span></span><br><span class="line"><span class="comment">MM = 两位月</span></span><br><span class="line"><span class="comment">dd = 两位日</span></span><br><span class="line"><span class="comment">HH - 24小时制</span></span><br><span class="line"><span class="comment">hh - 12小时制</span></span><br><span class="line"><span class="comment">mm - 分钟</span></span><br><span class="line"><span class="comment">ss - 秒数</span></span><br><span class="line"><span class="comment">SSS - 毫秒</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">fmt:formatDate</span> <span class="attr">value</span>=<span class="string">"$&#123;requestScope.now &#125;"</span> <span class="attr">pattern</span>=<span class="string">"yyyy年MM月dd日HH时mm分ss秒SSS毫秒"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
 
     </div>
 	
@@ -433,6 +451,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/posts/84372d79/" rel="prev" title="MVC">
+                  MVC <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -484,7 +506,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初识EL表达式"><span class="nav-number">1.</span> <span class="nav-text">初识EL表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#EL的作用域对象："><span class="nav-number">1.0.1.</span> <span class="nav-text">EL的作用域对象：</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初识EL表达式"><span class="nav-number">1.</span> <span class="nav-text">初识EL表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#EL的作用域对象："><span class="nav-number">1.0.1.</span> <span class="nav-text">EL的作用域对象：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装JSTL-标签库："><span class="nav-number">2.</span> <span class="nav-text">安装JSTL 标签库：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSTL判断标签"><span class="nav-number">3.</span> <span class="nav-text">JSTL判断标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSTL遍历集合"><span class="nav-number">4.</span> <span class="nav-text">JSTL遍历集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fmt格式化标签库——日期"><span class="nav-number">5.</span> <span class="nav-text">fmt格式化标签库——日期</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -502,7 +524,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-count">82</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -562,7 +584,7 @@
           <h3 class="widget-title"></h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="200" height="150" id="resCanvas" style="width=100%">
-                  <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Diary/">Diary</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/">Html</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSP/">JSP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">53</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/">JavaWeb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/">Servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Use/">Use</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/">XML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Diary/">Diary</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/">Html</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSP/">JSP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">54</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/">JavaWeb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/">Servlet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Use/">Use</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/">XML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
         </div>
@@ -590,14 +612,14 @@
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
     
-    <span title="Symbols count total">61k</span>
+    <span title="Symbols count total">62k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
     
-    <span title="Reading time total">55 mins.</span>
+    <span title="Reading time total">56 mins.</span>
 </div>
 
 
